@@ -10,6 +10,12 @@
 
 @implementation IMPApiManager
 
+- (void)getToken:(NSDictionary *)params success:(void(^)(NSDictionary *tokenInfo))success failure: (void (^) (NSString *error))failure {
+  
+    
+    
+}
+
 
 
 @end
