@@ -7,9 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		116FAB89A96D75CE46C68096 /* libPods-IMEPayTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2197468DB12D29B59193D3 /* libPods-IMEPayTests.a */; };
 		AF591D461F15D7FC0051AF81 /* IMEPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF591D3C1F15D7FC0051AF81 /* IMEPay.framework */; };
 		AF591D4B1F15D7FC0051AF81 /* IMEPayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AF591D4A1F15D7FC0051AF81 /* IMEPayTests.m */; };
 		AF591D4D1F15D7FC0051AF81 /* IMEPay.h in Headers */ = {isa = PBXBuildFile; fileRef = AF591D3F1F15D7FC0051AF81 /* IMEPay.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AF591D571F15D8700051AF81 /* Config.h in Headers */ = {isa = PBXBuildFile; fileRef = AF591D561F15D8700051AF81 /* Config.h */; };
+		AF591D591F15DA870051AF81 /* Helper.h in Headers */ = {isa = PBXBuildFile; fileRef = AF591D581F15DA870051AF81 /* Helper.h */; };
+		AF591D5C1F15DB3E0051AF81 /* ViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AF591D5A1F15DB3E0051AF81 /* ViewController.h */; };
+		AF591D5D1F15DB3E0051AF81 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF591D5B1F15DB3E0051AF81 /* ViewController.m */; };
+		AF591D601F15DC540051AF81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF591D5F1F15DC540051AF81 /* Main.storyboard */; };
+		AF591D651F15DD0E0051AF81 /* IMPApiManager.h in Headers */ = {isa = PBXBuildFile; fileRef = AF591D631F15DD0E0051AF81 /* IMPApiManager.h */; };
+		AF591D661F15DD0E0051AF81 /* IMPApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF591D641F15DD0E0051AF81 /* IMPApiManager.m */; };
+		FA7E2A39B21916C1F46583D7 /* libPods-IMEPay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86328204FB8CB186355701BB /* libPods-IMEPay.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +32,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A2197468DB12D29B59193D3 /* libPods-IMEPayTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IMEPayTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		841FDF5363E8E4F587416390 /* Pods-IMEPay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMEPay.release.xcconfig"; path = "Pods/Target Support Files/Pods-IMEPay/Pods-IMEPay.release.xcconfig"; sourceTree = "<group>"; };
+		86328204FB8CB186355701BB /* libPods-IMEPay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IMEPay.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF591D3C1F15D7FC0051AF81 /* IMEPay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IMEPay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF591D3F1F15D7FC0051AF81 /* IMEPay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMEPay.h; sourceTree = "<group>"; };
 		AF591D401F15D7FC0051AF81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF591D451F15D7FC0051AF81 /* IMEPayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IMEPayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF591D4A1F15D7FC0051AF81 /* IMEPayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMEPayTests.m; sourceTree = "<group>"; };
 		AF591D4C1F15D7FC0051AF81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF591D561F15D8700051AF81 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		AF591D581F15DA870051AF81 /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
+		AF591D5A1F15DB3E0051AF81 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		AF591D5B1F15DB3E0051AF81 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		AF591D5F1F15DC540051AF81 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		AF591D631F15DD0E0051AF81 /* IMPApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPApiManager.h; sourceTree = "<group>"; };
+		AF591D641F15DD0E0051AF81 /* IMPApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMPApiManager.m; sourceTree = "<group>"; };
+		E77B5FBB9D421AE21FF9B248 /* Pods-IMEPay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMEPay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IMEPay/Pods-IMEPay.debug.xcconfig"; sourceTree = "<group>"; };
+		ECC41FF7777EA4CC2EA418FD /* Pods-IMEPayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMEPayTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IMEPayTests/Pods-IMEPayTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F7B79A044E828CAE20F53647 /* Pods-IMEPayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMEPayTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IMEPayTests/Pods-IMEPayTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA7E2A39B21916C1F46583D7 /* libPods-IMEPay.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,18 +67,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF591D461F15D7FC0051AF81 /* IMEPay.framework in Frameworks */,
+				116FAB89A96D75CE46C68096 /* libPods-IMEPayTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		57E979662A46C9C58D10DD7F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				86328204FB8CB186355701BB /* libPods-IMEPay.a */,
+				4A2197468DB12D29B59193D3 /* libPods-IMEPayTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AF591D321F15D7FC0051AF81 = {
 			isa = PBXGroup;
 			children = (
 				AF591D3E1F15D7FC0051AF81 /* IMEPay */,
 				AF591D491F15D7FC0051AF81 /* IMEPayTests */,
 				AF591D3D1F15D7FC0051AF81 /* Products */,
+				B452A7AA06F15966F3396A00 /* Pods */,
+				57E979662A46C9C58D10DD7F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,8 +106,15 @@
 		AF591D3E1F15D7FC0051AF81 /* IMEPay */ = {
 			isa = PBXGroup;
 			children = (
+				AF591D621F15DC900051AF81 /* Api Manager */,
+				AF591D611F15DC770051AF81 /* Assets */,
+				AF591D5E1F15DC010051AF81 /* Views */,
 				AF591D3F1F15D7FC0051AF81 /* IMEPay.h */,
 				AF591D401F15D7FC0051AF81 /* Info.plist */,
+				AF591D561F15D8700051AF81 /* Config.h */,
+				AF591D581F15DA870051AF81 /* Helper.h */,
+				AF591D5A1F15DB3E0051AF81 /* ViewController.h */,
+				AF591D5B1F15DB3E0051AF81 /* ViewController.m */,
 			);
 			path = IMEPay;
 			sourceTree = "<group>";
@@ -86,6 +128,41 @@
 			path = IMEPayTests;
 			sourceTree = "<group>";
 		};
+		AF591D5E1F15DC010051AF81 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AF591D5F1F15DC540051AF81 /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		AF591D611F15DC770051AF81 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		AF591D621F15DC900051AF81 /* Api Manager */ = {
+			isa = PBXGroup;
+			children = (
+				AF591D631F15DD0E0051AF81 /* IMPApiManager.h */,
+				AF591D641F15DD0E0051AF81 /* IMPApiManager.m */,
+			);
+			name = "Api Manager";
+			sourceTree = "<group>";
+		};
+		B452A7AA06F15966F3396A00 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E77B5FBB9D421AE21FF9B248 /* Pods-IMEPay.debug.xcconfig */,
+				841FDF5363E8E4F587416390 /* Pods-IMEPay.release.xcconfig */,
+				ECC41FF7777EA4CC2EA418FD /* Pods-IMEPayTests.debug.xcconfig */,
+				F7B79A044E828CAE20F53647 /* Pods-IMEPayTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -93,6 +170,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF591D591F15DA870051AF81 /* Helper.h in Headers */,
+				AF591D5C1F15DB3E0051AF81 /* ViewController.h in Headers */,
+				AF591D651F15DD0E0051AF81 /* IMPApiManager.h in Headers */,
+				AF591D571F15D8700051AF81 /* Config.h in Headers */,
 				AF591D4D1F15D7FC0051AF81 /* IMEPay.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,10 +185,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF591D501F15D7FC0051AF81 /* Build configuration list for PBXNativeTarget "IMEPay" */;
 			buildPhases = (
+				3EC95079D5FA3A08D1F18CB2 /* [CP] Check Pods Manifest.lock */,
 				AF591D371F15D7FC0051AF81 /* Sources */,
 				AF591D381F15D7FC0051AF81 /* Frameworks */,
 				AF591D391F15D7FC0051AF81 /* Headers */,
 				AF591D3A1F15D7FC0051AF81 /* Resources */,
+				312D4ECADD998F4F4DD29092 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -122,9 +205,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF591D531F15D7FC0051AF81 /* Build configuration list for PBXNativeTarget "IMEPayTests" */;
 			buildPhases = (
+				216CBE605C98E78890B4C5CB /* [CP] Check Pods Manifest.lock */,
 				AF591D411F15D7FC0051AF81 /* Sources */,
 				AF591D421F15D7FC0051AF81 /* Frameworks */,
 				AF591D431F15D7FC0051AF81 /* Resources */,
+				94B651CBEE5D0A492695B0E9 /* [CP] Embed Pods Frameworks */,
+				13B625C05351117582A1DC2A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -180,6 +266,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF591D601F15DC540051AF81 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,11 +279,91 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		13B625C05351117582A1DC2A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IMEPayTests/Pods-IMEPayTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		216CBE605C98E78890B4C5CB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		312D4ECADD998F4F4DD29092 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IMEPay/Pods-IMEPay-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3EC95079D5FA3A08D1F18CB2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		94B651CBEE5D0A492695B0E9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IMEPayTests/Pods-IMEPayTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AF591D371F15D7FC0051AF81 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF591D5D1F15DB3E0051AF81 /* ViewController.m in Sources */,
+				AF591D661F15DD0E0051AF81 /* IMPApiManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +486,7 @@
 		};
 		AF591D511F15D7FC0051AF81 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E77B5FBB9D421AE21FF9B248 /* Pods-IMEPay.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -337,6 +505,7 @@
 		};
 		AF591D521F15D7FC0051AF81 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 841FDF5363E8E4F587416390 /* Pods-IMEPay.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -355,6 +524,7 @@
 		};
 		AF591D541F15D7FC0051AF81 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECC41FF7777EA4CC2EA418FD /* Pods-IMEPayTests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = G86XER62A7;
 				INFOPLIST_FILE = IMEPayTests/Info.plist;
@@ -366,6 +536,7 @@
 		};
 		AF591D551F15D7FC0051AF81 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7B79A044E828CAE20F53647 /* Pods-IMEPayTests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = G86XER62A7;
 				INFOPLIST_FILE = IMEPayTests/Info.plist;
