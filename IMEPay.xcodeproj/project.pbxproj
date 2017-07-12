@@ -20,6 +20,8 @@
 		AF591D661F15DD0E0051AF81 /* IMPApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF591D641F15DD0E0051AF81 /* IMPApiManager.m */; };
 		AF591D691F15F5890051AF81 /* Auth.h in Headers */ = {isa = PBXBuildFile; fileRef = AF591D671F15F5890051AF81 /* Auth.h */; };
 		AF591D6A1F15F5890051AF81 /* Auth.m in Sources */ = {isa = PBXBuildFile; fileRef = AF591D681F15F5890051AF81 /* Auth.m */; };
+		AF591D6E1F16176F0051AF81 /* SplashViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AF591D6C1F16176F0051AF81 /* SplashViewController.h */; };
+		AF591D6F1F16176F0051AF81 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF591D6D1F16176F0051AF81 /* SplashViewController.m */; };
 		FA7E2A39B21916C1F46583D7 /* libPods-IMEPay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86328204FB8CB186355701BB /* libPods-IMEPay.a */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +54,8 @@
 		AF591D641F15DD0E0051AF81 /* IMPApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMPApiManager.m; sourceTree = "<group>"; };
 		AF591D671F15F5890051AF81 /* Auth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Auth.h; sourceTree = "<group>"; };
 		AF591D681F15F5890051AF81 /* Auth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Auth.m; sourceTree = "<group>"; };
+		AF591D6C1F16176F0051AF81 /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
+		AF591D6D1F16176F0051AF81 /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
 		E77B5FBB9D421AE21FF9B248 /* Pods-IMEPay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMEPay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IMEPay/Pods-IMEPay.debug.xcconfig"; sourceTree = "<group>"; };
 		ECC41FF7777EA4CC2EA418FD /* Pods-IMEPayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMEPayTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IMEPayTests/Pods-IMEPayTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F7B79A044E828CAE20F53647 /* Pods-IMEPayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMEPayTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IMEPayTests/Pods-IMEPayTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -110,6 +114,7 @@
 		AF591D3E1F15D7FC0051AF81 /* IMEPay */ = {
 			isa = PBXGroup;
 			children = (
+				AF591D6B1F16175D0051AF81 /* Controlllers */,
 				AF591D621F15DC900051AF81 /* Api Manager */,
 				AF591D611F15DC770051AF81 /* Assets */,
 				AF591D5E1F15DC010051AF81 /* Views */,
@@ -158,6 +163,15 @@
 			name = "Api Manager";
 			sourceTree = "<group>";
 		};
+		AF591D6B1F16175D0051AF81 /* Controlllers */ = {
+			isa = PBXGroup;
+			children = (
+				AF591D6C1F16176F0051AF81 /* SplashViewController.h */,
+				AF591D6D1F16176F0051AF81 /* SplashViewController.m */,
+			);
+			name = Controlllers;
+			sourceTree = "<group>";
+		};
 		B452A7AA06F15966F3396A00 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +190,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF591D6E1F16176F0051AF81 /* SplashViewController.h in Headers */,
 				AF591D591F15DA870051AF81 /* Helper.h in Headers */,
 				AF591D5C1F15DB3E0051AF81 /* ViewController.h in Headers */,
 				AF591D651F15DD0E0051AF81 /* IMPApiManager.h in Headers */,
@@ -372,6 +387,7 @@
 				AF591D5D1F15DB3E0051AF81 /* ViewController.m in Sources */,
 				AF591D661F15DD0E0051AF81 /* IMPApiManager.m in Sources */,
 				AF591D6A1F15F5890051AF81 /* Auth.m in Sources */,
+				AF591D6F1F16176F0051AF81 /* SplashViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,10 +520,12 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = IMEPay/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ABC.IMEPay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -523,10 +541,12 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = IMEPay/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ABC.IMEPay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
