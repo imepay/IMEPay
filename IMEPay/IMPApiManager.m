@@ -7,15 +7,58 @@
 //
 
 #import "IMPApiManager.h"
+#import <AFNetworking/AFNetworking.h>
+#import "Config.h"
+#import "Helper.h"
 
 @implementation IMPApiManager
 
 - (void)getToken:(NSDictionary *)params success:(void(^)(NSDictionary *tokenInfo))success failure: (void (^) (NSString *error))failure {
-  
-    
+
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager POST:url(EP_GET_TOKEN) parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        success(responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error.localizedDescription);
+    }];
     
 }
 
+- (void)postToMerchant:(NSDictionary *)params success:(void (^)())success failure:(void (^)(NSString *))failure {
+  
+    AFHTTPSessionManager *manager  = [ AFHTTPSessionManager manager];
+    [manager POST:EP_POST_TO_MERCHANT parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        success();
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error.localizedDescription);
+    }];
+}
 
+- (void)makePayment:(NSDictionary *)params success:(void (^)())success failure:(void (^)(NSString *))failure {
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager POST:url(EP_PAYMENT) parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        success();
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error.localizedDescription);
+    }];
+}
+
+- (void)confirmPayment:(NSDictionary *)params success:(void (^)())success failure:(void (^)(NSString *))failure {
+    AFHTTPSessionManager  *manager = [AFHTTPSessionManager manager];
+    [manager POST:url(EP_CONFIRM) parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        success();
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error.localizedDescription);
+    }];
+    
+}
 
 @end

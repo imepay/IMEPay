@@ -13,7 +13,9 @@
 //#define URL_BASE @"https://json.sajilowallet.com:8787/api/Web" // Live
 
 #define EP_GET_TOKEN @"/GetToken"
+#define EP_POST_TO_MERCHANT @"http://202.166.194.126:6060/api/special/startinitialpayment"
 #define EP_PAYMENT @"/Payment"
 #define EP_CONFIRM @"/Confirm"
+
 
 #endif /* Config_h */
