@@ -22,6 +22,8 @@
 		AF591D6A1F15F5890051AF81 /* Auth.m in Sources */ = {isa = PBXBuildFile; fileRef = AF591D681F15F5890051AF81 /* Auth.m */; };
 		AF591D6E1F16176F0051AF81 /* SplashViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AF591D6C1F16176F0051AF81 /* SplashViewController.h */; };
 		AF591D6F1F16176F0051AF81 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF591D6D1F16176F0051AF81 /* SplashViewController.m */; };
+		AF591D721F161D290051AF81 /* ConfirmPaymentViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AF591D701F161D290051AF81 /* ConfirmPaymentViewController.h */; };
+		AF591D731F161D290051AF81 /* ConfirmPaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF591D711F161D290051AF81 /* ConfirmPaymentViewController.m */; };
 		FA7E2A39B21916C1F46583D7 /* libPods-IMEPay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86328204FB8CB186355701BB /* libPods-IMEPay.a */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +58,8 @@
 		AF591D681F15F5890051AF81 /* Auth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Auth.m; sourceTree = "<group>"; };
 		AF591D6C1F16176F0051AF81 /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
 		AF591D6D1F16176F0051AF81 /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
+		AF591D701F161D290051AF81 /* ConfirmPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmPaymentViewController.h; sourceTree = "<group>"; };
+		AF591D711F161D290051AF81 /* ConfirmPaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmPaymentViewController.m; sourceTree = "<group>"; };
 		E77B5FBB9D421AE21FF9B248 /* Pods-IMEPay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMEPay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IMEPay/Pods-IMEPay.debug.xcconfig"; sourceTree = "<group>"; };
 		ECC41FF7777EA4CC2EA418FD /* Pods-IMEPayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMEPayTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IMEPayTests/Pods-IMEPayTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F7B79A044E828CAE20F53647 /* Pods-IMEPayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMEPayTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IMEPayTests/Pods-IMEPayTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -168,6 +172,8 @@
 			children = (
 				AF591D6C1F16176F0051AF81 /* SplashViewController.h */,
 				AF591D6D1F16176F0051AF81 /* SplashViewController.m */,
+				AF591D701F161D290051AF81 /* ConfirmPaymentViewController.h */,
+				AF591D711F161D290051AF81 /* ConfirmPaymentViewController.m */,
 			);
 			name = Controlllers;
 			sourceTree = "<group>";
@@ -197,6 +203,7 @@
 				AF591D571F15D8700051AF81 /* Config.h in Headers */,
 				AF591D691F15F5890051AF81 /* Auth.h in Headers */,
 				AF591D4D1F15D7FC0051AF81 /* IMEPay.h in Headers */,
+				AF591D721F161D290051AF81 /* ConfirmPaymentViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +395,7 @@
 				AF591D661F15DD0E0051AF81 /* IMPApiManager.m in Sources */,
 				AF591D6A1F15F5890051AF81 /* Auth.m in Sources */,
 				AF591D6F1F16176F0051AF81 /* SplashViewController.m in Sources */,
+				AF591D731F161D290051AF81 /* ConfirmPaymentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
