@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AFNetworking/AFNetworking.h>
 
-@interface Auth : AFHTTPSessionManager
+@interface SessionManager : AFHTTPSessionManager
 
 + (id)sharedInstance;
 

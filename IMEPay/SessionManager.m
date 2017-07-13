@@ -7,11 +7,11 @@
 //  Copyright © Manoj Karki All rights reserved.
 //
 
-#import "Auth.h"
+#import "SessionManager.h"
 #import "Config.h"
 
 
-@implementation Auth
+@implementation SessionManager
 
 + (id)sharedInstance {
     // structure used to test whether the block has completed or not
@@ -36,13 +36,13 @@
 
 - (void)setAccessToken:(NSString *)token {
 
-    AFHTTPSessionManager *manager = [Auth sharedInstance];
+    AFHTTPSessionManager *manager = [SessionManager sharedInstance];
     [manager.requestSerializer setValue:[NSString stringWithFormat:@"Basic %@", token] forHTTPHeaderField:@"Authorization"];
 }
 
 - (void)setModule: (NSString *)moduleString {
   
-    AFHTTPSessionManager *manager = [Auth sharedInstance];
+    AFHTTPSessionManager *manager = [SessionManager sharedInstance];
     [manager.requestSerializer setValue:moduleString forHTTPHeaderField:@"Module"];
     
 }
