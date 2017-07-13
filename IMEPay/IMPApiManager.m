@@ -14,13 +14,6 @@
 
 @implementation IMPApiManager
 
-//- (instancetype)initWithEnviroment:(APIEnvironment)environment {
-//    if (!self)
-//        self = [super init];
-//    _environment = environment;
-//    return self;
-//}
-
 - (NSString *)url:(NSString *)endpoint {
     
     SessionManager *manager = [SessionManager manager];
@@ -34,7 +27,7 @@
 
     SessionManager *manager = [SessionManager sharedInstance];
 
-    [manager POST:url(EP_GET_TOKEN) parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
+    [manager POST:[self url:EP_GET_TOKEN] parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success(responseObject);
@@ -47,8 +40,8 @@
 - (void)postToMerchant:(NSDictionary *)params success:(void (^)())success failure:(void (^)(NSString *))failure {
   
     AFHTTPSessionManager *manager  = [ AFHTTPSessionManager manager];
-    [manager POST:EP_POST_TO_MERCHANT parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
-        
+    NSString *merchantUrl = params[@"merchantUrl"];
+    [manager POST:merchantUrl parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success();
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -58,7 +51,7 @@
 
 - (void)makePayment:(NSDictionary *)params success:(void (^)(NSDictionary *info))success failure:(void (^)(NSString *error))failure {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager POST:url(EP_PAYMENT) parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
+    [manager POST:[self url:EP_PAYMENT] parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success(responseObject);
@@ -69,7 +62,7 @@
 
 - (void)confirmPayment:(NSDictionary *)params success:(void (^)(NSDictionary *info))success failure:(void (^)(NSString *error))failure {
     AFHTTPSessionManager  *manager = [AFHTTPSessionManager manager];
-    [manager POST:url(EP_CONFIRM) parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
+    [manager POST:[self url:EP_CONFIRM] parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success(responseObject);

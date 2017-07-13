@@ -67,6 +67,7 @@
                               @"MerchantCode": _paymentParams[@"merchantCode"],
                               @"Amount" : _paymentParams[@"amount"],
                               @"ReferenceId" : _paymentParams[@"referenceId"],
+                              @"merchantUrl": _paymentParams[@"merchantUrl"]
                               };
     [_apiManager postToMerchant:params success:^{
         [_indicator stopAnimating];

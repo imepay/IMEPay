@@ -21,19 +21,19 @@
 - (instancetype)initWithEnvironment:(APIEnvironment)environment {
     if (!self)
         self = [super init];
-    _environment = environment;
     SessionManager *sessionManager = [SessionManager sharedInstance];
     sessionManager.environment = environment;
     return  self;
 }
 
-- (void)pay:(NSString *)userName password:(NSString *)password merchantCode:(NSString *)merchantCode merchantName:(NSString *)merchantName amount:(NSString *)amount customerMobileNumber:(NSString *)customerMobileNumber referenceId:(NSString *)referenceId module:(NSString *)module success:(void (^)(NSDictionary *))success failure:(void (^)(NSString *))failure {
+- (void)pay:(NSString *)userName password:(NSString *)password  merchantCode:(NSString *)merchantCode merchantName: (NSString *)merchantName  merchantUrl:(NSString *)merchantUrl amount:(NSString *)amount customerMobileNumber:(NSString *)customerMobileNumber referenceId: (NSString *)referenceId module: (NSString *)module success:(void (^) (NSDictionary *paymentInfo))success failure: (void(^)(NSString *errorMessage))failure {
     
     NSString *curatedRefId = [referenceId  stringByReplacingOccurrencesOfString:@" " withString:@"_"];
     _paymentParams = [NSMutableDictionary dictionaryWithDictionary: @{ @"userName": userName ? userName : @"",
                                                                         @"password": password ? password : @"",
                                                                         @"merchantCode" : merchantCode ? merchantCode : @"",
                                                                         @"merchantName" : merchantName ? merchantName : @"",
+                                                                       @"merchantUrl": merchantUrl ? merchantUrl : @"",
                                                                         @"amount" : amount ? amount : @"",
                                                                         @"referenceId" : curatedRefId ? curatedRefId : @"",
                                                                         @"module" : module ? module : @"",
@@ -50,8 +50,5 @@
     splashVc.paymentParams = _paymentParams;
     [topViewController() presentViewController:splashVc animated:YES completion:nil];
 }
-
-
-
 
 @end

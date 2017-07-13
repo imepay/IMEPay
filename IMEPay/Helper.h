@@ -12,9 +12,9 @@
 #ifndef Helper_h
 #define Helper_h
 
-static inline  NSString* url(NSString *endpoint) {
-  return [NSString stringWithFormat:@"%@%@",URL_BASE_TEST,endpoint];
-}
+//static inline  NSString* url(NSString *endpoint) {
+//  return [NSString stringWithFormat:@"%@%@",URL_BASE_TEST,endpoint];
+//}
 
 static inline UIViewController* topViewController() {
 

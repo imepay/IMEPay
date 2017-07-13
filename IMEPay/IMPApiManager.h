@@ -11,10 +11,6 @@
 
 @interface IMPApiManager : NSObject
 
-//@property (nonatomic, assign) APIEnvironment environment;
-
-//- (instancetype)initWithEnviroment:(APIEnvironment)environment;
-
 - (void)getToken:(NSDictionary *)params success:(void(^)(NSDictionary *tokenInfo))success failure: (void(^)(NSString *error))failure;
 
 - (void)postToMerchant:(NSDictionary *)params success: (void(^)())success failure: (void(^)(NSString *error))failure;
