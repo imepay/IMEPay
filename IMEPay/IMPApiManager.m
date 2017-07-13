@@ -39,7 +39,7 @@
 
 - (void)postToMerchant:(NSDictionary *)params success:(void (^)())success failure:(void (^)(NSString *))failure {
   
-    AFHTTPSessionManager *manager  = [ AFHTTPSessionManager manager];
+    SessionManager *manager  = [SessionManager sharedInstance];
     NSString *merchantUrl = params[@"merchantUrl"];
     [manager POST:merchantUrl parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -50,7 +50,7 @@
 }
 
 - (void)makePayment:(NSDictionary *)params success:(void (^)(NSDictionary *info))success failure:(void (^)(NSString *error))failure {
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    SessionManager *manager  = [SessionManager sharedInstance];
     [manager POST:[self url:EP_PAYMENT] parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -61,7 +61,7 @@
 }
 
 - (void)confirmPayment:(NSDictionary *)params success:(void (^)(NSDictionary *info))success failure:(void (^)(NSString *error))failure {
-    AFHTTPSessionManager  *manager = [AFHTTPSessionManager manager];
+    SessionManager *manager  = [SessionManager sharedInstance];
     [manager POST:[self url:EP_CONFIRM] parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
