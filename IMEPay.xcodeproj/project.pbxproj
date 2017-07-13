@@ -24,6 +24,9 @@
 		AF591D731F161D290051AF81 /* ConfirmPaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF591D711F161D290051AF81 /* ConfirmPaymentViewController.m */; };
 		AF591D781F1749D90051AF81 /* IMPPaymentManager.h in Headers */ = {isa = PBXBuildFile; fileRef = AF591D761F1749D90051AF81 /* IMPPaymentManager.h */; };
 		AF591D791F1749D90051AF81 /* IMPPaymentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF591D771F1749D90051AF81 /* IMPPaymentManager.m */; };
+		AF591D7B1F176C500051AF81 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = AF591D7A1F176C500051AF81 /* logo.png */; };
+		AF591D7E1F178B870051AF81 /* UIViewController+Alert.h in Headers */ = {isa = PBXBuildFile; fileRef = AF591D7C1F178B860051AF81 /* UIViewController+Alert.h */; };
+		AF591D7F1F178B870051AF81 /* UIViewController+Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = AF591D7D1F178B860051AF81 /* UIViewController+Alert.m */; };
 		FA7E2A39B21916C1F46583D7 /* libPods-IMEPay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86328204FB8CB186355701BB /* libPods-IMEPay.a */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +63,9 @@
 		AF591D711F161D290051AF81 /* ConfirmPaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmPaymentViewController.m; sourceTree = "<group>"; };
 		AF591D761F1749D90051AF81 /* IMPPaymentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPPaymentManager.h; sourceTree = "<group>"; };
 		AF591D771F1749D90051AF81 /* IMPPaymentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMPPaymentManager.m; sourceTree = "<group>"; };
+		AF591D7A1F176C500051AF81 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		AF591D7C1F178B860051AF81 /* UIViewController+Alert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Alert.h"; sourceTree = "<group>"; };
+		AF591D7D1F178B860051AF81 /* UIViewController+Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Alert.m"; sourceTree = "<group>"; };
 		E77B5FBB9D421AE21FF9B248 /* Pods-IMEPay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMEPay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IMEPay/Pods-IMEPay.debug.xcconfig"; sourceTree = "<group>"; };
 		ECC41FF7777EA4CC2EA418FD /* Pods-IMEPayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMEPayTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IMEPayTests/Pods-IMEPayTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F7B79A044E828CAE20F53647 /* Pods-IMEPayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMEPayTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IMEPayTests/Pods-IMEPayTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +156,7 @@
 		AF591D611F15DC770051AF81 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				AF591D7A1F176C500051AF81 /* logo.png */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -181,6 +188,8 @@
 			children = (
 				AF591D561F15D8700051AF81 /* Config.h */,
 				AF591D581F15DA870051AF81 /* Helper.h */,
+				AF591D7C1F178B860051AF81 /* UIViewController+Alert.h */,
+				AF591D7D1F178B860051AF81 /* UIViewController+Alert.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -214,6 +223,7 @@
 			files = (
 				AF591D781F1749D90051AF81 /* IMPPaymentManager.h in Headers */,
 				AF591D6E1F16176F0051AF81 /* SplashViewController.h in Headers */,
+				AF591D7E1F178B870051AF81 /* UIViewController+Alert.h in Headers */,
 				AF591D591F15DA870051AF81 /* Helper.h in Headers */,
 				AF591D651F15DD0E0051AF81 /* IMPApiManager.h in Headers */,
 				AF591D571F15D8700051AF81 /* Config.h in Headers */,
@@ -311,6 +321,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF591D7B1F176C500051AF81 /* logo.png in Resources */,
 				AF591D601F15DC540051AF81 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,6 +421,7 @@
 				AF591D661F15DD0E0051AF81 /* IMPApiManager.m in Sources */,
 				AF591D6A1F15F5890051AF81 /* SessionManager.m in Sources */,
 				AF591D6F1F16176F0051AF81 /* SplashViewController.m in Sources */,
+				AF591D7F1F178B870051AF81 /* UIViewController+Alert.m in Sources */,
 				AF591D791F1749D90051AF81 /* IMPPaymentManager.m in Sources */,
 				AF591D731F161D290051AF81 /* ConfirmPaymentViewController.m in Sources */,
 			);

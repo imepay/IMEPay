@@ -20,7 +20,7 @@
     __strong static AFHTTPSessionManager *_sharedObject = nil;
     // executes a block object once and only once for the lifetime of an application
     dispatch_once(&p, ^{
-        _sharedObject = [AFHTTPSessionManager manager];
+        _sharedObject = [SessionManager manager];
     });
     // returns the same object each time
     [_sharedObject setRequestSerializer:[AFHTTPRequestSerializer serializer]];

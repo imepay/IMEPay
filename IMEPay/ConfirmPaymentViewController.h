@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;
 @property (weak, nonatomic) IBOutlet UITextField *pinField;
 
+@property (strong, nonatomic) NSDictionary *paymentParams;
 
 @end

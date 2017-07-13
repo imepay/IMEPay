@@ -7,17 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-
-typedef enum : NSInteger {
-    Live,
-    Test,
-}APIEnvironment;
+#import "SessionManager.h"
 
 @interface IMPPaymentManager : NSObject
 
-@property (nonatomic, assign) APIEnvironment environment;
+- (instancetype)initWithEnvironment:(APIEnvironment)environment;
 
-- (instancetype)initWithEnvironment: (APIEnvironment)environment;
+@property (nonatomic, assign) APIEnvironment environment;
+@property (nonatomic, strong) NSString *PIN;
 
 - (void)pay:(NSString *)userName password:(NSString *)password  merchantCode:(NSString *)merchantCode merchantName: (NSString *)merchantName amount:(NSString *)amount customerMobileNumber:(NSString *)customerMobileNumber referenceId: (NSString *)referenceId module: (NSString *)module success:(void (^) (NSDictionary *paymentInfo))success failure: (void(^)(NSString *errorMessage))failure;
 

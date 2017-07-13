@@ -7,18 +7,24 @@
 //
 
 #import "Config.h"
+#import "SessionManager.h"
 
 #ifndef Helper_h
 #define Helper_h
 
 static inline  NSString* url(NSString *endpoint) {
-  return [NSString stringWithFormat:@"%@%@",URL_BASE,endpoint];
+  return [NSString stringWithFormat:@"%@%@",URL_BASE_TEST,endpoint];
 }
 
 static inline UIViewController* topViewController() {
-   
-    return [UIViewController new];
-    
+
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    UIViewController *rootViewController  = window.rootViewController;
+    UIViewController *topViewController = rootViewController;
+    while (topViewController.presentedViewController != nil) {
+        topViewController = topViewController.presentedViewController;
+    }
+    return topViewController;
 }
 
 #endif /* Helper_h */
