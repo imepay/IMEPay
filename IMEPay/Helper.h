@@ -15,4 +15,10 @@ static inline  NSString* url(NSString *endpoint) {
   return [NSString stringWithFormat:@"%@%@",URL_BASE,endpoint];
 }
 
+static inline UIViewController* topViewController() {
+   
+    return [UIViewController new];
+    
+}
+
 #endif /* Helper_h */

@@ -17,5 +17,4 @@
 #define EP_PAYMENT @"/Payment"
 #define EP_CONFIRM @"/Confirm"
 
-
 #endif /* Config_h */

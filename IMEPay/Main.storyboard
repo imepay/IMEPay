@@ -12,7 +12,7 @@
         <!--Splash View Controller-->
         <scene sceneID="cNW-uE-Iaf">
             <objects>
-                <viewController id="5gy-WR-HDQ" customClass="SplashViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SplashViewController" id="5gy-WR-HDQ" customClass="SplashViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="31d-6n-xIh"/>
                         <viewControllerLayoutGuide type="bottom" id="8mF-T9-A94"/>
@@ -70,10 +70,10 @@
             </objects>
             <point key="canvasLocation" x="112.8" y="161.46926536731635"/>
         </scene>
-        <!--View Controller-->
+        <!--Confirm Payment View Controller-->
         <scene sceneID="jvS-4N-JNl">
             <objects>
-                <viewController id="35I-JZ-bcR" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConfirmPaymentViewController" id="35I-JZ-bcR" customClass="ConfirmPaymentViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="o60-Nt-OI4"/>
                         <viewControllerLayoutGuide type="bottom" id="SNg-xE-BBp"/>
@@ -171,16 +171,22 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnq-5D-qMO">
                                                         <rect key="frame" x="20" y="297" width="142.5" height="40"/>
                                                         <color key="backgroundColor" red="0.92407947779999999" green="0.1108545437" blue="0.13942053909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <state key="normal" title="Button">
+                                                        <state key="normal" title="Cancel">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="cancel:" destination="35I-JZ-bcR" eventType="touchUpInside" id="NT5-YI-L6G"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NY1-KQ-suF">
                                                         <rect key="frame" x="182.5" y="297" width="142.5" height="40"/>
                                                         <color key="backgroundColor" red="0.92407947779999999" green="0.1108545437" blue="0.13942053909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <state key="normal" title="Button">
+                                                        <state key="normal" title="Confirm">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="confirm:" destination="35I-JZ-bcR" eventType="touchUpInside" id="9Kv-6L-3yS"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.93695515394210815" green="0.94526118040084839" blue="0.94099456071853638" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -250,6 +256,12 @@
                             <constraint firstItem="Egm-27-uzg" firstAttribute="leading" secondItem="40p-Rl-VKq" secondAttribute="leading" id="tA9-0W-Xis"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="amountLabel" destination="FU5-Kv-KJ2" id="qql-3d-saq"/>
+                        <outlet property="merchantNameLabel" destination="oiA-lg-yLI" id="fkf-D1-ywX"/>
+                        <outlet property="mobileNumberLabel" destination="pY6-Xn-E5M" id="0I0-nb-3aE"/>
+                        <outlet property="pinField" destination="AXB-jV-AQA" id="raf-Q4-0H8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1n-a3-RFB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
