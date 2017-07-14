@@ -17,4 +17,6 @@
 #define EP_PAYMENT @"/Payment"
 #define EP_CONFIRM @"/Confirm"
 
+#define NOTIF_SHOULD_QUIT_SPLASH @"NOTIF_SHOULD_QUIT_SPLASH"
+
 #endif /* Config_h */

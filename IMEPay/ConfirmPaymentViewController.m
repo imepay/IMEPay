@@ -9,6 +9,7 @@
 #import "ConfirmPaymentViewController.h"
 #import "IMPApiManager.h"
 #import "UIViewController+Alert.h"
+#import "Config.h"
 
 @interface ConfirmPaymentViewController ()
 
@@ -56,6 +57,8 @@
                               };
     [_apiManager makePayment:params success:^(NSDictionary *info) {
         
+        _transactionId = info[@"TransactionId"];
+        [self confirmPayment:_transactionId];
     } failure:^(NSString *error) {
         [self showTryAgain:@"Oops!" message:error cancelHandler:^{
             [self dismissViewControllerAnimated:YES completion:^{
@@ -78,13 +81,13 @@
     [_apiManager confirmPayment:params success:^(NSDictionary *info) {
         [self showAlert:@"Success!" message:@"" okayHandler:^{
             [self dismissViewControllerAnimated:YES completion:^{
-                [self.presentingViewController  dismissViewControllerAnimated:YES completion:nil];
+                [[NSNotificationCenter defaultCenter]postNotificationName:NOTIF_SHOULD_QUIT_SPLASH object:nil];
             }];
         }];
     } failure:^(NSString *error) {
         [self showTryAgain:@"Oops!" message:error cancelHandler:^{
             [self dismissViewControllerAnimated:YES completion:^{
-                [self.presentingViewController  dismissViewControllerAnimated:YES completion:nil];
+                [[NSNotificationCenter defaultCenter]postNotificationName:NOTIF_SHOULD_QUIT_SPLASH object:nil];
             }];
         } tryAgainHandler:^{
             [self confirmPayment:_transactionId];

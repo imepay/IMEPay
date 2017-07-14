@@ -26,7 +26,12 @@
     // Do any additional setup after loading the view.
     _logoView.alpha = 0.0;
     _apiManager = [IMPApiManager new];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dissmiss) name:NOTIF_SHOULD_QUIT_SPLASH object:nil];
     [self fetchToken];
+}
+
+- (void)dissmiss {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -39,13 +44,11 @@
 }
 
 - (void)fetchToken {
-    
     [_indicator startAnimating];
     NSDictionary *params = @{ @"MerchantCode": _paymentParams[@"merchantCode"],
                               @"Amount" : _paymentParams[@"amount"],
                               @"RefId" : _paymentParams[@"referenceId"],
                               };
-    NSLog(@"get token params %@", params);
     [_apiManager getToken:params success:^(NSDictionary *tokenInfo) {
         
         NSString *tokenId = tokenInfo[@"TokenId"];
@@ -55,7 +58,7 @@
         [_indicator stopAnimating];
         
         [self showTryAgain:@"Oops!" message:error cancelHandler:^{
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [self dissmiss];
         } tryAgainHandler:^{
             [self fetchToken];
         }];

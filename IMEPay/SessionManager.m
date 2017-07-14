@@ -1,7 +1,7 @@
 
 //
 //  Auth.m
-//  Foodmandu
+//  IMEPay
 //
 //  Created by Manoj Karki on 8/17/16.
 //  Copyright © Manoj Karki All rights reserved.
@@ -23,18 +23,11 @@
         _sharedObject = [SessionManager manager];
     });
     // returns the same object each time
-   // [_sharedObject setRequestSerializer:[AFHTTPRequestSerializer serializer]];
      return _sharedObject;
 }
 
-- (void)setRequestSerializer:(AFHTTPRequestSerializer<AFURLRequestSerialization> *)requestSerializer {
-    [super setRequestSerializer:requestSerializer];
-    
-}
-
 - (void)setAuthorization:(NSString *)username password:(NSString *)password {
-    [self.requestSerializer setValue:@"application/json"
-                  forHTTPHeaderField:@"Accept"];
+    [self setRequestSerializer:[AFJSONRequestSerializer serializer]];
     [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [self.requestSerializer setAuthorizationHeaderFieldWithUsername:username password:password];
 }

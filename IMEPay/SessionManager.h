@@ -1,6 +1,6 @@
 //
 //  Auth.h
-//  Foodmandu
+//  IMEPay
 //
 //  Created by Manoj Karki on 8/17/16.
 //  Copyright © Manoj Karki All rights reserved.
