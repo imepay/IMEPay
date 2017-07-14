@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <AFNetworking/AFNetworking.h>
 
+typedef enum : NSInteger {
+    Live,
+    Test,
+}APIEnvironment;
+
 @interface SessionManager : AFHTTPSessionManager
 
 + (id)sharedInstance;
