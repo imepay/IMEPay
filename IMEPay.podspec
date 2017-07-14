@@ -37,8 +37,8 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = "MIT"
-  # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+  #s.license      = "MIT"
+  s.license      = { :type => "MIT", :file => "LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -104,7 +104,7 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-  s.resources = "Resources/*.png,.storyboard"
+  s.resources = "IMEPay/*.{png, storyboard}"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
@@ -114,9 +114,10 @@ Pod::Spec.new do |s|
   #  Link your library with frameworks, or libraries. Libraries do not include
   #  the lib prefix of their name.
   #
-
-  # s.framework  = "SomeFramework"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
+  
+  s.framework  = "UIKit"
+  s.dependency 'AFNetworking', '~> 3.1.0'
+  #s.frameworks = "UIKit", "AFNetworking"
 
   # s.library   = "iconv"
   # s.libraries = "iconv", "xml2"
