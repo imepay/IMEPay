@@ -40,7 +40,6 @@
                                                                        @"mobileNumber" : customerMobileNumber ? customerMobileNumber : @""
                                                                         }];
     SessionManager *sessionManager = [SessionManager sharedInstance];
-
     [sessionManager setAccessToken:[NSString stringWithFormat:@"Basic %@:%@",userName, password]];
     [sessionManager setModule:module];
     NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
