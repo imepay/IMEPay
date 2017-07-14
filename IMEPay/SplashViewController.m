@@ -45,6 +45,7 @@
                               @"Amount" : _paymentParams[@"amount"],
                               @"RefId" : _paymentParams[@"referenceId"],
                               };
+    NSLog(@"get token params %@", params);
     [_apiManager getToken:params success:^(NSDictionary *tokenInfo) {
         
         NSString *tokenId = tokenInfo[@"TokenId"];

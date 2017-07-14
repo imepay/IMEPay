@@ -40,8 +40,11 @@
                                                                        @"mobileNumber" : customerMobileNumber ? customerMobileNumber : @""
                                                                         }];
     SessionManager *sessionManager = [SessionManager sharedInstance];
-    [sessionManager setAccessToken:[NSString stringWithFormat:@"Basic %@:%@",userName, password]];
+    [sessionManager setAuthorization:userName password:password];
     [sessionManager setModule:module];
+    
+    NSLog(@"INITIAL REQUEST HEADERS %@", sessionManager.requestSerializer.HTTPRequestHeaders);
+    
     NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
     

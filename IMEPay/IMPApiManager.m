@@ -15,26 +15,24 @@
 @implementation IMPApiManager
 
 - (NSString *)url:(NSString *)endpoint {
-    
-    SessionManager *manager = [SessionManager manager];
-
+    SessionManager *manager = [SessionManager sharedInstance];
     if (manager.environment == Test)
         return [NSString stringWithFormat:@"%@%@",URL_BASE_TEST, endpoint];
     return [NSString stringWithFormat:@"%@%@",URL_BASE_LIVE, endpoint];
 }
 
 - (void)getToken:(NSDictionary *)params success:(void(^)(NSDictionary *tokenInfo))success failure: (void (^) (NSString *error))failure {
-
     SessionManager *manager = [SessionManager sharedInstance];
-
-    [manager POST:[self url:EP_GET_TOKEN] parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
+    NSString *url = [self url:EP_GET_TOKEN];
+    NSLog(@"GET TOKEN URL ------- %@", url);
+    NSLog(@"Session manager request serializer %@", manager.requestSerializer.HTTPRequestHeaders);
+    [manager POST:url parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(error.localizedDescription);
     }];
-    
 }
 
 - (void)postToMerchant:(NSDictionary *)params success:(void (^)())success failure:(void (^)(NSString *))failure {

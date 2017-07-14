@@ -20,7 +20,7 @@ typedef enum : NSInteger {
 
 @property (nonatomic, assign) APIEnvironment environment;
 
-- (void)setAccessToken:(NSString *)token;
+- (void)setAuthorization:(NSString *)username password:(NSString *)password;
 
 - (void)setModule:(NSString *)moduleString;
 

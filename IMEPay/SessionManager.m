@@ -17,35 +17,30 @@
     // structure used to test whether the block has completed or not
     static dispatch_once_t p = 0;
     // initialize sharedObject as nil (first call only)
-    __strong static AFHTTPSessionManager *_sharedObject = nil;
+    __strong static SessionManager *_sharedObject = nil;
     // executes a block object once and only once for the lifetime of an application
     dispatch_once(&p, ^{
         _sharedObject = [SessionManager manager];
     });
     // returns the same object each time
-    [_sharedObject setRequestSerializer:[AFHTTPRequestSerializer serializer]];
+   // [_sharedObject setRequestSerializer:[AFHTTPRequestSerializer serializer]];
      return _sharedObject;
 }
 
 - (void)setRequestSerializer:(AFHTTPRequestSerializer<AFURLRequestSerialization> *)requestSerializer {
     [super setRequestSerializer:requestSerializer];
+    
+}
+
+- (void)setAuthorization:(NSString *)username password:(NSString *)password {
     [self.requestSerializer setValue:@"application/json"
                   forHTTPHeaderField:@"Accept"];
     [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [self.requestSerializer setAuthorizationHeaderFieldWithUsername:username password:password];
 }
 
-- (void)setAccessToken:(NSString *)token {
-
-    AFHTTPSessionManager *manager = [SessionManager sharedInstance];
-    NSData *data = [token dataUsingEncoding: NSUnicodeStringEncoding];
-    NSString *base64String = [data base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
-    NSLog(@"base 64 string %@", base64String);
-    [manager.requestSerializer setValue:[NSString stringWithFormat:@"Basic %@", base64String] forHTTPHeaderField:@"Authorization"];
-}
-
-- (void)setModule: (NSString *)moduleString {
-    AFHTTPSessionManager *manager = [SessionManager sharedInstance];
-    [manager.requestSerializer setValue:moduleString forHTTPHeaderField:@"Module"];
+- (void)setModule:(NSString *)moduleString {
+    [self.requestSerializer setValue:moduleString forHTTPHeaderField:@"Module"];
 }
 
 @end
