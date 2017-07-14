@@ -10,6 +10,7 @@
 #import "IMPApiManager.h"
 #import "UIViewController+Alert.h"
 #import "Config.h"
+#import <IQKeyboardManager/IQKeyboardManager.h>
 
 @interface ConfirmPaymentViewController ()
 
@@ -24,6 +25,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _apiManager = [IMPApiManager new];
+    IQKeyboardManager.sharedManager.enable = YES;
 }
 
 - (void)didReceiveMemoryWarning {

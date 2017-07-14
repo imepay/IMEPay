@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		116FAB89A96D75CE46C68096 /* libPods-IMEPayTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2197468DB12D29B59193D3 /* libPods-IMEPayTests.a */; };
+		59D0771E42C14EA56BFD1704 /* Pods_IMEPayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E064C17E9A102B906C4CB15B /* Pods_IMEPayTests.framework */; };
+		6CF6B7C871DAB66C5998D14C /* Pods_IMEPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 381B178097331EF9AFE87293 /* Pods_IMEPay.framework */; };
 		AF591D461F15D7FC0051AF81 /* IMEPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF591D3C1F15D7FC0051AF81 /* IMEPay.framework */; };
 		AF591D4B1F15D7FC0051AF81 /* IMEPayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AF591D4A1F15D7FC0051AF81 /* IMEPayTests.m */; };
 		AF591D4D1F15D7FC0051AF81 /* IMEPay.h in Headers */ = {isa = PBXBuildFile; fileRef = AF591D3F1F15D7FC0051AF81 /* IMEPay.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -27,7 +28,6 @@
 		AF591D7B1F176C500051AF81 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = AF591D7A1F176C500051AF81 /* logo.png */; };
 		AF591D7E1F178B870051AF81 /* UIViewController+Alert.h in Headers */ = {isa = PBXBuildFile; fileRef = AF591D7C1F178B860051AF81 /* UIViewController+Alert.h */; };
 		AF591D7F1F178B870051AF81 /* UIViewController+Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = AF591D7D1F178B860051AF81 /* UIViewController+Alert.m */; };
-		FA7E2A39B21916C1F46583D7 /* libPods-IMEPay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86328204FB8CB186355701BB /* libPods-IMEPay.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,9 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4A2197468DB12D29B59193D3 /* libPods-IMEPayTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IMEPayTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		381B178097331EF9AFE87293 /* Pods_IMEPay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IMEPay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		841FDF5363E8E4F587416390 /* Pods-IMEPay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMEPay.release.xcconfig"; path = "Pods/Target Support Files/Pods-IMEPay/Pods-IMEPay.release.xcconfig"; sourceTree = "<group>"; };
-		86328204FB8CB186355701BB /* libPods-IMEPay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IMEPay.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF591D3C1F15D7FC0051AF81 /* IMEPay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IMEPay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF591D3F1F15D7FC0051AF81 /* IMEPay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMEPay.h; sourceTree = "<group>"; };
 		AF591D401F15D7FC0051AF81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -66,6 +65,7 @@
 		AF591D7A1F176C500051AF81 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		AF591D7C1F178B860051AF81 /* UIViewController+Alert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Alert.h"; sourceTree = "<group>"; };
 		AF591D7D1F178B860051AF81 /* UIViewController+Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Alert.m"; sourceTree = "<group>"; };
+		E064C17E9A102B906C4CB15B /* Pods_IMEPayTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IMEPayTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E77B5FBB9D421AE21FF9B248 /* Pods-IMEPay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMEPay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IMEPay/Pods-IMEPay.debug.xcconfig"; sourceTree = "<group>"; };
 		ECC41FF7777EA4CC2EA418FD /* Pods-IMEPayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMEPayTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IMEPayTests/Pods-IMEPayTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F7B79A044E828CAE20F53647 /* Pods-IMEPayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMEPayTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IMEPayTests/Pods-IMEPayTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA7E2A39B21916C1F46583D7 /* libPods-IMEPay.a in Frameworks */,
+				6CF6B7C871DAB66C5998D14C /* Pods_IMEPay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,7 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF591D461F15D7FC0051AF81 /* IMEPay.framework in Frameworks */,
-				116FAB89A96D75CE46C68096 /* libPods-IMEPayTests.a in Frameworks */,
+				59D0771E42C14EA56BFD1704 /* Pods_IMEPayTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,8 +95,8 @@
 		57E979662A46C9C58D10DD7F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				86328204FB8CB186355701BB /* libPods-IMEPay.a */,
-				4A2197468DB12D29B59193D3 /* libPods-IMEPayTests.a */,
+				381B178097331EF9AFE87293 /* Pods_IMEPay.framework */,
+				E064C17E9A102B906C4CB15B /* Pods_IMEPayTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
