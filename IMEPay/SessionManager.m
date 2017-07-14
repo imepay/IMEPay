@@ -37,15 +37,15 @@
 - (void)setAccessToken:(NSString *)token {
 
     AFHTTPSessionManager *manager = [SessionManager sharedInstance];
-    [manager.requestSerializer setValue:[NSString stringWithFormat:@"Basic %@", token] forHTTPHeaderField:@"Authorization"];
+    NSData *data = [token dataUsingEncoding: NSUnicodeStringEncoding];
+    NSString *base64String = [data base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
+    NSLog(@"base 64 string %@", base64String);
+    [manager.requestSerializer setValue:[NSString stringWithFormat:@"Basic %@", base64String] forHTTPHeaderField:@"Authorization"];
 }
 
 - (void)setModule: (NSString *)moduleString {
-  
     AFHTTPSessionManager *manager = [SessionManager sharedInstance];
     [manager.requestSerializer setValue:moduleString forHTTPHeaderField:@"Module"];
-    
 }
-
 
 @end
