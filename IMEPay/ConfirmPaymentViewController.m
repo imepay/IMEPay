@@ -86,7 +86,7 @@
     [SVProgressHUD showWithStatus:@"Confirming.."];
     [_apiManager confirmPayment:params success:^(NSDictionary *info) {
         [SVProgressHUD dismiss];
-        [self showAlert:@"Success!" message:@"" okayHandler:^{
+        [self showAlert:@"Success!" message:info[@"ResponseDescription"] okayHandler:^{
             [self dissmissAndNotify];
         }];
     } failure:^(NSString *error) {
