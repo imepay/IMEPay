@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "SessionManager.h"
 
+typedef enum : NSInteger {
+    Live,
+    Test,
+}APIEnvironment;
+
 @interface IMPPaymentManager : NSObject
 
 - (instancetype)initWithEnvironment:(APIEnvironment)environment;
