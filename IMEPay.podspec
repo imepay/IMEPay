@@ -117,6 +117,9 @@ Pod::Spec.new do |s|
   
   s.framework  = "UIKit"
   s.dependency 'AFNetworking', '~> 3.1.0'
+  s.dependency 'IQKeyboardManager', '~> 4.0.10'
+  s.dependency 'SVProgressHUD', '~> 2.1.2'
+
   #s.frameworks = "UIKit", "AFNetworking"
 
   # s.library   = "iconv"
