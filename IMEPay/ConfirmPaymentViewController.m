@@ -99,7 +99,6 @@
 }
 
 - (void)dissmissAndNotify {
-  
     [self dismissViewControllerAnimated:YES completion:^{
         [[NSNotificationCenter defaultCenter]postNotificationName:NOTIF_SHOULD_QUIT_SPLASH object:nil];
     }];

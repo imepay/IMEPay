@@ -212,6 +212,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" red="0.92407947779999999" green="0.1108545437" blue="0.13942053909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="eKx-I4-H0V" secondAttribute="bottom" id="ApI-q7-KGN"/>
                                     <constraint firstItem="eKx-I4-H0V" firstAttribute="leading" secondItem="Egm-27-uzg" secondAttribute="leading" id="NQZ-Mg-AuR"/>
@@ -220,10 +221,10 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
+                        <color key="backgroundColor" red="0.92407947779999999" green="0.1108545437" blue="0.13942053909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Egm-27-uzg" secondAttribute="bottom" id="QoK-zx-7mh"/>
                             <constraint firstAttribute="trailing" secondItem="Egm-27-uzg" secondAttribute="trailing" id="csP-UV-ajn"/>
-                            <constraint firstItem="eKx-I4-H0V" firstAttribute="height" secondItem="40p-Rl-VKq" secondAttribute="height" id="gnu-is-WmJ"/>
                             <constraint firstItem="eKx-I4-H0V" firstAttribute="width" secondItem="40p-Rl-VKq" secondAttribute="width" id="ixh-IS-uab"/>
                             <constraint firstItem="Egm-27-uzg" firstAttribute="top" secondItem="40p-Rl-VKq" secondAttribute="top" id="lVp-7z-pLi"/>
                             <constraint firstItem="Egm-27-uzg" firstAttribute="leading" secondItem="40p-Rl-VKq" secondAttribute="leading" id="tA9-0W-Xis"/>
