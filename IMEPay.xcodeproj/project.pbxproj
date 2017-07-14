@@ -148,7 +148,6 @@
 		AF591D5E1F15DC010051AF81 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AF591D5F1F15DC540051AF81 /* Main.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -156,6 +155,7 @@
 		AF591D611F15DC770051AF81 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				AF591D5F1F15DC540051AF81 /* Main.storyboard */,
 				AF591D7A1F176C500051AF81 /* logo.png */,
 			);
 			name = Assets;
