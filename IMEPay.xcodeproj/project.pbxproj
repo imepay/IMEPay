@@ -129,7 +129,6 @@
 				AF591D6B1F16175D0051AF81 /* Controlllers */,
 				AF591D621F15DC900051AF81 /* Api Manager */,
 				AF591D611F15DC770051AF81 /* Assets */,
-				AF591D5E1F15DC010051AF81 /* Views */,
 				AF591D3F1F15D7FC0051AF81 /* IMEPay.h */,
 				AF591D401F15D7FC0051AF81 /* Info.plist */,
 			);
@@ -143,13 +142,6 @@
 				AF591D4C1F15D7FC0051AF81 /* Info.plist */,
 			);
 			path = IMEPayTests;
-			sourceTree = "<group>";
-		};
-		AF591D5E1F15DC010051AF81 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Views;
 			sourceTree = "<group>";
 		};
 		AF591D611F15DC770051AF81 /* Assets */ = {
