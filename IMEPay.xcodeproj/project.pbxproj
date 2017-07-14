@@ -43,6 +43,7 @@
 /* Begin PBXFileReference section */
 		381B178097331EF9AFE87293 /* Pods_IMEPay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IMEPay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		841FDF5363E8E4F587416390 /* Pods-IMEPay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMEPay.release.xcconfig"; path = "Pods/Target Support Files/Pods-IMEPay/Pods-IMEPay.release.xcconfig"; sourceTree = "<group>"; };
+		AF3905411F18D775006D0D3C /* IQKeyboardManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IQKeyboardManager.framework; path = "../../../Library/Developer/Xcode/DerivedData/IMEPay-cdsklkzowxhsjkclcpipeyjinggu/Build/Products/Debug-iphonesimulator/IQKeyboardManager/IQKeyboardManager.framework"; sourceTree = "<group>"; };
 		AF591D3C1F15D7FC0051AF81 /* IMEPay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IMEPay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF591D3F1F15D7FC0051AF81 /* IMEPay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMEPay.h; sourceTree = "<group>"; };
 		AF591D401F15D7FC0051AF81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -95,6 +96,7 @@
 		57E979662A46C9C58D10DD7F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AF3905411F18D775006D0D3C /* IQKeyboardManager.framework */,
 				381B178097331EF9AFE87293 /* Pods_IMEPay.framework */,
 				E064C17E9A102B906C4CB15B /* Pods_IMEPayTests.framework */,
 			);

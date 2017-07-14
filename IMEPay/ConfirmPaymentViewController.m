@@ -10,6 +10,7 @@
 #import "IMPApiManager.h"
 #import "UIViewController+Alert.h"
 #import "Config.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>
 
 @interface ConfirmPaymentViewController ()
@@ -57,15 +58,17 @@
                               @"Pin" : _pinField.text,
                               @"Msisdn" : _paymentParams[@"mobileNumber"]
                               };
+    
+    [SVProgressHUD showWithStatus:@"Processing payment.."];
+    
     [_apiManager makePayment:params success:^(NSDictionary *info) {
-        
+        [SVProgressHUD dismiss];
         _transactionId = info[@"TransactionId"];
         [self confirmPayment:_transactionId];
     } failure:^(NSString *error) {
+        [SVProgressHUD dismiss];
         [self showTryAgain:@"Oops!" message:error cancelHandler:^{
-            [self dismissViewControllerAnimated:YES completion:^{
-                [self.presentingViewController  dismissViewControllerAnimated:YES completion:nil];
-            }];
+            [self dissmissAndNotify];
         } tryAgainHandler:^{
             [self makePayment];
         }];
@@ -80,25 +83,30 @@
                               @"RefId" : _paymentParams[@"referenceId"],
                               @"Msisdn" : _paymentParams[@"mobileNumber"]
                               };
+    [SVProgressHUD showWithStatus:@"Confirming.."];
     [_apiManager confirmPayment:params success:^(NSDictionary *info) {
+        [SVProgressHUD dismiss];
         [self showAlert:@"Success!" message:@"" okayHandler:^{
-            [self dismissViewControllerAnimated:YES completion:^{
-                [[NSNotificationCenter defaultCenter]postNotificationName:NOTIF_SHOULD_QUIT_SPLASH object:nil];
-            }];
+            [self dissmissAndNotify];
         }];
     } failure:^(NSString *error) {
+        [SVProgressHUD dismiss];
         [self showTryAgain:@"Oops!" message:error cancelHandler:^{
-            [self dismissViewControllerAnimated:YES completion:^{
-                [[NSNotificationCenter defaultCenter]postNotificationName:NOTIF_SHOULD_QUIT_SPLASH object:nil];
-            }];
-        } tryAgainHandler:^{
+            [self dissmissAndNotify];        } tryAgainHandler:^{
             [self confirmPayment:_transactionId];
         }];
     }];
 }
 
+- (void)dissmissAndNotify {
+  
+    [self dismissViewControllerAnimated:YES completion:^{
+        [[NSNotificationCenter defaultCenter]postNotificationName:NOTIF_SHOULD_QUIT_SPLASH object:nil];
+    }];
+}
+
 - (IBAction)cancel:(id)sender {
-    
+    [self dissmissAndNotify];
 }
 
 @end

@@ -11,6 +11,8 @@
 #import "ConfirmPaymentViewController.h"
 #import "Helper.h"
 #import "UIViewController+Alert.h"
+#import <SVProgressHUD/SVProgressHUD.h>
+
 
 @interface SplashViewController ()
 
@@ -44,19 +46,18 @@
 }
 
 - (void)fetchToken {
-    [_indicator startAnimating];
+    
     NSDictionary *params = @{ @"MerchantCode": _paymentParams[@"merchantCode"],
                               @"Amount" : _paymentParams[@"amount"],
                               @"RefId" : _paymentParams[@"referenceId"],
                               };
+    [SVProgressHUD showWithStatus:@"Preparing for payment.."];
     [_apiManager getToken:params success:^(NSDictionary *tokenInfo) {
-        
         NSString *tokenId = tokenInfo[@"TokenId"];
         [_paymentParams setValue:tokenId forKey:@"token"];
         [self postToMerchant];
     } failure:^(NSString *error) {
-        [_indicator stopAnimating];
-        
+        [SVProgressHUD dismiss];
         [self showTryAgain:@"Oops!" message:error cancelHandler:^{
             [self dissmiss];
         } tryAgainHandler:^{
@@ -73,8 +74,10 @@
                               @"ReferenceId" : _paymentParams[@"referenceId"],
                               @"merchantUrl": _paymentParams[@"merchantUrl"]
                               };
+    
     [_apiManager postToMerchant:params success:^{
-        [_indicator stopAnimating];
+        
+        [SVProgressHUD dismiss];
         NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
         
@@ -82,7 +85,7 @@
         paymentVc.paymentParams = _paymentParams;
         [topViewController() presentViewController:paymentVc animated:YES completion:nil];
     } failure:^(NSString *error) {
-       [_indicator stopAnimating];
+        [SVProgressHUD dismiss];
         [self showTryAgain:@"Oops!" message:error cancelHandler:^{
             [self dismissViewControllerAnimated:YES completion:nil];
         } tryAgainHandler:^{
