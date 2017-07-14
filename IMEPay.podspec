@@ -104,7 +104,7 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-  s.resources = "IMEPay/**/*. {png,storyboard}"
+  s.resources = "IMEPay/**/* .{png,storyboard}"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
