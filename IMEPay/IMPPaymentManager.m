@@ -26,9 +26,17 @@
     return  self;
 }
 
-- (void)pay:(NSString *)userName password:(NSString *)password  merchantCode:(NSString *)merchantCode merchantName: (NSString *)merchantName  merchantUrl:(NSString *)merchantUrl amount:(NSString *)amount customerMobileNumber:(NSString *)customerMobileNumber referenceId: (NSString *)referenceId module:(NSString *)module {
+- (void)pay:(NSString *)userName password:(NSString *)password  merchantCode:(NSString *)merchantCode merchantName: (NSString *)merchantName  merchantUrl:(NSString *)merchantUrl amount:(NSString *)amount customerMobileNumber:(NSString *)customerMobileNumber referenceId: (NSString *)referenceId module: (NSString *)module success: (void(^)(NSDictionary *transactionInfo))success failure: (void(^)(NSDictionary *transactionInfo))failure {
 
-    NSString *curatedRefId = [referenceId  stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+    NSString *curatedRefId = [referenceId  stringByReplacingOccurrencesOfString:@" " withString:@"_"];    
+    NSData *dataTake2 =
+    [@"gottopay" dataUsingEncoding:NSUTF8StringEncoding];
+    
+    // Convert to Base64 data
+    NSData *base64Data = [dataTake2 base64EncodedDataWithOptions:0];
+    
+    NSString *base64Module = [NSString stringWithUTF8String:[base64Data bytes]];
+
     _paymentParams = [NSMutableDictionary dictionaryWithDictionary: @{ @"userName": userName ? userName : @"",
                                                                         @"password": password ? password : @"",
                                                                         @"merchantCode" : merchantCode ? merchantCode : @"",
@@ -36,7 +44,7 @@
                                                                        @"merchantUrl": merchantUrl ? merchantUrl : @"",
                                                                         @"amount" : amount ? amount : @"",
                                                                         @"referenceId" : curatedRefId ? curatedRefId : @"",
-                                                                        @"module" : module ? module : @"",
+                                                                        @"module" : base64Module ? base64Module : @"",
                                                                        @"mobileNumber" : customerMobileNumber ? customerMobileNumber : @""
                                                                         }];
     SessionManager *sessionManager = [SessionManager sharedInstance];

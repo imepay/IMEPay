@@ -144,23 +144,23 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnq-5D-qMO">
                                                         <rect key="frame" x="20" y="297" width="142.5" height="40"/>
                                                         <color key="backgroundColor" red="0.92407947779999999" green="0.1108545437" blue="0.13942053909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                        <state key="normal" title="Cancel">
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                        <state key="normal" title="Confirm">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="cancel:" destination="35I-JZ-bcR" eventType="touchUpInside" id="NT5-YI-L6G"/>
+                                                            <action selector="confirm:" destination="35I-JZ-bcR" eventType="touchUpInside" id="EBw-Yh-HxC"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NY1-KQ-suF">
                                                         <rect key="frame" x="182.5" y="297" width="142.5" height="40"/>
                                                         <color key="backgroundColor" red="0.92407947779999999" green="0.1108545437" blue="0.13942053909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                        <state key="normal" title="Confirm">
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                        <state key="normal" title="Cancel">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="confirm:" destination="35I-JZ-bcR" eventType="touchUpInside" id="9Kv-6L-3yS"/>
+                                                            <action selector="cancel:" destination="35I-JZ-bcR" eventType="touchUpInside" id="hp5-3p-T1y"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>

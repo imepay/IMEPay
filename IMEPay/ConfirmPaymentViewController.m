@@ -27,6 +27,14 @@
     // Do any additional setup after loading the view.
     _apiManager = [IMPApiManager new];
     IQKeyboardManager.sharedManager.enable = YES;
+    [self setupUI];
+}
+    
+- (void)setupUI {
+  
+    _mobileNumberLabel.text = _paymentParams[@"mobileNumber"];
+    _amountLabel.text = _paymentParams [@"amount"];
+    _merchantNameLabel.text = _paymentParams[@"merchantName"];
     
     UIView *leftPaddingView = [[UIView alloc]initWithFrame:CGRectMake(_pinField.frame.origin.x, _pinField.frame.origin.y, 10.0, _pinField.frame.size.height)];
     _pinField.leftView = leftPaddingView;
@@ -61,11 +69,11 @@
                               @"Pin" : _pinField.text,
                               @"Msisdn" : _paymentParams[@"mobileNumber"]
                               };
-    
     [SVProgressHUD showWithStatus:@"Processing payment.."];
     [_apiManager makePayment:params success:^(NSDictionary *info) {
         [SVProgressHUD dismiss];
         _transactionId = info[@"TransactionId"];
+        NSLog(@"Payment response %@", info);
         [self confirmPayment:_transactionId];
     } failure:^(NSString *error) {
         [SVProgressHUD dismiss];
@@ -88,7 +96,12 @@
     [SVProgressHUD showWithStatus:@"Confirming.."];
     [_apiManager confirmPayment:params success:^(NSDictionary *info) {
         [SVProgressHUD dismiss];
-        [self showAlert:@"Success!" message:info[@"ResponseDescription"] okayHandler:^{
+        
+        NSNumber *responseCode = info[@"ResponseCode"];
+        NSString *title = responseCode.integerValue == 0 ? @"Sucess!" : @"Sorry!";
+
+        NSLog(@"Confirm payment response %@", info);
+        [self showAlert:title message:info[@"ResponseDescription"] okayHandler:^{
             [self dissmissAndNotify];
         }];
     } failure:^(NSString *error) {
