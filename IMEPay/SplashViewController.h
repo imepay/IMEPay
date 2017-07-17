@@ -12,5 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *logoView;
 @property (strong, nonatomic) NSDictionary *paymentParams;
-
+@property (nonatomic, copy) void(^successBlock)(NSDictionary *info);
+@property (nonatomic, copy) void(^failureBlock)(NSDictionary *info);
+    
 @end

@@ -82,6 +82,10 @@
 
         ConfirmPaymentViewController *paymentVc = (ConfirmPaymentViewController *) [sb instantiateViewControllerWithIdentifier:@"ConfirmPaymentViewController"];
         paymentVc.paymentParams = _paymentParams;
+        
+        paymentVc.successBlock = _successBlock;
+        paymentVc.failureBlock = _failureBlock;
+        
         [topViewController() presentViewController:paymentVc animated:YES completion:nil];
     } failure:^(NSString *error) {
         [SVProgressHUD dismiss];

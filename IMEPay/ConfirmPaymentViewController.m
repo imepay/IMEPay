@@ -73,7 +73,6 @@
     [_apiManager makePayment:params success:^(NSDictionary *info) {
         [SVProgressHUD dismiss];
         _transactionId = info[@"TransactionId"];
-        NSLog(@"Payment response %@", info);
         [self confirmPayment:_transactionId];
     } failure:^(NSString *error) {
         [SVProgressHUD dismiss];
@@ -99,11 +98,18 @@
         
         NSNumber *responseCode = info[@"ResponseCode"];
         NSString *title = responseCode.integerValue == 0 ? @"Sucess!" : @"Sorry!";
-
-        NSLog(@"Confirm payment response %@", info);
+    
         [self showAlert:title message:info[@"ResponseDescription"] okayHandler:^{
             [self dissmissAndNotify];
         }];
+        
+        if (responseCode.integerValue == 0) {
+           if (_successBlock)
+            _successBlock(info);
+        }else {
+           if (_failureBlock)
+            _failureBlock(info);
+        }
     } failure:^(NSString *error) {
         [SVProgressHUD dismiss];
         [self showTryAgain:@"Oops!" message:error cancelHandler:^{
