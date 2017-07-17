@@ -13,7 +13,6 @@
 #import "UIViewController+Alert.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 
-
 @interface SplashViewController ()
 
 @property (nonatomic, strong) IMPApiManager *apiManager;
@@ -80,14 +79,14 @@
         [SVProgressHUD dismiss];
         NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
-        
+
         ConfirmPaymentViewController *paymentVc = (ConfirmPaymentViewController *) [sb instantiateViewControllerWithIdentifier:@"ConfirmPaymentViewController"];
         paymentVc.paymentParams = _paymentParams;
         [topViewController() presentViewController:paymentVc animated:YES completion:nil];
     } failure:^(NSString *error) {
         [SVProgressHUD dismiss];
         [self showTryAgain:@"Oops!" message:error cancelHandler:^{
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [self dissmiss];
         } tryAgainHandler:^{
             [self fetchToken];
         }];

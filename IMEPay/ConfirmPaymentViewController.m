@@ -27,6 +27,10 @@
     // Do any additional setup after loading the view.
     _apiManager = [IMPApiManager new];
     IQKeyboardManager.sharedManager.enable = YES;
+    
+    UIView *leftPaddingView = [[UIView alloc]initWithFrame:CGRectMake(_pinField.frame.origin.x, _pinField.frame.origin.y, 10.0, _pinField.frame.size.height)];
+    _pinField.leftView = leftPaddingView;
+    _pinField.leftViewMode = UITextFieldViewModeAlways;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,7 +54,6 @@
 }
 
 - (void)makePayment {
-
     NSDictionary *params = @{ @"MerchantCode": _paymentParams[@"merchantCode"],
                               @"Amount" : _paymentParams[@"amount"],
                               @"RefId" : _paymentParams[@"referenceId"],
@@ -60,7 +63,6 @@
                               };
     
     [SVProgressHUD showWithStatus:@"Processing payment.."];
-    
     [_apiManager makePayment:params success:^(NSDictionary *info) {
         [SVProgressHUD dismiss];
         _transactionId = info[@"TransactionId"];

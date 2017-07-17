@@ -26,8 +26,8 @@
     return  self;
 }
 
-- (void)pay:(NSString *)userName password:(NSString *)password  merchantCode:(NSString *)merchantCode merchantName: (NSString *)merchantName  merchantUrl:(NSString *)merchantUrl amount:(NSString *)amount customerMobileNumber:(NSString *)customerMobileNumber referenceId: (NSString *)referenceId module: (NSString *)module success:(void (^) (NSDictionary *paymentInfo))success failure: (void(^)(NSString *errorMessage))failure {
-    
+- (void)pay:(NSString *)userName password:(NSString *)password  merchantCode:(NSString *)merchantCode merchantName: (NSString *)merchantName  merchantUrl:(NSString *)merchantUrl amount:(NSString *)amount customerMobileNumber:(NSString *)customerMobileNumber referenceId: (NSString *)referenceId module:(NSString *)module {
+
     NSString *curatedRefId = [referenceId  stringByReplacingOccurrencesOfString:@" " withString:@"_"];
     _paymentParams = [NSMutableDictionary dictionaryWithDictionary: @{ @"userName": userName ? userName : @"",
                                                                         @"password": password ? password : @"",
@@ -44,7 +44,7 @@
     [sessionManager setModule:module];
     
     NSLog(@"INITIAL REQUEST HEADERS %@", sessionManager.requestSerializer.HTTPRequestHeaders);
-    
+
     NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
     

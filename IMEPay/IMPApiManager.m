@@ -45,7 +45,7 @@
     }];
 }
 
-- (void)makePayment:(NSDictionary *)params success:(void (^)(NSDictionary *info))success failure:(void (^)(NSString *error))failure {
+- (void)makePayment:(NSDictionary *)params success:(void(^)(NSDictionary *info))success failure:(void (^)(NSString *error))failure {
     SessionManager *manager  = [SessionManager sharedInstance];
     [manager POST:[self url:EP_PAYMENT] parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
         
