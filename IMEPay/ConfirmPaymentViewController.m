@@ -54,15 +54,12 @@
 
 - (IBAction)confirm:(id)sender {
     
-    if (_pinField.text.length == 0) {
-        [self showAlert:@"Oops!" message:@"Pin is empty!" okayHandler:nil];
+    if (_pinField.text.length == 0 || _pinField.text.length < 4) {
+        
+        NSString *message = _pinField.text.length == 0 ? @"Pin is empty!" : @"Pin must be 4 digits!";
+        [self showAlert:@"Oops!" message:message okayHandler:nil];
         return;
     }
-    if (_pinField.text.length > 4) {
-        [self showAlert:@"Oops!" message:@"Pin must be 4 digits!" okayHandler:nil];
-        return;
-    }
-    
     [self makePayment];
     
 }
