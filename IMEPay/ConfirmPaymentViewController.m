@@ -85,7 +85,7 @@
 }
 
 - (void)setUpTimer {
-    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(confirmPayment) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(confirmPayment) userInfo:nil repeats:NO];
 }
 
 
@@ -119,7 +119,7 @@
 
         if (_isFailedForFirstTime){
             _isFailedForFirstTime = NO;
-            [self confirmPayment];
+            [self setUpTimer];
             return;
         }
 
