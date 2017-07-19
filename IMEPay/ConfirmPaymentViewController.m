@@ -13,10 +13,14 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>
 
-@interface ConfirmPaymentViewController ()
+#define PIN_MAX_LENGTH 4
+
+@interface ConfirmPaymentViewController () <UITextFieldDelegate>
 
 @property (nonatomic, strong) IMPApiManager *apiManager;
 @property (nonatomic, strong) NSString *transactionId;
+
+@property (nonatomic, assign) BOOL isFailedForFirstTime;
 
 @end
 
@@ -28,8 +32,10 @@
     _apiManager = [IMPApiManager new];
     IQKeyboardManager.sharedManager.enable = YES;
     [self setupUI];
+    _pinField.delegate = self;
+    _isFailedForFirstTime = YES;
 }
-    
+
 - (void)setupUI {
   
     _mobileNumberLabel.text = _paymentParams[@"mobileNumber"];
@@ -73,7 +79,7 @@
     [_apiManager makePayment:params success:^(NSDictionary *info) {
         [SVProgressHUD dismiss];
         _transactionId = info[@"TransactionId"];
-        [self confirmPayment:_transactionId];
+        [self setUpTimer];
     } failure:^(NSString *error) {
         [SVProgressHUD dismiss];
         [self showTryAgain:@"Oops!" message:error cancelHandler:^{
@@ -84,10 +90,14 @@
     }];
 }
 
-- (void)confirmPayment: (NSString *)trasactionId {
+- (void)setUpTimer {
+    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(confirmPayment) userInfo:nil repeats:NO];
+}
 
+
+- (void)confirmPayment {
     NSDictionary *params = @{ @"MerchantCode": _paymentParams[@"merchantCode"],
-                              @"TransactionId" : trasactionId,
+                              @"TransactionId" : _transactionId,
                               @"Amount" : _paymentParams[@"amount"],
                               @"RefId" : _paymentParams[@"referenceId"],
                               @"Msisdn" : _paymentParams[@"mobileNumber"]
@@ -112,9 +122,17 @@
         }
     } failure:^(NSString *error) {
         [SVProgressHUD dismiss];
+
+        if (_isFailedForFirstTime){
+            _isFailedForFirstTime = NO;
+            [self confirmPayment];
+            return;
+        }
+
         [self showTryAgain:@"Oops!" message:error cancelHandler:^{
-            [self dissmissAndNotify];        } tryAgainHandler:^{
-            [self confirmPayment:_transactionId];
+            [self dissmissAndNotify];
+        } tryAgainHandler:^{
+            [self confirmPayment];
         }];
     }];
 }
@@ -127,6 +145,13 @@
 
 - (IBAction)cancel:(id)sender {
     [self dissmissAndNotify];
+}
+
+#pragma mark:- UITextField Delegates 
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    return newString.length <= PIN_MAX_LENGTH;
 }
 
 @end

@@ -29,6 +29,7 @@
     _apiManager = [IMPApiManager new];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dissmiss) name:NOTIF_SHOULD_QUIT_SPLASH object:nil];
     [self fetchToken];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
 }
 
 - (void)dissmiss {
