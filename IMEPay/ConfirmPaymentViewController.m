@@ -116,9 +116,9 @@
         }
     } failure:^(NSString *error) {
         [SVProgressHUD dismiss];
-
         if (_isFailedForFirstTime){
             _isFailedForFirstTime = NO;
+            [SVProgressHUD showWithStatus:@"Confirming"];
             [self setUpTimer];
             return;
         }
