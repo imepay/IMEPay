@@ -77,7 +77,7 @@
                               };
     [SVProgressHUD showWithStatus:@"Processing payment.."];
     [_apiManager makePayment:params success:^(NSDictionary *info) {
-        [SVProgressHUD dismiss];
+        [SVProgressHUD dismissWithDelay:2];
         _transactionId = info[@"TransactionId"];
         [self setUpTimer];
     } failure:^(NSString *error) {
