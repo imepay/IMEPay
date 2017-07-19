@@ -85,6 +85,7 @@
 }
 
 - (void)setUpTimer {
+    [SVProgressHUD showWithStatus:@"Processing payment.."];
     [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(confirmPayment) userInfo:nil repeats:NO];
 }
 
@@ -118,7 +119,6 @@
         [SVProgressHUD dismiss];
         if (_isFailedForFirstTime){
             _isFailedForFirstTime = NO;
-            [SVProgressHUD showWithStatus:@"Confirming"];
             [self setUpTimer];
             return;
         }
