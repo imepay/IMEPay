@@ -7,8 +7,20 @@
 //
 
 #import "MobileNumberViewController.h"
+#import "UIViewController+Alert.h"
+#import "IMPPaymentManager.h"
+#import "SplashViewController.h"
+#import "Helper.h"
+
+typedef void(^successBlock)(NSDictionary *);
+
+typedef void(^failureBlock)(NSDictionary *);
+
 
 @interface MobileNumberViewController ()
+
+    @property (nonatomic, copy) successBlock success;
+    @property (nonatomic, copy) failureBlock failure;
 
 @end
 
@@ -23,15 +35,39 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    _confirmBtn.layer.cornerRadius = _confirmBtn.frame.size.height /  2.0;
 }
-*/
+
+
+- (IBAction)confirmCickced:(id)sender {
+
+    if  (_mobileNumebrField.text.length  == 0 ) {
+        [self showAlert: nil message:@"Mobile Number Field is empty" okayHandler:^{}];
+        return;
+    }
+
+    if (_mobileNumebrField.text.length != 10) {
+        
+        [self showAlert: nil message:@"Mobile Number Should be 10 Digits" okayHandler:^{}];
+        return;
+    }
+    [self gotoSplash];
+}
+
+    
+- (void)gotoSplash {
+
+    NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
+    
+    SplashViewController *splashVc = (SplashViewController *) [sb instantiateViewControllerWithIdentifier:@"SplashViewController"];
+    splashVc.paymentParams = _paymentParams;
+    splashVc.successBlock = _success;
+    splashVc.failureBlock = _failure;
+    [topViewController() presentViewController:splashVc animated:YES completion:nil];
+}
 
 @end
