@@ -12,6 +12,8 @@
 #import "Config.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>
+#import "OTPConfirmationViewController.h"
+#import "Helper.h"
 
 #define PIN_MAX_LENGTH 4
 
@@ -58,7 +60,10 @@
         [self showAlert:@"" message:@"Please enter valid PIN (4 digits)" okayHandler:nil];
         return;
     }
-    [self makePayment];
+    
+    [self gotoOTPConfirmation];
+    
+   // [self makePayment];
 }
 
 - (void)makePayment {
@@ -146,6 +151,21 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
     return newString.length <= PIN_MAX_LENGTH;
+}
+
+#pragma mark:- Goto OTP Confirmation
+
+- (void)gotoOTPConfirmation {
+
+    NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
+    
+    OTPConfirmationViewController *mobileNumVc = (OTPConfirmationViewController *) [sb instantiateViewControllerWithIdentifier:@"OTPConfirmationViewController"];
+    mobileNumVc.PIN = _pinField.text;
+    mobileNumVc.paymentParams = _paymentParams;
+    mobileNumVc.success  = _successBlock;
+    mobileNumVc.failure = _failureBlock;
+    [topViewController() presentViewController:mobileNumVc animated:YES completion:nil];
 }
 
 @end

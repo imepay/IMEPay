@@ -12,9 +12,6 @@
 #import "SplashViewController.h"
 #import "Helper.h"
 
-
-
-
 @interface MobileNumberViewController ()
 
 @end

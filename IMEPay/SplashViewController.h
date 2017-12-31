@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^successBlock)(NSDictionary *);
+
+typedef void(^failureBlock)(NSDictionary *);
+
 @interface SplashViewController : UIViewController
 
     @property (weak, nonatomic) IBOutlet UIImageView *logoView;

@@ -51,8 +51,10 @@
     SessionManager *sessionManager = [SessionManager sharedInstance];
     [sessionManager setAuthorization:userName password:password];
     [sessionManager setModule:module];
-    
-    [self gotoSplashwithSuccess:success failure:failure];
+
+   // [self gotoSplashwithSuccess:success failure:failure];
+    [self gotoMobileNumberVc:success failure:failure];
+
 }
 
 - (void)gotoSplashwithSuccess: (void(^)(NSDictionary *transactionInfo))success failure: (void(^)(NSDictionary *transactionInfo))failure  {

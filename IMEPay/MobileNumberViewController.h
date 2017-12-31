@@ -7,10 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-typedef void(^successBlock)(NSDictionary *);
-
-typedef void(^failureBlock)(NSDictionary *);
+#import "SplashViewController.h"
 
 @interface MobileNumberViewController : UIViewController
 
