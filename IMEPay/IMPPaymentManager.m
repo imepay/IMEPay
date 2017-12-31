@@ -9,6 +9,7 @@
 #import "IMPPaymentManager.h"
 #import "Helper.h"
 #import "SplashViewController.h"
+#import "MobileNumberViewController.h"
 
 @interface IMPPaymentManager()
 
@@ -50,6 +51,11 @@
     SessionManager *sessionManager = [SessionManager sharedInstance];
     [sessionManager setAuthorization:userName password:password];
     [sessionManager setModule:module];
+    
+    [self gotoSplashwithSuccess:success failure:failure];
+}
+
+- (void)gotoSplashwithSuccess: (void(^)(NSDictionary *transactionInfo))success failure: (void(^)(NSDictionary *transactionInfo))failure  {
 
     NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
@@ -59,6 +65,20 @@
     splashVc.successBlock = success;
     splashVc.failureBlock = failure;
     [topViewController() presentViewController:splashVc animated:YES completion:nil];
+
+}
+
+- (void)gotoMobileNumberVc: (void(^)(NSDictionary *transactionInfo))success failure: (void(^)(NSDictionary *transactionInfo))failure {
+
+    NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
+    
+    MobileNumberViewController *mobileNumVc = (MobileNumberViewController *) [sb instantiateViewControllerWithIdentifier:@"MobileNumberViewController"];
+    mobileNumVc.paymentParams = _paymentParams;
+    mobileNumVc.success  = success;
+    mobileNumVc.failure = failure;
+    [topViewController() presentViewController:mobileNumVc animated:YES completion:nil];
+    
 }
 
 @end

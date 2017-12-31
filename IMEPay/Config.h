@@ -16,6 +16,8 @@
 #define EP_POST_TO_MERCHANT @"http://202.166.194.126:6060/api/special/startinitialpayment"
 #define EP_PAYMENT @"/Payment"
 #define EP_CONFIRM @"/Confirm"
+#define EP_VALIDATE_USER @"/Web/ValidateUser"
+
 
 #define NOTIF_SHOULD_QUIT_SPLASH @"NOTIF_SHOULD_QUIT_SPLASH"
 

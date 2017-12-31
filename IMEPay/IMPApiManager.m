@@ -63,4 +63,15 @@
     }];
 }
 
+- (void)validateUser:(NSDictionary *)params success:(void (^)(NSString *))success failure:(void (^)(NSString *))failure {
+
+    SessionManager *manager  = [SessionManager sharedInstance];
+    [manager POST:[self url:EP_VALIDATE_USER] parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"validate user response %@", responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error.localizedDescription);
+    }];
+
+}
+
 @end

@@ -12,15 +12,10 @@
 #import "SplashViewController.h"
 #import "Helper.h"
 
-typedef void(^successBlock)(NSDictionary *);
 
-typedef void(^failureBlock)(NSDictionary *);
 
 
 @interface MobileNumberViewController ()
-
-    @property (nonatomic, copy) successBlock success;
-    @property (nonatomic, copy) failureBlock failure;
 
 @end
 
@@ -54,6 +49,11 @@ typedef void(^failureBlock)(NSDictionary *);
         [self showAlert: nil message:@"Mobile Number Should be 10 Digits" okayHandler:^{}];
         return;
     }
+    
+    
+    NSString *mobNum = self.mobileNumebrField.text;
+    _paymentParams[@"mobileNumber"] = mobNum;
+
     [self gotoSplash];
 }
 

@@ -19,4 +19,6 @@
 
 - (void)confirmPayment:(NSDictionary *)params success:(void(^)(NSDictionary *info))success failure: (void (^)(NSString *error))failure;
 
+- (void)validateUser: (NSDictionary *)params success:(void(^)(NSString *PIN))success failure: (void (^)(NSString *error))failure;
+
 @end
