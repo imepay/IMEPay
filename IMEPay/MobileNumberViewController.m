@@ -18,9 +18,20 @@
 
 @implementation MobileNumberViewController
 
+#pragma marK:- Vc Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+
+    //MARK:- Should Dissmiss Notification
+
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dissmiss) name:NOTIF_SHOULD_QUIT_SPLASH object:nil];
+    
+    UIView *leftPaddingView = [[UIView alloc]initWithFrame:CGRectMake(_mobileNumebrField.frame.origin.x, _mobileNumebrField.frame.origin.y, 10.0, _mobileNumebrField.frame.size.height)];
+    _mobileNumebrField.leftView = leftPaddingView;
+    _mobileNumebrField.leftViewMode = UITextFieldViewModeAlways;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,8 +44,17 @@
     _confirmBtn.layer.cornerRadius = _confirmBtn.frame.size.height /  2.0;
 }
 
+#pragma mark:- Vc Dissmissal
+
+- (void)dissmiss {
+    //[topViewController() dismissViewControllerAnimated:true completion:nil];
+}
+
+#pragma marK:- IBAction
 
 - (IBAction)confirmCickced:(id)sender {
+    
+    [_mobileNumebrField resignFirstResponder];
 
     if  (_mobileNumebrField.text.length  == 0 ) {
         [self showAlert: nil message:@"Mobile Number Field is empty" okayHandler:^{}];
@@ -46,15 +66,14 @@
         [self showAlert: nil message:@"Mobile Number Should be 10 Digits" okayHandler:^{}];
         return;
     }
-    
-    
+
     NSString *mobNum = self.mobileNumebrField.text;
     _paymentParams[@"mobileNumber"] = mobNum;
-
     [self gotoSplash];
 }
 
-    
+#pragma mark:- Goto Splash
+
 - (void)gotoSplash {
 
     NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];

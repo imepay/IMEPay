@@ -14,11 +14,19 @@ typedef void(^failureBlock)(NSDictionary *);
 
 @interface SplashViewController : UIViewController
 
-    @property (weak, nonatomic) IBOutlet UIImageView *logoView;
-    @property (strong, nonatomic) NSDictionary *paymentParams;
-    @property (nonatomic, copy) void(^successBlock)(NSDictionary *info);
-    @property (nonatomic, copy) void(^failureBlock)(NSDictionary *info);
-    
-    @property (nonatomic, strong) NSString *mobileNumber;
+#pragma mark:- IBOutlet
+
+@property (weak, nonatomic) IBOutlet UIImageView *logoView;
+
+@property (strong, nonatomic) NSDictionary *paymentParams;
+
+#pragma marK:- Success Failure Handlers
+
+@property (nonatomic, copy) void(^successBlock)(NSDictionary *info);
+@property (nonatomic, copy) void(^failureBlock)(NSDictionary *info);
+
+//MARK:- Mobile Number Passed
+
+@property (nonatomic, strong) NSString *mobileNumber;
     
 @end

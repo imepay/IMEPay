@@ -11,12 +11,15 @@
 
 @interface OTPConfirmationViewController : UIViewController
 
+#pragma mark:- IBOutlets
+
 @property (weak, nonatomic) IBOutlet UITextField *otpField;
 @property (weak, nonatomic) IBOutlet UIButton *confirmBtn;
 
-@property (nonatomic, strong) NSMutableDictionary *paymentParams;
-
+@property (nonatomic, strong) NSDictionary *paymentParams;
 @property (nonatomic, strong) NSString* PIN;
+
+#pragma mark:- Success/Failure Handlers
 
 @property (nonatomic, copy) successBlock success;
 @property (nonatomic, copy) failureBlock failure;

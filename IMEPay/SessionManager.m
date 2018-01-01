@@ -14,7 +14,7 @@
 @implementation SessionManager
 
 + (id)sharedInstance {
-    // structure used to test whether the block has completed or not
+
     static dispatch_once_t p = 0;
     // initialize sharedObject as nil (first call only)
     __strong static SessionManager *_sharedObject = nil;
@@ -28,7 +28,15 @@
 
 - (void)setAuthorization:(NSString *)username password:(NSString *)password {
     [self setRequestSerializer:[AFJSONRequestSerializer serializer]];
+    
+    [self setResponseSerializer:[AFJSONResponseSerializer serializer]];
+
     [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    self.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[ @"text/html", @"application/json"]];
+    
+    self.responseSerializer.stringEncoding = NSUTF8StringEncoding;
+
     [self.requestSerializer setAuthorizationHeaderFieldWithUsername:username password:password];
 }
 

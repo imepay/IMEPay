@@ -136,10 +136,10 @@
             </objects>
             <point key="canvasLocation" x="-506.39999999999998" y="136.28185907046478"/>
         </scene>
-        <!--Confirm Payment View Controller-->
+        <!--Pin Confirm Payment View Controller-->
         <scene sceneID="jvS-4N-JNl">
             <objects>
-                <viewController storyboardIdentifier="ConfirmPaymentViewController" id="35I-JZ-bcR" customClass="ConfirmPaymentViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PinConfirmPaymentViewController" id="35I-JZ-bcR" customClass="PinConfirmPaymentViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="o60-Nt-OI4"/>
                         <viewControllerLayoutGuide type="bottom" id="SNg-xE-BBp"/>
@@ -377,7 +377,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDq-sM-PQf">
                                         <rect key="frame" x="80" y="242" width="195" height="50"/>

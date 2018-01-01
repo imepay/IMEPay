@@ -8,12 +8,14 @@
 
 #import "SplashViewController.h"
 #import "IMPApiManager.h"
-#import "ConfirmPaymentViewController.h"
+#import "PinConfirmPaymentViewController.h"
 #import "Helper.h"
 #import "UIViewController+Alert.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 
 @interface SplashViewController ()
+
+//MARK:- API Manager
 
 @property (nonatomic, strong) IMPApiManager *apiManager;
 
@@ -21,23 +23,21 @@
 
 @implementation SplashViewController
 
+#pragma mark:- Vc Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _logoView.alpha = 0.0;
-    _apiManager = [IMPApiManager new];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dissmiss) name:NOTIF_SHOULD_QUIT_SPLASH object:nil];
-    [self fetchToken];
-    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
-}
+    [self setupUI];
 
-- (void)dissmiss {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    _apiManager = [IMPApiManager new];
+
+    [self fetchToken];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+
     [UIView animateWithDuration:1 delay:0.2 options:UIViewAnimationOptionRepeat | UIViewAnimationOptionAutoreverse animations:^{
         _logoView.alpha = 1.0;
     } completion:^(BOOL finished) {
@@ -45,13 +45,35 @@
     }];
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)setupUI {
+    _logoView.alpha = 0.0;
+     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+}
+
+#pragma mark:- Vc Dissmissal
+
+- (void)dissmiss {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark:- API Calls
+
 - (void)fetchToken {
     
     NSDictionary *params = @{ @"MerchantCode": _paymentParams[@"merchantCode"],
                               @"Amount" : _paymentParams[@"amount"],
                               @"RefId" : _paymentParams[@"referenceId"],
                               };
+    
+    NSLog(@"payment params fetch token %@", params);
+    
     [SVProgressHUD showWithStatus:@"Preparing for payment.."];
+
     [_apiManager getToken:params success:^(NSDictionary *tokenInfo) {
         NSString *tokenId = tokenInfo[@"TokenId"];
         [_paymentParams setValue:tokenId forKey:@"token"];
@@ -81,7 +103,7 @@
         NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
 
-        ConfirmPaymentViewController *paymentVc = (ConfirmPaymentViewController *) [sb instantiateViewControllerWithIdentifier:@"ConfirmPaymentViewController"];
+        PinConfirmPaymentViewController *paymentVc = (PinConfirmPaymentViewController *) [sb instantiateViewControllerWithIdentifier:@"PinConfirmPaymentViewController"];
         paymentVc.paymentParams = _paymentParams;
         
         paymentVc.successBlock = _successBlock;
@@ -96,12 +118,6 @@
             [self fetchToken];
         }];
     }];
-}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

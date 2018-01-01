@@ -11,10 +11,14 @@
 
 @interface MobileNumberViewController : UIViewController
 
+#pragma mark:- IBOutlets
+
 @property (weak, nonatomic) IBOutlet UITextField *mobileNumebrField;    
 @property (weak, nonatomic) IBOutlet UIButton *confirmBtn;
 
 @property (strong, nonatomic) NSMutableDictionary *paymentParams;
+
+#pragma mark:- Success/ Failure Handlers
 
 @property (nonatomic, copy) successBlock success;
 @property (nonatomic, copy) failureBlock failure;

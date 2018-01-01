@@ -29,10 +29,13 @@
 
 - (void)pay:(NSString *)userName password:(NSString *)password  merchantCode:(NSString *)merchantCode merchantName: (NSString *)merchantName  merchantUrl:(NSString *)merchantUrl amount:(NSString *)amount customerMobileNumber:(NSString *)customerMobileNumber referenceId: (NSString *)referenceId module: (NSString *)module success: (void(^)(NSDictionary *transactionInfo))success failure: (void(^)(NSDictionary *transactionInfo))failure {
 
-    NSString *curatedRefId = [referenceId  stringByReplacingOccurrencesOfString:@" " withString:@"_"];    
-    NSData *dataTake2 =
-    [@"gottopay" dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *curatedRefId = [referenceId  stringByReplacingOccurrencesOfString:@" " withString:@"_"];
     
+    NSString *curatedMerchantName = [merchantName stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+
+    NSData *dataTake2 =
+    [module dataUsingEncoding:NSUTF8StringEncoding];
+
     // Convert to Base64 data
     NSData *base64Data = [dataTake2 base64EncodedDataWithOptions:0];
     
@@ -41,7 +44,7 @@
     _paymentParams = [NSMutableDictionary dictionaryWithDictionary: @{ @"userName": userName ? userName : @"",
                                                                         @"password": password ? password : @"",
                                                                         @"merchantCode" : merchantCode ? merchantCode : @"",
-                                                                        @"merchantName" : merchantName ? merchantName : @"",
+                                                                        @"merchantName" : curatedMerchantName ? curatedMerchantName : @"",
                                                                        @"merchantUrl": merchantUrl ? merchantUrl : @"",
                                                                         @"amount" : amount ? amount : @"",
                                                                         @"referenceId" : curatedRefId ? curatedRefId : @"",
@@ -50,11 +53,8 @@
                                                                         }];
     SessionManager *sessionManager = [SessionManager sharedInstance];
     [sessionManager setAuthorization:userName password:password];
-    [sessionManager setModule:module];
-
-   // [self gotoSplashwithSuccess:success failure:failure];
+    [sessionManager setModule:base64Module];
     [self gotoMobileNumberVc:success failure:failure];
-
 }
 
 - (void)gotoSplashwithSuccess: (void(^)(NSDictionary *transactionInfo))success failure: (void(^)(NSDictionary *transactionInfo))failure  {
@@ -67,7 +67,6 @@
     splashVc.successBlock = success;
     splashVc.failureBlock = failure;
     [topViewController() presentViewController:splashVc animated:YES completion:nil];
-
 }
 
 - (void)gotoMobileNumberVc: (void(^)(NSDictionary *transactionInfo))success failure: (void(^)(NSDictionary *transactionInfo))failure {
@@ -80,7 +79,6 @@
     mobileNumVc.success  = success;
     mobileNumVc.failure = failure;
     [topViewController() presentViewController:mobileNumVc animated:YES completion:nil];
-    
 }
 
 @end
