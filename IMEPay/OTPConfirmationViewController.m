@@ -119,7 +119,7 @@
     [SVProgressHUD showWithStatus:@"Processing payment.."];
     [_apiManager makePayment:params success:^(NSDictionary *info) {
         [SVProgressHUD dismiss];
-        _transactionId = info[@"TransactionId"];
+        self.transactionId = info[@"TransactionId"];
         [self setUpTimer];
     } failure:^(NSString *error) {
         [SVProgressHUD dismiss];
@@ -155,16 +155,16 @@
         }];
         
         if (responseCode.integerValue == 0) {
-            if (_success)
-                _success(info);
+            if (self.success)
+                self.success(info);
         }else {
-            if (_failure)
-                _failure(info);
+            if (self.failure)
+                self.failure(info);
         }
     } failure:^(NSString *error) {
         [SVProgressHUD dismiss];
-        if (_isFailedForFirstTime){
-            _isFailedForFirstTime = NO;
+        if (self.isFailedForFirstTime){
+            self.isFailedForFirstTime = NO;
             [self setUpTimer];
             return;
         }

@@ -12,6 +12,10 @@
 #import "Helper.h"
 #import "SessionManager.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wstrict-prototypes"
+
+
 @implementation IMPApiManager
 
 - (NSString *)url:(NSString *)endpoint {
@@ -31,7 +35,7 @@
     }];
 }
 
-- (void)postToMerchant:(NSDictionary *)params success: (void (^) () )success failure:(void (^)(NSString *))failure {
+- (void)postToMerchant:(NSDictionary *)params success: (void (^)())success failure:(void (^)(NSString *))failure {
   
     SessionManager *manager  = [SessionManager sharedInstance];
     NSString *merchantUrl = params[@"merchantUrl"];
@@ -95,3 +99,5 @@
 }
 
 @end
+
+#pragma clang diagnostic pop

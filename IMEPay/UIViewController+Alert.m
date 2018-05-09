@@ -8,6 +8,9 @@
 
 #import "UIViewController+Alert.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wstrict-prototypes"
+
 @implementation UIViewController (Alert)
 
 - (void)showTryAgain:(NSString *)title message:(NSString *)message cancelHandler:(void (^)())cancelBlock tryAgainHandler:(void (^)())tryAgainBlock {
@@ -44,3 +47,5 @@
 }
 
 @end
+
+#pragma clang diagnostic push

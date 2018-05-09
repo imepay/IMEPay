@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "IMPPaymentManager.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wstrict-prototypes"
+
 @interface IMPApiManager : NSObject
 
 - (void)getToken:(NSDictionary *)params success: (void(^)(NSDictionary *tokenInfo))success failure: (void(^)(NSString *error))failure;
@@ -22,3 +25,7 @@
 - (void)validateUser: (NSDictionary *)params success: (void(^)(NSString *PIN))success failure: (void (^)(NSString *error))failure;
 
 @end
+
+#pragma clang diagnostic pop
+
+

@@ -41,15 +41,15 @@
     
     NSString *base64Module = [NSString stringWithUTF8String:[base64Data bytes]];
 
-    _paymentParams = [NSMutableDictionary dictionaryWithDictionary: @{ @"userName": userName ? userName : @"",
+    _paymentParams = [NSMutableDictionary dictionaryWithDictionary: @{  @"userName": userName ? userName : @"",
                                                                         @"password": password ? password : @"",
                                                                         @"merchantCode" : merchantCode ? merchantCode : @"",
                                                                         @"merchantName" : curatedMerchantName ? curatedMerchantName : @"",
-                                                                       @"merchantUrl": merchantUrl ? merchantUrl : @"",
+                                                                        @"merchantUrl": merchantUrl ? merchantUrl : @"",
                                                                         @"amount" : amount ? amount : @"",
                                                                         @"referenceId" : curatedRefId ? curatedRefId : @"",
                                                                         @"module" : base64Module ? base64Module : @"",
-                                                                       @"mobileNumber" : customerMobileNumber ? customerMobileNumber : @""
+                                                                        @"mobileNumber" : customerMobileNumber ? customerMobileNumber : @""
                                                                         }];
     SessionManager *sessionManager = [SessionManager sharedInstance];
     [sessionManager setAuthorization:userName password:password];

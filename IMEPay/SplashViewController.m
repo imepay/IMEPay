@@ -39,7 +39,7 @@
     [super viewDidAppear:animated];
 
     [UIView animateWithDuration:1 delay:0.2 options:UIViewAnimationOptionRepeat | UIViewAnimationOptionAutoreverse animations:^{
-        _logoView.alpha = 1.0;
+         self.logoView.alpha = 1.0;
     } completion:^(BOOL finished) {
         
     }];
@@ -76,7 +76,7 @@
 
     [_apiManager getToken:params success:^(NSDictionary *tokenInfo) {
         NSString *tokenId = tokenInfo[@"TokenId"];
-        [_paymentParams setValue:tokenId forKey:@"token"];
+        [self.paymentParams setValue:tokenId forKey:@"token"];
         [self postToMerchant];
     } failure:^(NSString *error) {
         [SVProgressHUD dismiss];
@@ -104,10 +104,10 @@
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
 
         PinConfirmPaymentViewController *paymentVc = (PinConfirmPaymentViewController *) [sb instantiateViewControllerWithIdentifier:@"PinConfirmPaymentViewController"];
-        paymentVc.paymentParams = _paymentParams;
+        paymentVc.paymentParams = self.paymentParams;
         
-        paymentVc.successBlock = _successBlock;
-        paymentVc.failureBlock = _failureBlock;
+        paymentVc.successBlock = self.successBlock;
+        paymentVc.failureBlock = self.failureBlock;
         
         [topViewController() presentViewController:paymentVc animated:YES completion:nil];
     } failure:^(NSString *error) {
