@@ -38,8 +38,9 @@
 
     // Convert to Base64 data
     NSData *base64Data = [dataTake2 base64EncodedDataWithOptions:0];
-    
-    NSString *base64Module = [NSString stringWithUTF8String:[base64Data bytes]];
+
+    NSString *base64Module = [[NSString alloc]initWithData:base64Data encoding:NSUTF8StringEncoding];
+
 
     _paymentParams = [NSMutableDictionary dictionaryWithDictionary: @{  @"userName": userName ? userName : @"",
                                                                         @"password": password ? password : @"",

@@ -24,4 +24,8 @@ typedef enum : NSInteger {
 
 - (void)setModule:(NSString *)moduleString;
 
+- (NSString *)module;
+
+- (NSDictionary *)headers;
+
 @end

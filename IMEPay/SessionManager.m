@@ -21,6 +21,7 @@
     // executes a block object once and only once for the lifetime of an application
     dispatch_once(&p, ^{
         _sharedObject = [SessionManager manager];
+        //_sharedObject.useBasicAuthentication = YES
     });
     // returns the same object each time
      return _sharedObject;
@@ -38,10 +39,27 @@
     self.responseSerializer.stringEncoding = NSUTF8StringEncoding;
 
     [self.requestSerializer setAuthorizationHeaderFieldWithUsername:username password:password];
+
 }
 
 - (void)setModule:(NSString *)moduleString {
+    
+    NSLog(@"MODULE STRING %@", moduleString);
+    
     [self.requestSerializer setValue:moduleString forHTTPHeaderField:@"Module"];
+}
+
+- (NSString *)module {
+
+    NSString *moduleString = (NSString *)[self.requestSerializer valueForKey:@"Module"];
+    return moduleString;
+
+}
+
+- (NSDictionary *)headers {
+
+    return  self.requestSerializer.HTTPRequestHeaders;
+
 }
 
 @end

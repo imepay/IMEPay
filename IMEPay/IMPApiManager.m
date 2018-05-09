@@ -27,8 +27,16 @@
 
 - (void)getToken:(NSDictionary *)params success:(void(^)(NSDictionary *tokenInfo))success failure: (void (^) (NSString *error))failure {
     SessionManager *manager = [SessionManager sharedInstance];
+    
+    //NSLog(@"module string %@", [manager module]);
+    
+    NSLog(@"headers %@", [manager headers]);
+    
     NSString *url = [self url:EP_GET_TOKEN];
     [manager POST:url parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSLog(@"GET TOKEN RESPONSE %@", responseObject);
+        
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(error.localizedDescription);
@@ -38,8 +46,8 @@
 - (void)postToMerchant:(NSDictionary *)params success: (void (^)())success failure:(void (^)(NSString *))failure {
   
     SessionManager *manager  = [SessionManager sharedInstance];
-    NSString *merchantUrl = params[@"merchantUrl"];
-    [manager POST:merchantUrl parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
+    //NSString *merchantUrl = params[@"merchantUrl"];
+    [manager POST:EP_POST_TO_MERCHANT parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"POST TO MERCHANT RESPONSE %@", responseObject);
         success();
