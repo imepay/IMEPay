@@ -91,23 +91,55 @@
     NSDictionary *params = @{ @"TokenId": _paymentParams[@"token"],
                               @"MerchantCode": _paymentParams[@"merchantCode"],
                               @"Amount" : _paymentParams[@"amount"],
-                              @"ReferenceId" : _paymentParams[@"referenceId"],
-                              @"merchantUrl": _paymentParams[@"merchantUrl"]
+                              @"ReferenceId" : _paymentParams[@"referenceId"]
+                              
                               };
-    
-    [_apiManager postToMerchant:params success:^{
-        
+
+    NSLog(@"mercharnt URL post params %@", params);
+
+    NSString *merchantPaymentUrl = _paymentParams[@"merchantUrl"];
+    NSLog(@"Merchant Payment URL %@", merchantPaymentUrl);
+
+    if (merchantPaymentUrl == nil) {
+        return;
+    }
+
+//    [_apiManager postToMerchant: merchantPaymentUrl  parameters: params success:^{
+//
+//        [SVProgressHUD dismiss];
+//        NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
+//        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
+//
+//        PinConfirmPaymentViewController *paymentVc = (PinConfirmPaymentViewController *) [sb instantiateViewControllerWithIdentifier:@"PinConfirmPaymentViewController"];
+//        paymentVc.paymentParams = self.paymentParams;
+//
+//        paymentVc.successBlock = self.successBlock;
+//        paymentVc.failureBlock = self.failureBlock;
+//
+//        [topViewController() presentViewController:paymentVc animated:YES completion:nil];
+//    } failure:^(NSString *error) {
+//        [SVProgressHUD dismiss];
+//        [self showTryAgain:@"Oops!" message:error cancelHandler:^{
+//            [self dissmiss];
+//        } tryAgainHandler:^{
+//            [self fetchToken];
+//        }];
+//    }];
+
+    [_apiManager postToMerchant:merchantPaymentUrl parameters:params success:^{
+
         [SVProgressHUD dismiss];
         NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
 
         PinConfirmPaymentViewController *paymentVc = (PinConfirmPaymentViewController *) [sb instantiateViewControllerWithIdentifier:@"PinConfirmPaymentViewController"];
         paymentVc.paymentParams = self.paymentParams;
-        
+
         paymentVc.successBlock = self.successBlock;
         paymentVc.failureBlock = self.failureBlock;
-        
+
         [topViewController() presentViewController:paymentVc animated:YES completion:nil];
+
     } failure:^(NSString *error) {
         [SVProgressHUD dismiss];
         [self showTryAgain:@"Oops!" message:error cancelHandler:^{

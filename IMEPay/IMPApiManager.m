@@ -42,10 +42,10 @@
     }];
 }
 
-- (void)postToMerchant:(NSDictionary *)params success: (void (^)(void))success failure:(void (^)(NSString *))failure {
+- (void)postToMerchant: (NSString *)merchantUrl parameters: (NSDictionary *)params success: (void (^)())success failure:(void (^)(NSString *))failure {
   
     SessionManager *manager  = [SessionManager sharedInstance];
-    [manager POST:EP_POST_TO_MERCHANT parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
+    [manager POST:merchantUrl parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"POST TO MERCHANT RESPONSE %@", responseObject);
         success();
