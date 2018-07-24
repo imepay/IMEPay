@@ -15,7 +15,6 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wstrict-prototypes"
 
-
 @implementation IMPApiManager
 
 - (NSString *)url:(NSString *)endpoint {
@@ -43,10 +42,9 @@
     }];
 }
 
-- (void)postToMerchant:(NSDictionary *)params success: (void (^)())success failure:(void (^)(NSString *))failure {
+- (void)postToMerchant:(NSDictionary *)params success: (void (^)(void))success failure:(void (^)(NSString *))failure {
   
     SessionManager *manager  = [SessionManager sharedInstance];
-    //NSString *merchantUrl = params[@"merchantUrl"];
     [manager POST:EP_POST_TO_MERCHANT parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"POST TO MERCHANT RESPONSE %@", responseObject);
@@ -81,29 +79,21 @@
     SessionManager *manager  = [SessionManager sharedInstance];
     [manager POST:[self url:EP_VALIDATE_USER] parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"validate user response %@", responseObject);
-
         if (responseObject != nil) {
             NSDictionary *responseDic = (NSDictionary *)responseObject;
-            
             NSString *OTP =  (NSString *)responseDic[@"Otp"];
-        
             NSNumber *responseCode = (NSNumber *)responseDic[@"ResponseCode"];
-            
             if (responseCode.integerValue == 100) {
-                
                 success(OTP);
-
             }else {
                 NSString *responseDescription = responseDic[@"ResponseDescription"];
                 failure(responseDescription);
             }
         }
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"validate user error %@", error.localizedDescription);
         failure(error.localizedDescription);
     }];
-
 }
 
 @end

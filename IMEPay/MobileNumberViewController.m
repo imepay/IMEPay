@@ -18,20 +18,15 @@
 
 @implementation MobileNumberViewController
 
-#pragma marK:- Vc Lifecycle
+#pragma mark:- Vc Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-
     //MARK:- Should Dissmiss Notification
 
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dissmiss) name:NOTIF_SHOULD_QUIT_SPLASH object:nil];
-    
-    UIView *leftPaddingView = [[UIView alloc]initWithFrame:CGRectMake(_mobileNumebrField.frame.origin.x, _mobileNumebrField.frame.origin.y, 10.0, _mobileNumebrField.frame.size.height)];
-    _mobileNumebrField.leftView = leftPaddingView;
-    _mobileNumebrField.leftViewMode = UITextFieldViewModeAlways;
+    [self setupUI];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,6 +37,17 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     _confirmBtn.layer.cornerRadius = _confirmBtn.frame.size.height /  2.0;
+}
+
+- (void)setupUI {
+
+    UIView *leftPaddingView = [[UIView alloc]initWithFrame:CGRectMake(_mobileNumebrField.frame.origin.x, _mobileNumebrField.frame.origin.y, 10.0, _mobileNumebrField.frame.size.height)];
+    _mobileNumebrField.leftView = leftPaddingView;
+    _mobileNumebrField.leftViewMode = UITextFieldViewModeAlways;
+
+    //ScrollView ContentSize
+
+    //[_scrollView setContentSize:CGSizeMake(_scrollView.contentSize.width, 350.0)];
 }
 
 #pragma mark:- Vc Dissmissal

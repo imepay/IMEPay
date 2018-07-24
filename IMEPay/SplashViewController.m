@@ -29,9 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setupUI];
-
     _apiManager = [IMPApiManager new];
-
     [self fetchToken];
 }
 

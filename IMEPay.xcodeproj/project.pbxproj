@@ -26,14 +26,13 @@
 		AF591D6F1F16176F0051AF81 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF591D6D1F16176F0051AF81 /* SplashViewController.m */; };
 		AF591D781F1749D90051AF81 /* IMPPaymentManager.h in Headers */ = {isa = PBXBuildFile; fileRef = AF591D761F1749D90051AF81 /* IMPPaymentManager.h */; };
 		AF591D791F1749D90051AF81 /* IMPPaymentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF591D771F1749D90051AF81 /* IMPPaymentManager.m */; };
-		AF591D7B1F176C500051AF81 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = AF591D7A1F176C500051AF81 /* logo.png */; };
 		AF591D7E1F178B870051AF81 /* UIViewController+Alert.h in Headers */ = {isa = PBXBuildFile; fileRef = AF591D7C1F178B860051AF81 /* UIViewController+Alert.h */; };
 		AF591D7F1F178B870051AF81 /* UIViewController+Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = AF591D7D1F178B860051AF81 /* UIViewController+Alert.m */; };
+		AF90DC122106FAC100BD6ADE /* logo_new.png in Resources */ = {isa = PBXBuildFile; fileRef = AF90DC112106FAC100BD6ADE /* logo_new.png */; };
 		AFC37E4D1FF641E600DDB921 /* MobileNumberViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AFC37E4B1FF641E600DDB921 /* MobileNumberViewController.h */; };
 		AFC37E4E1FF641E600DDB921 /* MobileNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC37E4C1FF641E600DDB921 /* MobileNumberViewController.m */; };
 		AFC37E511FF641F300DDB921 /* OTPConfirmationViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AFC37E4F1FF641F300DDB921 /* OTPConfirmationViewController.h */; };
 		AFC37E521FF641F300DDB921 /* OTPConfirmationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC37E501FF641F300DDB921 /* OTPConfirmationViewController.m */; };
-		AFC37E541FF6428500DDB921 /* logo_new.png in Resources */ = {isa = PBXBuildFile; fileRef = AFC37E531FF6428500DDB921 /* logo_new.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,14 +69,13 @@
 		AF591D6D1F16176F0051AF81 /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
 		AF591D761F1749D90051AF81 /* IMPPaymentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPPaymentManager.h; sourceTree = "<group>"; };
 		AF591D771F1749D90051AF81 /* IMPPaymentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMPPaymentManager.m; sourceTree = "<group>"; };
-		AF591D7A1F176C500051AF81 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		AF591D7C1F178B860051AF81 /* UIViewController+Alert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Alert.h"; sourceTree = "<group>"; };
 		AF591D7D1F178B860051AF81 /* UIViewController+Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Alert.m"; sourceTree = "<group>"; };
+		AF90DC112106FAC100BD6ADE /* logo_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_new.png; sourceTree = "<group>"; };
 		AFC37E4B1FF641E600DDB921 /* MobileNumberViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileNumberViewController.h; sourceTree = "<group>"; };
 		AFC37E4C1FF641E600DDB921 /* MobileNumberViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobileNumberViewController.m; sourceTree = "<group>"; };
 		AFC37E4F1FF641F300DDB921 /* OTPConfirmationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OTPConfirmationViewController.h; sourceTree = "<group>"; };
 		AFC37E501FF641F300DDB921 /* OTPConfirmationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OTPConfirmationViewController.m; sourceTree = "<group>"; };
-		AFC37E531FF6428500DDB921 /* logo_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_new.png; sourceTree = "<group>"; };
 		E064C17E9A102B906C4CB15B /* Pods_IMEPayTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IMEPayTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E77B5FBB9D421AE21FF9B248 /* Pods-IMEPay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMEPay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IMEPay/Pods-IMEPay.debug.xcconfig"; sourceTree = "<group>"; };
 		ECC41FF7777EA4CC2EA418FD /* Pods-IMEPayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMEPayTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IMEPayTests/Pods-IMEPayTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -162,9 +160,8 @@
 			isa = PBXGroup;
 			children = (
 				AF591D5F1F15DC540051AF81 /* Main.storyboard */,
-				AF591D7A1F176C500051AF81 /* logo.png */,
+				AF90DC112106FAC100BD6ADE /* logo_new.png */,
 				A96A260A1FF6496F007A8D62 /* splash_back.png */,
-				AFC37E531FF6428500DDB921 /* logo_new.png */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -259,7 +256,6 @@
 				AF591D381F15D7FC0051AF81 /* Frameworks */,
 				AF591D391F15D7FC0051AF81 /* Headers */,
 				AF591D3A1F15D7FC0051AF81 /* Resources */,
-				312D4ECADD998F4F4DD29092 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -279,7 +275,6 @@
 				AF591D421F15D7FC0051AF81 /* Frameworks */,
 				AF591D431F15D7FC0051AF81 /* Resources */,
 				94B651CBEE5D0A492695B0E9 /* [CP] Embed Pods Frameworks */,
-				13B625C05351117582A1DC2A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -335,10 +330,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF591D7B1F176C500051AF81 /* logo.png in Resources */,
+				AF90DC122106FAC100BD6ADE /* logo_new.png in Resources */,
 				A96A260B1FF6496F007A8D62 /* splash_back.png in Resources */,
 				AF591D601F15DC540051AF81 /* Main.storyboard in Resources */,
-				AFC37E541FF6428500DDB921 /* logo_new.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,49 +346,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		13B625C05351117582A1DC2A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IMEPayTests/Pods-IMEPayTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		216CBE605C98E78890B4C5CB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IMEPayTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		312D4ECADD998F4F4DD29092 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IMEPay/Pods-IMEPay-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3EC95079D5FA3A08D1F18CB2 /* [CP] Check Pods Manifest.lock */ = {
@@ -403,13 +370,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IMEPay-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		94B651CBEE5D0A492695B0E9 /* [CP] Embed Pods Frameworks */ = {
@@ -418,9 +388,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-IMEPayTests/Pods-IMEPayTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
