@@ -45,6 +45,8 @@
 - (void)postToMerchant: (NSString *)merchantUrl parameters: (NSDictionary *)params success: (void (^)())success failure:(void (^)(NSString *))failure {
   
     SessionManager *manager  = [SessionManager sharedInstance];
+    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+
     [manager POST:merchantUrl parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"POST TO MERCHANT RESPONSE %@", responseObject);

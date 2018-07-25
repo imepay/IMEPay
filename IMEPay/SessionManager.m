@@ -34,7 +34,8 @@
 
     [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
-    self.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[ @"text/html", @"application/json"]];
+   // self.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[ @"text/html", @"application/json"]];
+    self.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[@"application/json"]];
     
     self.responseSerializer.stringEncoding = NSUTF8StringEncoding;
 

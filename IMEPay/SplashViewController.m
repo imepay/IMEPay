@@ -86,6 +86,8 @@
     }];
 }
 
+
+
 - (void)postToMerchant {
     
     NSDictionary *params = @{ @"TokenId": _paymentParams[@"token"],
@@ -94,7 +96,6 @@
                               @"ReferenceId" : _paymentParams[@"referenceId"]
                               
                               };
-
     NSLog(@"mercharnt URL post params %@", params);
 
     NSString *merchantPaymentUrl = _paymentParams[@"merchantUrl"];
@@ -104,28 +105,6 @@
         return;
     }
 
-//    [_apiManager postToMerchant: merchantPaymentUrl  parameters: params success:^{
-//
-//        [SVProgressHUD dismiss];
-//        NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
-//        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
-//
-//        PinConfirmPaymentViewController *paymentVc = (PinConfirmPaymentViewController *) [sb instantiateViewControllerWithIdentifier:@"PinConfirmPaymentViewController"];
-//        paymentVc.paymentParams = self.paymentParams;
-//
-//        paymentVc.successBlock = self.successBlock;
-//        paymentVc.failureBlock = self.failureBlock;
-//
-//        [topViewController() presentViewController:paymentVc animated:YES completion:nil];
-//    } failure:^(NSString *error) {
-//        [SVProgressHUD dismiss];
-//        [self showTryAgain:@"Oops!" message:error cancelHandler:^{
-//            [self dissmiss];
-//        } tryAgainHandler:^{
-//            [self fetchToken];
-//        }];
-//    }];
-
     [_apiManager postToMerchant:merchantPaymentUrl parameters:params success:^{
 
         [SVProgressHUD dismiss];
@@ -134,7 +113,6 @@
 
         PinConfirmPaymentViewController *paymentVc = (PinConfirmPaymentViewController *) [sb instantiateViewControllerWithIdentifier:@"PinConfirmPaymentViewController"];
         paymentVc.paymentParams = self.paymentParams;
-
         paymentVc.successBlock = self.successBlock;
         paymentVc.failureBlock = self.failureBlock;
 
@@ -145,7 +123,7 @@
         [self showTryAgain:@"Oops!" message:error cancelHandler:^{
             [self dissmiss];
         } tryAgainHandler:^{
-            [self fetchToken];
+            [self postToMerchant];
         }];
     }];
 }
