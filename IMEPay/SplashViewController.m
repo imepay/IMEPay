@@ -106,26 +106,32 @@
     }
 
     [_apiManager postToMerchant:cleanUrl parameters:params success:^{
-
         [SVProgressHUD dismiss];
-        NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
-        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
-
-        PinConfirmPaymentViewController *paymentVc = (PinConfirmPaymentViewController *) [sb instantiateViewControllerWithIdentifier:@"PinConfirmPaymentViewController"];
-        paymentVc.paymentParams = self.paymentParams;
-        paymentVc.successBlock = self.successBlock;
-        paymentVc.failureBlock = self.failureBlock;
-
-        [topViewController() presentViewController:paymentVc animated:YES completion:nil];
-
+        [self gotoPinConfirmationVc];
     } failure:^(NSString *error) {
         [SVProgressHUD dismiss];
+//        [self gotoPinConfirmationVc];
+//        return;
         [self showTryAgain:@"Oops!" message:error cancelHandler:^{
             [self dissmiss];
         } tryAgainHandler:^{
             [self postToMerchant];
         }];
     }];
+}
+
+#pragma mark:- Goto Pin confirmation
+
+- (void)gotoPinConfirmationVc {
+
+    NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
+    PinConfirmPaymentViewController *paymentVc = (PinConfirmPaymentViewController *) [sb instantiateViewControllerWithIdentifier:@"PinConfirmPaymentViewController"];
+    paymentVc.paymentParams = self.paymentParams;
+    paymentVc.successBlock = self.successBlock;
+    paymentVc.failureBlock = self.failureBlock;
+    [topViewController() presentViewController:paymentVc animated:YES completion:nil];
+
 }
 
 @end
