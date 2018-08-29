@@ -12,13 +12,17 @@
 #import "SplashViewController.h"
 #import "Helper.h"
 
-@interface MobileNumberViewController()
+#define MOBILE_NUMBER_LENGTH 10
+
+@interface MobileNumberViewController()<UITextFieldDelegate>
 
 @end
 
 #pragma mark:- MobileNumberViewController implementation
 
 @implementation MobileNumberViewController
+
+
 
 #pragma mark:- Vc Lifecycle
 
@@ -30,6 +34,7 @@
 
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dissmissVc) name:NOTIF_SHOULD_QUIT_SPLASH object:nil];
     [self setupUI];
+    _mobileNumebrField.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,20 +45,14 @@
 - (void)setupUI {
     [self addCancelButton];
     _confirmBtn.layer.cornerRadius = _confirmBtn.frame.size.height /  2.0;
+    [_mobileNumebrField addStandardLeftPadding];
 }
-
-//#pragma mark:- Vc Dissmissal
-//
-//- (void)dissmiss {
-//    //[topViewController() dismissViewControllerAnimated:true completion:nil];
-//}
 
 #pragma marK:- IBAction
 
 - (IBAction)confirmCickced:(id)sender {
-    
-    [_mobileNumebrField resignFirstResponder];
 
+    [_mobileNumebrField resignFirstResponder];
     if  (_mobileNumebrField.text.length  == 0 ) {
         [self showAlert: nil message:@"Mobile Number Field is empty" okayHandler:^{}];
         return;
@@ -82,6 +81,16 @@
     splashVc.successBlock = _success;
     splashVc.failureBlock = _failure;
     [topViewController() presentViewController:splashVc animated:YES completion:nil];
+}
+
+#pragma mark:- UITextFieldDelegate
+
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+
+    if (string.length == 0) {
+        return YES;
+    }
+    return range.location < MOBILE_NUMBER_LENGTH;
 }
 
 @end

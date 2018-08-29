@@ -10,4 +10,6 @@
 
 @interface BaseTextField : UITextField
 
+- (void)addStandardLeftPadding;
+
 @end

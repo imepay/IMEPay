@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SplashViewController.h"
 #import "BaseViewController.h"
+#import "BaseTextField.h"
 
 #pragma mark:- View Controller to take users mobile number
 
@@ -17,7 +18,7 @@
 #pragma mark:- IBOutlets
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UITextField *mobileNumebrField;    
+@property (weak, nonatomic) IBOutlet BaseTextField *mobileNumebrField;
 @property (weak, nonatomic) IBOutlet UIButton *confirmBtn;
 
 @property (strong, nonatomic) NSMutableDictionary *paymentParams;

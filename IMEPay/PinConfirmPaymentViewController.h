@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseTextField.h"
 
 #define PIN_MAX_LENGTH 4
 
@@ -17,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *mobileNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *merchantNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;
-@property (weak, nonatomic) IBOutlet UITextField *pinField;
+@property (weak, nonatomic) IBOutlet BaseTextField* pinField;
 
 @property (strong, nonatomic) NSDictionary *paymentParams;
 

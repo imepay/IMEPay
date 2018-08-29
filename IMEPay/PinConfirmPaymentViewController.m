@@ -15,8 +15,6 @@
 #import "OTPConfirmationViewController.h"
 #import "Helper.h"
 
-
-
 @interface PinConfirmPaymentViewController () <UITextFieldDelegate>
 
 //MARK:- API Manager
@@ -38,12 +36,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setupUI];
-
     _apiManager = [IMPApiManager new];
-    
+
     _pinField.delegate = self;
     _isFailedForFirstTime = YES;
-
     IQKeyboardManager.sharedManager.enable = YES;
 }
 
@@ -51,10 +47,7 @@
     _mobileNumberLabel.text = _paymentParams[@"mobileNumber"];
     _amountLabel.text = _paymentParams [@"amount"];
     _merchantNameLabel.text = _paymentParams[@"merchantName"];
-    
-    UIView *leftPaddingView = [[UIView alloc]initWithFrame:CGRectMake(_pinField.frame.origin.x, _pinField.frame.origin.y, 10.0, _pinField.frame.size.height)];
-    _pinField.leftView = leftPaddingView;
-    _pinField.leftViewMode = UITextFieldViewModeAlways;
+    [_pinField addStandardLeftPadding];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,86 +60,12 @@
 - (IBAction)confirm:(id)sender {
 
     [self.view endEditing:YES];
-
     if (_pinField.text.length == 0 || _pinField.text.length < 4) {
         [self showAlert:@"" message:@"Please enter valid PIN (4 digits)" okayHandler:nil];
         return;
     }
-
     [self gotoOTPConfirmation];
 }
-
-//- (void)makePayment {
-//    NSDictionary *params = @{ @"MerchantCode": _paymentParams[@"merchantCode"],
-//                              @"Amount" : _paymentParams[@"amount"],
-//                              @"RefId" : _paymentParams[@"referenceId"],
-//                              @"TokenId": _paymentParams[@"token"],
-//                              @"Pin" : _pinField.text,
-//                              @"Msisdn" : _paymentParams[@"mobileNumber"]
-//                              };
-//    [SVProgressHUD showWithStatus:@"Processing payment.."];
-//    [_apiManager makePayment:params success:^(NSDictionary *info) {
-//        [SVProgressHUD dismiss];
-//        _transactionId = info[@"TransactionId"];
-//        [self setUpTimer];
-//    } failure:^(NSString *error) {
-//        [SVProgressHUD dismiss];
-//        [self showTryAgain:@"Oops!" message:error cancelHandler:^{
-//            [self dissmissAndNotify];
-//        } tryAgainHandler:^{
-//            [self makePayment];
-//        }];
-//    }];
-//}
-//
-//- (void)setUpTimer {
-//    [SVProgressHUD showWithStatus:@"Processing payment.."];
-//    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(confirmPayment) userInfo:nil repeats:NO];
-//}
-//
-//
-//- (void)confirmPayment {
-//
-//    NSDictionary *params = @{ @"MerchantCode": _paymentParams[@"merchantCode"],
-//                              @"TransactionId" : _transactionId,
-//                              @"Amount" : _paymentParams[@"amount"],
-//                              @"RefId" : _paymentParams[@"referenceId"],
-//                              @"Msisdn" : _paymentParams[@"mobileNumber"]
-//                              };
-//    [SVProgressHUD showWithStatus:@"Confirming.."];
-//
-//    [_apiManager confirmPayment:params success:^(NSDictionary *info) {
-//        [SVProgressHUD dismiss];
-//        NSNumber *responseCode = info[@"ResponseCode"];
-//        NSString *title = responseCode.integerValue == 0 ? @"Sucess!" : @"Sorry!";
-//
-//        [self showAlert:title message:info[@"ResponseDescription"] okayHandler:^{
-//            [self dissmissAndNotify];
-//        }];
-//
-//        if (responseCode.integerValue == 0) {
-//           if (_successBlock)
-//            _successBlock(info);
-//        }else {
-//           if (_failureBlock)
-//            _failureBlock(info);
-//        }
-//    } failure:^(NSString *error) {
-//        [SVProgressHUD dismiss];
-//        if (_isFailedForFirstTime){
-//            _isFailedForFirstTime = NO;
-//            [self setUpTimer];
-//            return;
-//        }
-//
-//        [self showTryAgain:@"Oops!" message:error cancelHandler:^{
-//            [self dissmissAndNotify];
-//        } tryAgainHandler:^{
-//            [self confirmPayment];
-//        }];
-//    }];
-//}
-//
 
 #pragma mark:- Dissmiss and notify
 

@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "SplashViewController.h"
+#import "BaseTextField.h"
 
 @interface OTPConfirmationViewController : UIViewController
 
 #pragma mark:- IBOutlets
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UITextField *otpField;
+@property (weak, nonatomic) IBOutlet BaseTextField* otpField;
 @property (weak, nonatomic) IBOutlet UIButton *confirmBtn;
 
 @property (nonatomic, strong) NSDictionary *paymentParams;

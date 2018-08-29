@@ -22,9 +22,7 @@
 //MARK:- STATES
 
 @property (nonatomic, strong) NSString *OTP;
-
 @property (nonatomic, strong) NSString *transactionId;
-
 @property (nonatomic, assign) BOOL isFailedForFirstTime;
 
 @end
@@ -43,9 +41,7 @@
 }
 
 - (void)setupUI {
-    UIView *leftPaddingView = [[UIView alloc]initWithFrame:CGRectMake(_otpField.frame.origin.x, _otpField.frame.origin.y, 10.0, _otpField.frame.size.height)];
-    _otpField.leftView = leftPaddingView;
-    _otpField.leftViewMode = UITextFieldViewModeAlways;
+    [_otpField addStandardLeftPadding];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -91,7 +87,8 @@
          self.OTP = OTP;
          [SVProgressHUD dismiss];
     } failure:^(NSString *error) {
-          [SVProgressHUD dismiss];
+        [SVProgressHUD dismiss];
+        [self showAlert:@"Error!" message:error okayHandler:^{}];
     }];
 }
 
