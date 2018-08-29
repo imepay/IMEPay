@@ -7,14 +7,16 @@
 //
 
 #import "MobileNumberViewController.h"
-#import "UIViewController+Alert.h"
+#import "UIViewController+Extensions.h"
 #import "IMPPaymentManager.h"
 #import "SplashViewController.h"
 #import "Helper.h"
 
-@interface MobileNumberViewController ()
+@interface MobileNumberViewController()
 
 @end
+
+#pragma mark:- MobileNumberViewController implementation
 
 @implementation MobileNumberViewController
 
@@ -23,9 +25,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
     //MARK:- Should Dissmiss Notification
 
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dissmiss) name:NOTIF_SHOULD_QUIT_SPLASH object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dissmissVc) name:NOTIF_SHOULD_QUIT_SPLASH object:nil];
     [self setupUI];
 }
 
@@ -33,28 +36,17 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-    
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
+
+- (void)setupUI {
+    [self addCancelButton];
     _confirmBtn.layer.cornerRadius = _confirmBtn.frame.size.height /  2.0;
 }
 
-- (void)setupUI {
-
-    UIView *leftPaddingView = [[UIView alloc]initWithFrame:CGRectMake(_mobileNumebrField.frame.origin.x, _mobileNumebrField.frame.origin.y, 10.0, _mobileNumebrField.frame.size.height)];
-    _mobileNumebrField.leftView = leftPaddingView;
-    _mobileNumebrField.leftViewMode = UITextFieldViewModeAlways;
-
-    //ScrollView ContentSize
-
-    //[_scrollView setContentSize:CGSizeMake(_scrollView.contentSize.width, 350.0)];
-}
-
-#pragma mark:- Vc Dissmissal
-
-- (void)dissmiss {
-    //[topViewController() dismissViewControllerAnimated:true completion:nil];
-}
+//#pragma mark:- Vc Dissmissal
+//
+//- (void)dissmiss {
+//    //[topViewController() dismissViewControllerAnimated:true completion:nil];
+//}
 
 #pragma marK:- IBAction
 

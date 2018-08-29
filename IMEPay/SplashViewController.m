@@ -10,7 +10,7 @@
 #import "IMPApiManager.h"
 #import "PinConfirmPaymentViewController.h"
 #import "Helper.h"
-#import "UIViewController+Alert.h"
+#import "UIViewController+Extensions.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 
 @interface SplashViewController ()
@@ -67,9 +67,7 @@
                               @"Amount" : _paymentParams[@"amount"],
                               @"RefId" : _paymentParams[@"referenceId"],
                               };
-    
     NSLog(@"payment params fetch token %@", params);
-    
     [SVProgressHUD showWithStatus:@"Preparing for payment.."];
 
     [_apiManager getToken:params success:^(NSDictionary *tokenInfo) {
@@ -86,18 +84,14 @@
     }];
 }
 
-
-
 - (void)postToMerchant {
     
     NSDictionary *params = @{ @"TokenId": _paymentParams[@"token"],
                               @"MerchantCode": _paymentParams[@"merchantCode"],
                               @"Amount" : _paymentParams[@"amount"],
                               @"ReferenceId" : _paymentParams[@"referenceId"]
-                              
                               };
     NSLog(@"mercharnt URL post params %@", params);
-
     NSString *merchantPaymentUrl = _paymentParams[@"merchantUrl"];
     NSLog(@"Merchant Payment URL %@", merchantPaymentUrl);
 

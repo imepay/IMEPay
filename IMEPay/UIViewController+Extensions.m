@@ -6,7 +6,7 @@
 //  Copyright © 2017 Manoj Karki. All rights reserved.
 //
 
-#import "UIViewController+Alert.h"
+#import "UIViewController+Extensions.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wstrict-prototypes"

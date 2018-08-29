@@ -8,7 +8,7 @@
 
 #import "PinConfirmPaymentViewController.h"
 #import "IMPApiManager.h"
-#import "UIViewController+Alert.h"
+#import "UIViewController+Extensions.h"
 #import "Config.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>

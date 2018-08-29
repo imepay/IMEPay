@@ -8,7 +8,7 @@
 
 #import "OTPConfirmationViewController.h"
 #import "IMPApiManager.h"
-#import "UIViewController+Alert.h"
+#import "UIViewController+Extensions.h"
 #import "Config.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "PinConfirmPaymentViewController.h"
@@ -43,11 +43,9 @@
 }
 
 - (void)setupUI {
-    
     UIView *leftPaddingView = [[UIView alloc]initWithFrame:CGRectMake(_otpField.frame.origin.x, _otpField.frame.origin.y, 10.0, _otpField.frame.size.height)];
     _otpField.leftView = leftPaddingView;
     _otpField.leftViewMode = UITextFieldViewModeAlways;
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,9 +56,8 @@
 #pragma mark:- IBAction
 
 - (IBAction)confirmClicked:(id)sender {
-    
-    [self.view endEditing:YES];
 
+    [self.view endEditing:YES];
     if ([_OTP isEqualToString:_otpField.text]) {
        [self makePayment];
         return;
@@ -68,7 +65,6 @@
 
     NSString *mobileNumber = _paymentParams[@"mobileNumber"];
     [self showAlert:@"Invalid OTP!" message:[NSString stringWithFormat:@"Please Enter the One Time Password sent to %@", mobileNumber] okayHandler:^{
-        
     }];
 }
 
@@ -83,17 +79,14 @@
 #pragma mark:- User Validation API Call
 
 - (void)validateUser {
+
     NSDictionary *params = @{ @"MerchantCode": _paymentParams[@"merchantCode"],
                               @"Pin" : _PIN,
                               @"Msisdn" : _paymentParams[@"mobileNumber"]
                               };
-    
     NSLog(@"validate user params %@", params);
-    
     [SVProgressHUD showWithStatus:@"Validating.."];
-    
     [_apiManager validateUser:params success:^(NSString *OTP) {
-        
         NSLog(@"OTP RECEIVED %@", OTP);
          self.OTP = OTP;
          [SVProgressHUD dismiss];
@@ -116,7 +109,21 @@
     [_apiManager makePayment:params success:^(NSDictionary *info) {
         [SVProgressHUD dismiss];
         self.transactionId = info[@"TransactionId"];
-        [self setUpTimer];
+        NSNumber *responseCode = info[@"ResponseCode"];
+        NSString *title = responseCode.integerValue == 0 ? @"Sucess!" : @"Sorry!";
+
+        [self showAlert:title message:info[@"ResponseDescription"] okayHandler:^{
+            [self dissmissAndNotify];
+        }];
+
+        if (responseCode.integerValue == 0) {
+            if (self.success)
+                self.success(info);
+        }else {
+            if (self.failure)
+                self.failure(info);
+        }
+        //[self setUpTimer];
     } failure:^(NSString *error) {
         [SVProgressHUD dismiss];
         [self showTryAgain:@"Oops!" message:error cancelHandler:^{
@@ -129,49 +136,35 @@
 
 - (void)setUpTimer {
     [SVProgressHUD showWithStatus:@"Processing payment.."];
-    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(confirmPayment) userInfo:nil repeats:NO];
+    //[NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(confirmPayment) userInfo:nil repeats:NO];
 }
 
-- (void)confirmPayment {
-    NSDictionary *params = @{ @"MerchantCode": _paymentParams[@"merchantCode"],
-                              @"TransactionId" : _transactionId,
-                              @"Amount" : _paymentParams[@"amount"],
-                              @"RefId" : _paymentParams[@"referenceId"],
-                              @"Msisdn" : _paymentParams[@"mobileNumber"]
-                              };
-    [SVProgressHUD showWithStatus:@"Confirming.."];
-    [_apiManager confirmPayment:params success:^(NSDictionary *info) {
-        [SVProgressHUD dismiss];
-        
-        NSNumber *responseCode = info[@"ResponseCode"];
-        NSString *title = responseCode.integerValue == 0 ? @"Sucess!" : @"Sorry!";
-        
-        [self showAlert:title message:info[@"ResponseDescription"] okayHandler:^{
-            [self dissmissAndNotify];
-        }];
-        
-        if (responseCode.integerValue == 0) {
-            if (self.success)
-                self.success(info);
-        }else {
-            if (self.failure)
-                self.failure(info);
-        }
-    } failure:^(NSString *error) {
-        [SVProgressHUD dismiss];
-        if (self.isFailedForFirstTime){
-            self.isFailedForFirstTime = NO;
-            [self setUpTimer];
-            return;
-        }
-        
-        [self showTryAgain:@"Oops!" message:error cancelHandler:^{
-            [self dissmissAndNotify];
-        } tryAgainHandler:^{
-            [self confirmPayment];
-        }];
-    }];
-}
+//- (void)confirmPayment {
+//    NSDictionary *params = @{ @"MerchantCode": _paymentParams[@"merchantCode"],
+//                              @"TransactionId" : _transactionId,
+//                              @"Amount" : _paymentParams[@"amount"],
+//                              @"RefId" : _paymentParams[@"referenceId"],
+//                              @"Msisdn" : _paymentParams[@"mobileNumber"]
+//                              };
+//    [SVProgressHUD showWithStatus:@"Confirming.."];
+//    [_apiManager confirmPayment:params success:^(NSDictionary *info) {
+//        [SVProgressHUD dismiss];
+//
+//    } failure:^(NSString *error) {
+//        [SVProgressHUD dismiss];
+//        if (self.isFailedForFirstTime){
+//            self.isFailedForFirstTime = NO;
+//            [self setUpTimer];
+//            return;
+//        }
+//
+//        [self showTryAgain:@"Oops!" message:error cancelHandler:^{
+//            [self dissmissAndNotify];
+//        } tryAgainHandler:^{
+//            [self confirmPayment];
+//        }];
+//    }];
+//}
 
 #pragma mark:- UITextField Delegates
 

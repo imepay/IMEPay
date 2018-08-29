@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "SplashViewController.h"
+#import "BaseViewController.h"
 
-@interface MobileNumberViewController : UIViewController
+#pragma mark:- View Controller to take users mobile number
+
+@interface MobileNumberViewController : BaseViewController
 
 #pragma mark:- IBOutlets
 

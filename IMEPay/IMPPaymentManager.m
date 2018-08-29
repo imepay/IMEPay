@@ -30,17 +30,12 @@
 - (void)pay:(NSString *)userName password:(NSString *)password  merchantCode:(NSString *)merchantCode merchantName: (NSString *)merchantName  merchantUrl:(NSString *)merchantUrl amount:(NSString *)amount customerMobileNumber:(NSString *)customerMobileNumber referenceId: (NSString *)referenceId module: (NSString *)module success: (void(^)(NSDictionary *transactionInfo))success failure: (void(^)(NSDictionary *transactionInfo))failure {
 
     NSString *curatedRefId = [referenceId  stringByReplacingOccurrencesOfString:@" " withString:@"_"];
-    
     NSString *curatedMerchantName = [merchantName stringByReplacingOccurrencesOfString:@" " withString:@"_"];
-
-    NSData *dataTake2 =
-    [module dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *dataTake2 = [module dataUsingEncoding:NSUTF8StringEncoding];
 
     // Convert to Base64 data
     NSData *base64Data = [dataTake2 base64EncodedDataWithOptions:0];
-
     NSString *base64Module = [[NSString alloc]initWithData:base64Data encoding:NSUTF8StringEncoding];
-
 
     _paymentParams = [NSMutableDictionary dictionaryWithDictionary: @{  @"userName": userName ? userName : @"",
                                                                         @"password": password ? password : @"",
@@ -74,12 +69,13 @@
 
     NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
-    
     MobileNumberViewController *mobileNumVc = (MobileNumberViewController *) [sb instantiateViewControllerWithIdentifier:@"MobileNumberViewController"];
     mobileNumVc.paymentParams = _paymentParams;
     mobileNumVc.success  = success;
     mobileNumVc.failure = failure;
-    [topViewController() presentViewController:mobileNumVc animated:YES completion:nil];
+    UINavigationController *mobileNumNavVc = [[UINavigationController alloc]initWithRootViewController:mobileNumVc];
+    mobileNumNavVc.navigationBar.tintColor = UIColor.blackColor;
+    [topViewController() presentViewController:mobileNumNavVc animated:YES completion:nil];
 }
 
 @end
