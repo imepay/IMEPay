@@ -10,6 +10,6 @@
 
 @interface BaseTextField : UITextField
 
-- (void)addStandardLeftPadding;
+@property (strong, nonatomic) IBInspectable NSString *themedPlaceholder;
 
 @end

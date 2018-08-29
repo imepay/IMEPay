@@ -29,12 +29,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
     //MARK:- Should Dissmiss Notification
 
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dissmissVc) name:NOTIF_SHOULD_QUIT_SPLASH object:nil];
     [self setupUI];
     _mobileNumebrField.delegate = self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self addLogoTitle];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,7 +49,6 @@
 - (void)setupUI {
     [self addCancelButton];
     _confirmBtn.layer.cornerRadius = _confirmBtn.frame.size.height /  2.0;
-    [_mobileNumebrField addStandardLeftPadding];
 }
 
 #pragma marK:- IBAction

@@ -73,8 +73,15 @@
     mobileNumVc.paymentParams = _paymentParams;
     mobileNumVc.success  = success;
     mobileNumVc.failure = failure;
+
     UINavigationController *mobileNumNavVc = [[UINavigationController alloc]initWithRootViewController:mobileNumVc];
+    [mobileNumNavVc.navigationBar setBackIndicatorTransitionMaskImage:[UIImage new]];
+    [mobileNumNavVc.navigationBar setShadowImage:[UIImage new]];
+    [mobileNumNavVc.navigationBar setBarTintColor:[UIColor whiteColor]];
     mobileNumNavVc.navigationBar.tintColor = UIColor.blackColor;
+    mobileNumNavVc.navigationBar.backgroundColor = [UIColor whiteColor];
+    [mobileNumNavVc.navigationBar setTranslucent:NO];
+
     [topViewController() presentViewController:mobileNumNavVc animated:YES completion:nil];
 }
 

@@ -41,7 +41,7 @@
 }
 
 - (void)setupUI {
-    [_otpField addStandardLeftPadding];
+    //[_otpField addStandardLeftPadding];
 }
 
 - (void)didReceiveMemoryWarning {
