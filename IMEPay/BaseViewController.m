@@ -19,12 +19,6 @@
 
 - (void)viewDidLoad {
 
-   self.navigationController.navigationBar.backIndicatorTransitionMaskImage = [UIImage new];
-    //navigationController?.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "back")
-
-    NSBundle *bundle = [NSBundle bundleForClass:[BaseViewController class]];
-    
-
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
 }
 
@@ -57,9 +51,7 @@
     NSBundle *bundle = [NSBundle bundleForClass:[BaseViewController class]];
 
     logoImageView.image = [UIImage imageNamed:@"logo_new.png" inBundle:bundle compatibleWithTraitCollection:nil];
-
     NSLog(@"nav image %@", logoImageView.image);
-
     [logoContainer addSubview:logoImageView];
     self.navigationItem.titleView = logoContainer;
 }

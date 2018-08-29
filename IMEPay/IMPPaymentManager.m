@@ -74,9 +74,18 @@
     mobileNumVc.success  = success;
     mobileNumVc.failure = failure;
 
+     UIImage *backImage = [[UIImage imageNamed:@"back.png" inBundle:bundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+
+    [[UINavigationBar appearance] setBackIndicatorImage:backImage];
+    [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:backImage];
+
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(-400.f, 0)
+                                                         forBarMetrics:UIBarMetricsDefault];
+
     UINavigationController *mobileNumNavVc = [[UINavigationController alloc]initWithRootViewController:mobileNumVc];
-    [mobileNumNavVc.navigationBar setBackIndicatorTransitionMaskImage:[UIImage new]];
-    [mobileNumNavVc.navigationBar setShadowImage:[UIImage new]];
+
+    NSLog(@"BACK IMAGE %@", backImage);
+
     [mobileNumNavVc.navigationBar setBarTintColor:[UIColor whiteColor]];
     mobileNumNavVc.navigationBar.tintColor = UIColor.blackColor;
     mobileNumNavVc.navigationBar.backgroundColor = [UIColor whiteColor];

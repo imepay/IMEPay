@@ -47,7 +47,6 @@
     _mobileNumberLabel.text = _paymentParams[@"mobileNumber"];
     _amountLabel.text = _paymentParams [@"amount"];
     _merchantNameLabel.text = _paymentParams[@"merchantName"];
-    //[_pinField addStandardLeftPadding];
 }
 
 - (void)didReceiveMemoryWarning {

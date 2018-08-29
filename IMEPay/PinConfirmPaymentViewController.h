@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseTextField.h"
+#import "BaseViewController.h"
 
 #define PIN_MAX_LENGTH 4
 
-@interface PinConfirmPaymentViewController : UIViewController
+@interface PinConfirmPaymentViewController : BaseViewController
 
 #pragma mark:- IBOutlets
 
