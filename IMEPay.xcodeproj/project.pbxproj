@@ -14,6 +14,9 @@
 		A96A260F1FF64FF4007A8D62 /* TransactionResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96A260D1FF64FF4007A8D62 /* TransactionResultViewController.m */; };
 		AF410618213694BA0011E45F /* UIViewController+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = AF410616213694BA0011E45F /* UIViewController+Extensions.h */; };
 		AF410619213694BA0011E45F /* UIViewController+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = AF410617213694BA0011E45F /* UIViewController+Extensions.m */; };
+		AF41061C213711860011E45F /* BaseButton.h in Headers */ = {isa = PBXBuildFile; fileRef = AF41061A213711860011E45F /* BaseButton.h */; };
+		AF41061D213711860011E45F /* BaseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AF41061B213711860011E45F /* BaseButton.m */; };
+		AF41061F21371B350011E45F /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = AF41061E21371B340011E45F /* back.png */; };
 		AF591D461F15D7FC0051AF81 /* IMEPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF591D3C1F15D7FC0051AF81 /* IMEPay.framework */; };
 		AF591D4B1F15D7FC0051AF81 /* IMEPayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AF591D4A1F15D7FC0051AF81 /* IMEPayTests.m */; };
 		AF591D4D1F15D7FC0051AF81 /* IMEPay.h in Headers */ = {isa = PBXBuildFile; fileRef = AF591D3F1F15D7FC0051AF81 /* IMEPay.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -59,6 +62,9 @@
 		AF3905411F18D775006D0D3C /* IQKeyboardManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IQKeyboardManager.framework; path = "../../../Library/Developer/Xcode/DerivedData/IMEPay-cdsklkzowxhsjkclcpipeyjinggu/Build/Products/Debug-iphonesimulator/IQKeyboardManager/IQKeyboardManager.framework"; sourceTree = "<group>"; };
 		AF410616213694BA0011E45F /* UIViewController+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Extensions.h"; sourceTree = "<group>"; };
 		AF410617213694BA0011E45F /* UIViewController+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Extensions.m"; sourceTree = "<group>"; };
+		AF41061A213711860011E45F /* BaseButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseButton.h; sourceTree = "<group>"; };
+		AF41061B213711860011E45F /* BaseButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseButton.m; sourceTree = "<group>"; };
+		AF41061E21371B340011E45F /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		AF591D3C1F15D7FC0051AF81 /* IMEPay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IMEPay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF591D3F1F15D7FC0051AF81 /* IMEPay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMEPay.h; sourceTree = "<group>"; };
 		AF591D401F15D7FC0051AF81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -171,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				AF591D5F1F15DC540051AF81 /* Main.storyboard */,
+				AF41061E21371B340011E45F /* back.png */,
 				AF90DC112106FAC100BD6ADE /* logo_new.png */,
 				A96A260A1FF6496F007A8D62 /* splash_back.png */,
 			);
@@ -216,6 +223,8 @@
 				AFA26AF3211D96300057F014 /* UITextField+UITextField_Extensions.m */,
 				AFA26AF6211D966C0057F014 /* BaseTextField.h */,
 				AFA26AF7211D966C0057F014 /* BaseTextField.m */,
+				AF41061A213711860011E45F /* BaseButton.h */,
+				AF41061B213711860011E45F /* BaseButton.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -250,6 +259,7 @@
 				AF591D781F1749D90051AF81 /* IMPPaymentManager.h in Headers */,
 				AF591D6E1F16176F0051AF81 /* SplashViewController.h in Headers */,
 				AF591D591F15DA870051AF81 /* Helper.h in Headers */,
+				AF41061C213711860011E45F /* BaseButton.h in Headers */,
 				AFC37E4D1FF641E600DDB921 /* MobileNumberViewController.h in Headers */,
 				A96A260E1FF64FF4007A8D62 /* TransactionResultViewController.h in Headers */,
 				AF591D651F15DD0E0051AF81 /* IMPApiManager.h in Headers */,
@@ -349,6 +359,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF41061F21371B350011E45F /* back.png in Resources */,
 				AF90DC122106FAC100BD6ADE /* logo_new.png in Resources */,
 				A96A260B1FF6496F007A8D62 /* splash_back.png in Resources */,
 				AF591D601F15DC540051AF81 /* Main.storyboard in Resources */,
@@ -438,6 +449,7 @@
 				AFA26AF5211D96300057F014 /* UITextField+UITextField_Extensions.m in Sources */,
 				AFC37E521FF641F300DDB921 /* OTPConfirmationViewController.m in Sources */,
 				AF591D791F1749D90051AF81 /* IMPPaymentManager.m in Sources */,
+				AF41061D213711860011E45F /* BaseButton.m in Sources */,
 				AF410619213694BA0011E45F /* UIViewController+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

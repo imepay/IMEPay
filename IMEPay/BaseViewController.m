@@ -17,6 +17,17 @@
 
 #define CANCEL_BTN_TITLE @"Cancel"
 
+- (void)viewDidLoad {
+
+   self.navigationController.navigationBar.backIndicatorTransitionMaskImage = [UIImage new];
+    //navigationController?.navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "back")
+
+    NSBundle *bundle = [NSBundle bundleForClass:[BaseViewController class]];
+    
+
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+}
+
 - (void)addCancelButton {
 
     UINavigationController *nav = self.navigationController;

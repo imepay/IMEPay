@@ -86,14 +86,14 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                     </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49v-93-6Zx">
-                                                        <rect key="frame" x="80" y="224.5" width="140" height="50"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49v-93-6Zx" customClass="BaseButton">
+                                                        <rect key="frame" x="114.5" y="224.5" width="71" height="50"/>
                                                         <color key="backgroundColor" red="0.84899538760000004" green="0.21595427389999999" blue="0.19198128580000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="uWG-DL-Nh3"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                        <state key="normal" title="CONFIRM">
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                        <state key="normal" title="Continue">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
@@ -104,14 +104,13 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="eef-J7-zwM" firstAttribute="top" secondItem="z7j-dO-uf9" secondAttribute="bottom" constant="29" id="12F-M4-q7l"/>
+                                                    <constraint firstItem="49v-93-6Zx" firstAttribute="centerX" secondItem="Xbw-VF-5Ae" secondAttribute="centerX" id="5WV-S0-uVH"/>
                                                     <constraint firstAttribute="bottom" secondItem="49v-93-6Zx" secondAttribute="bottom" constant="8" id="GQm-Be-gRv"/>
                                                     <constraint firstItem="E4t-l1-985" firstAttribute="leading" secondItem="z7j-dO-uf9" secondAttribute="leading" id="GZ9-NO-Ruu"/>
                                                     <constraint firstItem="z7j-dO-uf9" firstAttribute="top" secondItem="E4t-l1-985" secondAttribute="bottom" constant="10" id="Imq-8I-iaY"/>
                                                     <constraint firstItem="z7j-dO-uf9" firstAttribute="leading" secondItem="Xbw-VF-5Ae" secondAttribute="leading" constant="25" id="Jgd-iu-6ZS"/>
                                                     <constraint firstItem="49v-93-6Zx" firstAttribute="top" secondItem="eef-J7-zwM" secondAttribute="bottom" constant="45" id="Jmv-28-ywX"/>
-                                                    <constraint firstAttribute="trailing" secondItem="49v-93-6Zx" secondAttribute="trailing" constant="80" id="Mfn-HW-2xT"/>
                                                     <constraint firstItem="eef-J7-zwM" firstAttribute="leading" secondItem="z7j-dO-uf9" secondAttribute="leading" id="SSe-lw-Q9N"/>
-                                                    <constraint firstItem="49v-93-6Zx" firstAttribute="leading" secondItem="Xbw-VF-5Ae" secondAttribute="leading" constant="80" id="VRD-k8-qHa"/>
                                                     <constraint firstItem="E4t-l1-985" firstAttribute="trailing" secondItem="z7j-dO-uf9" secondAttribute="trailing" id="hYL-2h-IgC"/>
                                                     <constraint firstItem="E4t-l1-985" firstAttribute="top" secondItem="Xbw-VF-5Ae" secondAttribute="top" constant="45" id="jTt-bi-bZj"/>
                                                     <constraint firstItem="eef-J7-zwM" firstAttribute="trailing" secondItem="z7j-dO-uf9" secondAttribute="trailing" id="vgD-iP-iZL"/>
