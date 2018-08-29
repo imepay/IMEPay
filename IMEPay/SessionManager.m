@@ -29,38 +29,28 @@
 
 - (void)setAuthorization:(NSString *)username password:(NSString *)password {
     [self setRequestSerializer:[AFJSONRequestSerializer serializer]];
-    
     [self setResponseSerializer:[AFJSONResponseSerializer serializer]];
-
     [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    
    // self.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[ @"text/html", @"application/json"]];
     self.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[@"application/json"]];
-    
     self.responseSerializer.stringEncoding = NSUTF8StringEncoding;
-
     [self.requestSerializer setAuthorizationHeaderFieldWithUsername:username password:password];
 
 }
 
 - (void)setModule:(NSString *)moduleString {
-    
     NSLog(@"MODULE STRING %@", moduleString);
-    
     [self.requestSerializer setValue:moduleString forHTTPHeaderField:@"Module"];
 }
 
 - (NSString *)module {
-
-    NSString *moduleString = (NSString *)[self.requestSerializer valueForKey:@"Module"];
+    NSString *moduleString = (NSString *)[self.requestSerializer.HTTPRequestHeaders valueForKey:@"Module"];
+    NSLog(@"Request serializer module %@", moduleString);
     return moduleString;
-
 }
 
 - (NSDictionary *)headers {
-
     return  self.requestSerializer.HTTPRequestHeaders;
-
 }
 
 @end

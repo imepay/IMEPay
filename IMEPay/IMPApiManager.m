@@ -27,11 +27,13 @@
 - (void)getToken:(NSDictionary *)params success:(void(^)(NSDictionary *tokenInfo))success failure: (void (^) (NSString *error))failure {
     SessionManager *manager = [SessionManager sharedInstance];
     
-    //NSLog(@"module string %@", [manager module]);
-    
+    NSLog(@"module string %@", [manager module]);
     NSLog(@"headers %@", [manager headers]);
-    
+
     NSString *url = [self url:EP_GET_TOKEN];
+
+    NSLog(@"GET TOKEN API ENDPOINT %@", url);
+
     [manager POST:url parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSLog(@"GET TOKEN RESPONSE %@", responseObject);

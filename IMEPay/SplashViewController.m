@@ -92,14 +92,20 @@
                               @"ReferenceId" : _paymentParams[@"referenceId"]
                               };
     NSLog(@"mercharnt URL post params %@", params);
+
+    NSLog(@"PAYMENT PARAMS BEFORE POST TO MERCHANT %@", _paymentParams);
+
     NSString *merchantPaymentUrl = _paymentParams[@"merchantUrl"];
-    NSLog(@"Merchant Payment URL %@", merchantPaymentUrl);
+
+    NSString *cleanUrl = [merchantPaymentUrl stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
+
+    NSLog(@"Merchant Payment URL %@", cleanUrl);
 
     if (merchantPaymentUrl == nil) {
         return;
     }
 
-    [_apiManager postToMerchant:merchantPaymentUrl parameters:params success:^{
+    [_apiManager postToMerchant:cleanUrl parameters:params success:^{
 
         [SVProgressHUD dismiss];
         NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
