@@ -18,6 +18,8 @@
 		AF41061D213711860011E45F /* BaseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AF41061B213711860011E45F /* BaseButton.m */; };
 		AF41061F21371B350011E45F /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = AF41061E21371B340011E45F /* back.png */; };
 		AF4106212137D06B0011E45F /* review.png in Resources */ = {isa = PBXBuildFile; fileRef = AF4106202137D06B0011E45F /* review.png */; };
+		AF4106242137DBA80011E45F /* IMPMobileNumField.h in Headers */ = {isa = PBXBuildFile; fileRef = AF4106222137DBA80011E45F /* IMPMobileNumField.h */; };
+		AF4106252137DBA80011E45F /* IMPMobileNumField.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4106232137DBA80011E45F /* IMPMobileNumField.m */; };
 		AF591D461F15D7FC0051AF81 /* IMEPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF591D3C1F15D7FC0051AF81 /* IMEPay.framework */; };
 		AF591D4B1F15D7FC0051AF81 /* IMEPayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AF591D4A1F15D7FC0051AF81 /* IMEPayTests.m */; };
 		AF591D4D1F15D7FC0051AF81 /* IMEPay.h in Headers */ = {isa = PBXBuildFile; fileRef = AF591D3F1F15D7FC0051AF81 /* IMEPay.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -67,6 +69,8 @@
 		AF41061B213711860011E45F /* BaseButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseButton.m; sourceTree = "<group>"; };
 		AF41061E21371B340011E45F /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		AF4106202137D06B0011E45F /* review.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = review.png; sourceTree = "<group>"; };
+		AF4106222137DBA80011E45F /* IMPMobileNumField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMPMobileNumField.h; sourceTree = "<group>"; };
+		AF4106232137DBA80011E45F /* IMPMobileNumField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMPMobileNumField.m; sourceTree = "<group>"; };
 		AF591D3C1F15D7FC0051AF81 /* IMEPay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IMEPay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF591D3F1F15D7FC0051AF81 /* IMEPay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMEPay.h; sourceTree = "<group>"; };
 		AF591D401F15D7FC0051AF81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -228,6 +232,8 @@
 				AFA26AF7211D966C0057F014 /* BaseTextField.m */,
 				AF41061A213711860011E45F /* BaseButton.h */,
 				AF41061B213711860011E45F /* BaseButton.m */,
+				AF4106222137DBA80011E45F /* IMPMobileNumField.h */,
+				AF4106232137DBA80011E45F /* IMPMobileNumField.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -261,6 +267,7 @@
 			files = (
 				AF591D781F1749D90051AF81 /* IMPPaymentManager.h in Headers */,
 				AF591D6E1F16176F0051AF81 /* SplashViewController.h in Headers */,
+				AF4106242137DBA80011E45F /* IMPMobileNumField.h in Headers */,
 				AF591D591F15DA870051AF81 /* Helper.h in Headers */,
 				AF41061C213711860011E45F /* BaseButton.h in Headers */,
 				AFC37E4D1FF641E600DDB921 /* MobileNumberViewController.h in Headers */,
@@ -455,6 +462,7 @@
 				AF591D791F1749D90051AF81 /* IMPPaymentManager.m in Sources */,
 				AF41061D213711860011E45F /* BaseButton.m in Sources */,
 				AF410619213694BA0011E45F /* UIViewController+Extensions.m in Sources */,
+				AF4106252137DBA80011E45F /* IMPMobileNumField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

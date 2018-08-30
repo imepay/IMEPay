@@ -76,7 +76,7 @@
                                                         <color key="textColor" red="0.92941176469999998" green="0.10980392160000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eef-J7-zwM" customClass="BaseTextField">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eef-J7-zwM">
                                                         <rect key="frame" x="25" y="139.5" width="250" height="40"/>
                                                         <color key="backgroundColor" red="0.92552006239999995" green="0.92546254400000005" blue="0.92548382279999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
