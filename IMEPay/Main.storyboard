@@ -171,10 +171,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="440"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eKx-I4-H0V" userLabel="contentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="407"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="417"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WR3-oS-yid">
-                                                <rect key="frame" x="25" y="10" width="270" height="215"/>
+                                                <rect key="frame" x="25" y="20" width="270" height="215"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="review.png" translatesAutoresizingMaskIntoConstraints="NO" id="rjx-eX-qEZ">
                                                         <rect key="frame" x="120" y="20" width="30" height="40"/>
@@ -284,13 +284,13 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your 4 digit wallet PIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWZ-8s-aWy">
-                                                <rect key="frame" x="25" y="245" width="270" height="17"/>
+                                                <rect key="frame" x="25" y="255" width="270" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter PIN" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AXB-jV-AQA" customClass="BaseTextField">
-                                                <rect key="frame" x="25" y="282" width="270" height="40"/>
+                                                <rect key="frame" x="25" y="292" width="270" height="40"/>
                                                 <color key="backgroundColor" red="0.92552006244659424" green="0.92546254396438599" blue="0.9254838228225708" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="mXy-9r-LW5"/>
@@ -300,7 +300,7 @@
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnq-5D-qMO" customClass="BaseButton">
-                                                <rect key="frame" x="128" y="347" width="63" height="50"/>
+                                                <rect key="frame" x="128" y="357" width="63" height="50"/>
                                                 <color key="backgroundColor" red="0.92407947779999999" green="0.1108545437" blue="0.13942053909999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="D6W-fC-xpc"/>
@@ -327,7 +327,7 @@
                                             <constraint firstItem="cWZ-8s-aWy" firstAttribute="leading" secondItem="eKx-I4-H0V" secondAttribute="leading" constant="25" id="d2e-9F-nLy"/>
                                             <constraint firstItem="AXB-jV-AQA" firstAttribute="top" secondItem="cWZ-8s-aWy" secondAttribute="bottom" constant="20" id="e3O-dP-B0D"/>
                                             <constraint firstAttribute="trailing" secondItem="cWZ-8s-aWy" secondAttribute="trailing" constant="25" id="tDI-rf-e4Q"/>
-                                            <constraint firstItem="WR3-oS-yid" firstAttribute="top" secondItem="eKx-I4-H0V" secondAttribute="top" constant="10" id="tOg-3c-unt"/>
+                                            <constraint firstItem="WR3-oS-yid" firstAttribute="top" secondItem="eKx-I4-H0V" secondAttribute="top" constant="20" id="tOg-3c-unt"/>
                                         </constraints>
                                     </view>
                                 </subviews>
