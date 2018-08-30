@@ -35,6 +35,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    [self addLogoTitle];
+
     [self setupUI];
     _apiManager = [IMPApiManager new];
 
