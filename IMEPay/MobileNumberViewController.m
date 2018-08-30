@@ -29,6 +29,7 @@
 
 
 #define MOBILENUM_FIELD_PLACEHOLDER @"Mobile Number"
+#define  COUNTRY_CODE @"+977"
 
 #pragma mark:- Vc Lifecycle
 
@@ -74,10 +75,40 @@
         return;
     }
 
+    [self showMobileNumberConfirmationAlert];
+
+}
+
+- (NSString *)formattedMobileNumber {
+
+    NSString *mobileNumber = [NSString stringWithFormat:@"%@ %@", COUNTRY_CODE, _mobileNumebrField.text];
+    return mobileNumber;
+
+}
+
+- (void)showMobileNumberConfirmationAlert {
+
+    UIAlertController *confirmationAlert = [UIAlertController alertControllerWithTitle:@"Is this mobile number correct?" message:[self formattedMobileNumber] preferredStyle:UIAlertControllerStyleAlert];
+
+    UIAlertAction *editAction = [UIAlertAction actionWithTitle:@"Edit" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self.mobileNumebrField becomeFirstResponder];
+    }];
+
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self proceed];
+    }];
+
+    [confirmationAlert addAction:editAction];
+    [confirmationAlert addAction:okAction];
+
+    [self presentViewController:confirmationAlert animated:YES completion:nil];
+}
+
+- (void)proceed {
+
     NSString *mobNum = self.mobileNumebrField.text;
     _paymentParams[@"mobileNumber"] = mobNum;
     [self fetchToken];
-    //[self gotoSplash];
 }
 
 #pragma mark:- Goto Splash

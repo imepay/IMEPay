@@ -37,7 +37,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self addLogoTitle];
-    [self addCloseButton];
+    [self addCancelButton];
 
     [_otpField setThemedPlaceholder:OTP_FIELD_PLACEHOLDER];
     _apiManager = [IMPApiManager new];

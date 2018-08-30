@@ -31,6 +31,7 @@
 @implementation PinConfirmPaymentViewController
 
 #define PIN_FIELD_PLACEHOLER @"Enter your PIN"
+#define CURRENCY_PREFIX @"Rs."
 
 #pragma mark:- VC Lifecycle
 
@@ -49,7 +50,7 @@
 
 - (void)setupUI {
     _mobileNumberLabel.text = _paymentParams[@"mobileNumber"];
-    _amountLabel.text = _paymentParams [@"amount"];
+    _amountLabel.text = [NSString stringWithFormat:@"%@ %@", CURRENCY_PREFIX, _paymentParams [@"amount"]];
     _merchantNameLabel.text = _paymentParams[@"merchantName"];
 }
 
@@ -105,7 +106,7 @@
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:mobileNumVc];
     nav.navigationBar.tintColor = UIColor.blackColor;
 
-    [self presentViewController:nav animated:YES completion:nil];
+    [self.navigationController pushViewController:mobileNumVc animated:YES];
 }
 
 @end
