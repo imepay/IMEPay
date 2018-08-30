@@ -48,13 +48,12 @@
     self.layer.shadowPath = shadowPath.CGPath;
 }
 
-- (void)setThemedPlaceholder:(NSString *)themedPlaceholder {
+- (void)setThemedPlaceholder:(NSString *)placeholderText {
 
-    NSMutableAttributedString *attributedPlaceholder = [[NSMutableAttributedString alloc]initWithString:themedPlaceholder];
+    NSMutableAttributedString *attributedPlaceholder = [[NSMutableAttributedString alloc]initWithString:placeholderText];
     UIColor *colorAttribute = [UIColor colorWithRed:155.0/255.0 green:155.0/255.0 blue:155.0/255.0 alpha:1.0];
-    UIFont *fontAttribute = [UIFont fontWithName:@"System" size:14.0];
 
-    [attributedPlaceholder addAttributes: @{ NSFontAttributeName: fontAttribute, NSForegroundColorAttributeName: colorAttribute }  range: NSMakeRange(0, themedPlaceholder.length)];
+    [attributedPlaceholder addAttributes: @{  NSForegroundColorAttributeName: colorAttribute }  range: NSMakeRange(0, placeholderText.length)];
     self.attributedPlaceholder = attributedPlaceholder;
 }
 

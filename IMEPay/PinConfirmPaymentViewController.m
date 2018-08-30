@@ -30,6 +30,8 @@
 
 @implementation PinConfirmPaymentViewController
 
+#define PIN_FIELD_PLACEHOLER @"Enter your PIN"
+
 #pragma mark:- VC Lifecycle
 
 - (void)viewDidLoad {
@@ -44,6 +46,7 @@
     _pinField.delegate = self;
     _isFailedForFirstTime = YES;
     IQKeyboardManager.sharedManager.enable = YES;
+    [_pinField setThemedPlaceholder:PIN_FIELD_PLACEHOLER];
 }
 
 - (void)setupUI {
@@ -100,7 +103,11 @@
     mobileNumVc.paymentParams = _paymentParams;
     mobileNumVc.success  = _successBlock;
     mobileNumVc.failure = _failureBlock;
-    [topViewController() presentViewController:mobileNumVc animated:YES completion:nil];
+
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:mobileNumVc];
+    nav.navigationBar.tintColor = UIColor.blackColor;
+
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 @end

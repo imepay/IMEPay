@@ -10,6 +10,6 @@
 
 @interface BaseTextField : UITextField
 
-@property (strong, nonatomic) IBInspectable NSString *themedPlaceholder;
+- (void)setThemedPlaceholder:(NSString *)placeholderText;
 
 @end

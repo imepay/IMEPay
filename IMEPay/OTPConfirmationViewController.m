@@ -29,19 +29,21 @@
 
 @implementation OTPConfirmationViewController
 
+#define OTP_FIELD_PLACEHOLDER @"Enter OTP"
+
 #pragma mark:- Vc Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setupUI];
+    [self addLogoTitle];
+    [self addCloseButton];
+
+    [_otpField setThemedPlaceholder:OTP_FIELD_PLACEHOLDER];
     _apiManager = [IMPApiManager new];
     _otpField.delegate = self;
     [self validateUser];
-}
 
-- (void)setupUI {
-    //[_otpField addStandardLeftPadding];
 }
 
 - (void)didReceiveMemoryWarning {

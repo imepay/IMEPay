@@ -13,6 +13,7 @@
 - (void)addCancelButton;
 - (void)dissmissVc;
 - (void)addLogoTitle;
+- (void)addCloseButton;
 
 @end
 

@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "SplashViewController.h"
 #import "BaseTextField.h"
+#import "BaseViewController.h"
 
-@interface OTPConfirmationViewController : UIViewController
+@interface OTPConfirmationViewController : BaseViewController
 
 #pragma mark:- IBOutlets
 

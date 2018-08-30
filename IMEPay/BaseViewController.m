@@ -16,6 +16,7 @@
 @implementation BaseViewController
 
 #define CANCEL_BTN_TITLE @"Cancel"
+#define CLOSE_BTN_TITLE @"Close"
 
 - (void)viewDidLoad {
 
@@ -54,6 +55,18 @@
     NSLog(@"nav image %@", logoImageView.image);
     [logoContainer addSubview:logoImageView];
     self.navigationItem.titleView = logoContainer;
+}
+
+- (void)addCloseButton {
+
+    UINavigationController *nav = self.navigationController;
+    if (nav == nil) {
+        return;
+    }
+
+    UIBarButtonItem *closeButton = [[UIBarButtonItem alloc]initWithTitle:CLOSE_BTN_TITLE style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonClicked)];
+    self.navigationItem.rightBarButtonItem = closeButton;
+
 }
 
 @end

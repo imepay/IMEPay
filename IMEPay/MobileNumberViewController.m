@@ -28,6 +28,7 @@
 @implementation MobileNumberViewController
 
 
+#define MOBILENUM_FIELD_PLACEHOLDER @"Mobile Number"
 
 #pragma mark:- Vc Lifecycle
 
@@ -54,6 +55,7 @@
 - (void)setupUI {
     [self addCancelButton];
     _confirmBtn.layer.cornerRadius = _confirmBtn.frame.size.height /  2.0;
+    [_mobileNumebrField setThemedPlaceholder:MOBILENUM_FIELD_PLACEHOLDER];
 }
 
 #pragma marK:- IBAction
