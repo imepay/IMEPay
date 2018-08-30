@@ -37,16 +37,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
     [self addLogoTitle];
-
     [self setupUI];
     _apiManager = [IMPApiManager new];
-
     _pinField.delegate = self;
     _isFailedForFirstTime = YES;
     IQKeyboardManager.sharedManager.enable = YES;
     [_pinField setThemedPlaceholder:PIN_FIELD_PLACEHOLER];
+     _infoContainer.layer.cornerRadius = 5.0;
 }
 
 - (void)setupUI {

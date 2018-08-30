@@ -20,6 +20,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *merchantNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;
 @property (weak, nonatomic) IBOutlet BaseTextField* pinField;
+@property (weak, nonatomic) IBOutlet UIView *infoContainer;
+
+
+
 
 @property (strong, nonatomic) NSDictionary *paymentParams;
 
