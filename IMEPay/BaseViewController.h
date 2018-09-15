@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Config.h"
 
 @interface BaseViewController: UIViewController
 
@@ -14,6 +15,8 @@
 - (void)dissmissVc;
 - (void)addLogoTitle;
 - (void)addCloseButton;
+- (void)addDissmissButton;
+- (void)addCancelButtonWithAlert;
 
 @end
 

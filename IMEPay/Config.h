@@ -18,6 +18,6 @@
 #define EP_CONFIRM @"/Confirm"
 #define EP_VALIDATE_USER @"/ValidateUser"
 
-#define NOTIF_SHOULD_QUIT_SPLASH @"NOTIF_SHOULD_QUIT_SPLASH"
+#define NOTIF_SHOULD_QUIT @"NOTIF_SHOULD_QUIT"
 
 #endif /* Config_h */

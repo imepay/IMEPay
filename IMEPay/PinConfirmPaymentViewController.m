@@ -11,7 +11,7 @@
 #import "UIViewController+Extensions.h"
 #import "Config.h"
 #import <SVProgressHUD/SVProgressHUD.h>
-#import <IQKeyboardManager/IQKeyboardManager.h>
+
 #import "OTPConfirmationViewController.h"
 #import "Helper.h"
 
@@ -39,11 +39,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self addLogoTitle];
+    [self addCancelButtonWithAlert];
+
     [self setupUI];
     _apiManager = [IMPApiManager new];
     _pinField.delegate = self;
     _isFailedForFirstTime = YES;
-    IQKeyboardManager.sharedManager.enable = YES;
+    //QKeyboardManager.sharedManager.enable = YES;
     [_pinField setThemedPlaceholder:PIN_FIELD_PLACEHOLER];
      _infoContainer.layer.cornerRadius = 5.0;
 }
@@ -75,7 +77,7 @@
 
 - (void)dissmissAndNotify {
     [self dismissViewControllerAnimated:YES completion:^{
-        [[NSNotificationCenter defaultCenter]postNotificationName:NOTIF_SHOULD_QUIT_SPLASH object:nil];
+        [[NSNotificationCenter defaultCenter]postNotificationName:NOTIF_SHOULD_QUIT object:nil];
     }];
 }
 
@@ -106,7 +108,7 @@
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:mobileNumVc];
     nav.navigationBar.tintColor = UIColor.blackColor;
 
-    [self.navigationController pushViewController:mobileNumVc animated:YES];
+    [self presentViewController:nav animated:true completion:nil];
 }
 
 @end

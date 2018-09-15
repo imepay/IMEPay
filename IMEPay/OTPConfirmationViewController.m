@@ -37,7 +37,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self addLogoTitle];
-    [self addCancelButton];
+    [self addDissmissButton];
 
     [_otpField setThemedPlaceholder:OTP_FIELD_PLACEHOLDER];
     _apiManager = [IMPApiManager new];
@@ -70,7 +70,7 @@
 
 - (void)dissmissAndNotify {
     [self dismissViewControllerAnimated:YES completion:^{
-        [[NSNotificationCenter defaultCenter]postNotificationName:NOTIF_SHOULD_QUIT_SPLASH object:nil];
+        [[NSNotificationCenter defaultCenter]postNotificationName:NOTIF_SHOULD_QUIT object:nil];
     }];
 }
 

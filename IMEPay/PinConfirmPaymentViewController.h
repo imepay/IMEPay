@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BaseTextField.h"
 #import "BaseViewController.h"
+//#import <IQKeyboardManager/IQKeyboardManager.h>
 
 #define PIN_MAX_LENGTH 4
 
@@ -21,9 +22,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;
 @property (weak, nonatomic) IBOutlet BaseTextField* pinField;
 @property (weak, nonatomic) IBOutlet UIView *infoContainer;
-
-
-
 
 @property (strong, nonatomic) NSDictionary *paymentParams;
 

@@ -69,6 +69,39 @@
 
 }
 
+- (void)addDissmissButton {
+
+    NSBundle *bundle = [NSBundle bundleForClass:[BaseViewController class]];
+    UIImage *dissmissLogo = [UIImage imageNamed:@"close.png" inBundle:bundle compatibleWithTraitCollection:nil];
+
+    UIBarButtonItem *dissmissBtn = [[UIBarButtonItem alloc]initWithImage:dissmissLogo style:UIBarButtonItemStylePlain target:self action:@selector(dissmissVc)];
+    self.navigationItem.rightBarButtonItem = dissmissBtn;
+
+}
+
+- (void)addCancelButtonWithAlert {
+
+    UIBarButtonItem *closeButton = [[UIBarButtonItem alloc]initWithTitle:CANCEL_BTN_TITLE style:UIBarButtonItemStylePlain target:self action:@selector(alertCancelButtonClicked)];
+    closeButton.tintColor = UIColor.blackColor;
+    self.navigationItem.rightBarButtonItem = closeButton;
+
+}
+
+- (void)alertCancelButtonClicked {
+
+    UIAlertController *confirmationAlert = [UIAlertController alertControllerWithTitle:@"Do you want to cancel payment ?" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleDefault handler:nil];
+
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[NSNotificationCenter defaultCenter]postNotificationName:NOTIF_SHOULD_QUIT object:nil];
+    }];
+
+    [confirmationAlert addAction:noAction];
+    [confirmationAlert addAction:okAction];
+    [self presentViewController:confirmationAlert animated:YES completion:nil];
+
+}
+
 @end
 
 

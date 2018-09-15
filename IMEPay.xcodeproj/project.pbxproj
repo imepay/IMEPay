@@ -20,6 +20,9 @@
 		AF4106212137D06B0011E45F /* review.png in Resources */ = {isa = PBXBuildFile; fileRef = AF4106202137D06B0011E45F /* review.png */; };
 		AF4106242137DBA80011E45F /* IMPMobileNumField.h in Headers */ = {isa = PBXBuildFile; fileRef = AF4106222137DBA80011E45F /* IMPMobileNumField.h */; };
 		AF4106252137DBA80011E45F /* IMPMobileNumField.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4106232137DBA80011E45F /* IMPMobileNumField.m */; };
+		AF582D3B2147AE3A0029867B /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = AF582D3A2147AE3A0029867B /* close.png */; };
+		AF582D3E2147B03E0029867B /* PinConfirmPaymentViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AF582D3C2147B03E0029867B /* PinConfirmPaymentViewController.h */; };
+		AF582D3F2147B03E0029867B /* PinConfirmPaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF582D3D2147B03E0029867B /* PinConfirmPaymentViewController.m */; };
 		AF591D461F15D7FC0051AF81 /* IMEPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF591D3C1F15D7FC0051AF81 /* IMEPay.framework */; };
 		AF591D4B1F15D7FC0051AF81 /* IMEPayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AF591D4A1F15D7FC0051AF81 /* IMEPayTests.m */; };
 		AF591D4D1F15D7FC0051AF81 /* IMEPay.h in Headers */ = {isa = PBXBuildFile; fileRef = AF591D3F1F15D7FC0051AF81 /* IMEPay.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -71,6 +74,9 @@
 		AF4106202137D06B0011E45F /* review.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = review.png; sourceTree = "<group>"; };
 		AF4106222137DBA80011E45F /* IMPMobileNumField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMPMobileNumField.h; sourceTree = "<group>"; };
 		AF4106232137DBA80011E45F /* IMPMobileNumField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMPMobileNumField.m; sourceTree = "<group>"; };
+		AF582D3A2147AE3A0029867B /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
+		AF582D3C2147B03E0029867B /* PinConfirmPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinConfirmPaymentViewController.h; sourceTree = "<group>"; };
+		AF582D3D2147B03E0029867B /* PinConfirmPaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinConfirmPaymentViewController.m; sourceTree = "<group>"; };
 		AF591D3C1F15D7FC0051AF81 /* IMEPay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IMEPay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF591D3F1F15D7FC0051AF81 /* IMEPay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMEPay.h; sourceTree = "<group>"; };
 		AF591D401F15D7FC0051AF81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -185,6 +191,7 @@
 				AF591D5F1F15DC540051AF81 /* Main.storyboard */,
 				AF41061E21371B340011E45F /* back.png */,
 				AF90DC112106FAC100BD6ADE /* logo_new.png */,
+				AF582D3A2147AE3A0029867B /* close.png */,
 				A96A260A1FF6496F007A8D62 /* splash_back.png */,
 				AF4106202137D06B0011E45F /* review.png */,
 			);
@@ -205,6 +212,8 @@
 		AF591D6B1F16175D0051AF81 /* Controlllers */ = {
 			isa = PBXGroup;
 			children = (
+				AF582D3C2147B03E0029867B /* PinConfirmPaymentViewController.h */,
+				AF582D3D2147B03E0029867B /* PinConfirmPaymentViewController.m */,
 				AF591D6C1F16176F0051AF81 /* SplashViewController.h */,
 				AF591D6D1F16176F0051AF81 /* SplashViewController.m */,
 				AFC37E4B1FF641E600DDB921 /* MobileNumberViewController.h */,
@@ -276,6 +285,7 @@
 				AFA26AF4211D96300057F014 /* UITextField+UITextField_Extensions.h in Headers */,
 				AF410618213694BA0011E45F /* UIViewController+Extensions.h in Headers */,
 				AF591D571F15D8700051AF81 /* Config.h in Headers */,
+				AF582D3E2147B03E0029867B /* PinConfirmPaymentViewController.h in Headers */,
 				AFC37E511FF641F300DDB921 /* OTPConfirmationViewController.h in Headers */,
 				AF591D691F15F5890051AF81 /* SessionManager.h in Headers */,
 				AF591D4D1F15D7FC0051AF81 /* IMEPay.h in Headers */,
@@ -372,6 +382,7 @@
 				AF41061F21371B350011E45F /* back.png in Resources */,
 				AF4106212137D06B0011E45F /* review.png in Resources */,
 				AF90DC122106FAC100BD6ADE /* logo_new.png in Resources */,
+				AF582D3B2147AE3A0029867B /* close.png in Resources */,
 				A96A260B1FF6496F007A8D62 /* splash_back.png in Resources */,
 				AF591D601F15DC540051AF81 /* Main.storyboard in Resources */,
 			);
@@ -456,6 +467,7 @@
 				AF591D6F1F16176F0051AF81 /* SplashViewController.m in Sources */,
 				AFC37E4E1FF641E600DDB921 /* MobileNumberViewController.m in Sources */,
 				AFA26AF9211D966C0057F014 /* BaseTextField.m in Sources */,
+				AF582D3F2147B03E0029867B /* PinConfirmPaymentViewController.m in Sources */,
 				A96A260F1FF64FF4007A8D62 /* TransactionResultViewController.m in Sources */,
 				AFA26AF5211D96300057F014 /* UITextField+UITextField_Extensions.m in Sources */,
 				AFC37E521FF641F300DDB921 /* OTPConfirmationViewController.m in Sources */,

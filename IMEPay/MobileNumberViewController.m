@@ -37,7 +37,7 @@
     [super viewDidLoad];
 
     //MARK:- Should Dissmiss Notification
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dissmissVc) name:NOTIF_SHOULD_QUIT_SPLASH object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dissmissVc) name:NOTIF_SHOULD_QUIT object:nil];
     [self setupUI];
     _mobileNumebrField.delegate = self;
     _apiManager = [IMPApiManager new];
@@ -168,13 +168,9 @@
                               @"ReferenceId" : _paymentParams[@"referenceId"]
                               };
     NSLog(@"mercharnt URL post params %@", params);
-
     NSLog(@"PAYMENT PARAMS BEFORE POST TO MERCHANT %@", _paymentParams);
-
     NSString *merchantPaymentUrl = _paymentParams[@"merchantUrl"];
-
     NSString *cleanUrl = [merchantPaymentUrl stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
-
     NSLog(@"Merchant Payment URL %@", cleanUrl);
 
     if (merchantPaymentUrl == nil) {
@@ -196,20 +192,20 @@
     }];
 }
 
-#pragma mark:- Goto Pin confirmation
+#pragma mark:- Goto Pin Confirmation
 
 - (void)gotoPinConfirmationVc {
 
     NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
-    PinConfirmPaymentViewController *paymentVc = (PinConfirmPaymentViewController *) [sb instantiateViewControllerWithIdentifier:@"PinConfirmPaymentViewController"];
-    paymentVc.paymentParams = self.paymentParams;
+    PinConfirmPaymentViewController *pinConfirmationVc = (PinConfirmPaymentViewController *) [sb instantiateViewControllerWithIdentifier:@"PinConfirmPaymentViewController"];
+    pinConfirmationVc.paymentParams = self.paymentParams;
+
+    UINavigationController *pinConfirmationNav = [[UINavigationController alloc]initWithRootViewController:pinConfirmationVc];
+
   //  paymentVc.successBlock = self.successBlock;
    // paymentVc.failureBlock = self.failureBlock;
-    [self.navigationController pushViewController:paymentVc animated:true];
-
+    [self.navigationController presentViewController:pinConfirmationNav animated:true completion:nil];
 }
-
-
 
 @end
