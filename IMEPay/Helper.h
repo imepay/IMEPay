@@ -8,15 +8,12 @@
 
 #import "Config.h"
 #import "SessionManager.h"
+#import "BaseViewController.h"
 
 #ifndef Helper_h
 #define Helper_h
 
 #define isNilORNull(obj) ((obj == (id)[NSNull null]) || !obj)
-
-//static inline  NSString* url(NSString *endpoint) {
-//  return [NSString stringWithFormat:@"%@%@",URL_BASE_TEST,endpoint];
-//}
 
 static inline UIViewController* topViewController() {
 
@@ -27,6 +24,16 @@ static inline UIViewController* topViewController() {
         topViewController = topViewController.presentedViewController;
     }
     return topViewController;
+}
+
+static inline UINavigationController *baseNav(UIViewController *rootVc) {
+
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:rootVc];
+    [nav.navigationBar setBarTintColor:[UIColor whiteColor]];
+    nav.navigationBar.tintColor = UIColor.blackColor;
+    nav.navigationBar.backgroundColor = [UIColor whiteColor];
+    [nav.navigationBar setTranslucent:NO];
+    return nav;
 }
 
 #endif /* Helper_h */

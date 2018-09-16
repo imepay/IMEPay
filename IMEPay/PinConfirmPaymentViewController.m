@@ -109,8 +109,7 @@
     otpValidationVc.success  = _success;
     otpValidationVc.failure = _failure;
 
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:otpValidationVc];
-    nav.navigationBar.tintColor = UIColor.blackColor;
+    UINavigationController *nav = baseNav(otpValidationVc);
     [self presentViewController:nav animated:true completion:nil];
 }
 

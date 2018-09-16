@@ -13,6 +13,9 @@
 typedef void(^successBlock)(IMPTransactionInfo *);
 typedef void(^failureBlock)(IMPTransactionInfo *, NSString *);
 
+#define TRAN_SUCCESS_CODE 0
+#define TRAN_FAILURE_CODE 1
+
 @import SVProgressHUD;
 
 @interface BaseViewController: UIViewController

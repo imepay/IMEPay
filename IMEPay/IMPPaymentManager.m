@@ -75,24 +75,26 @@
     mobileNumVc.success  = success;
     mobileNumVc.failure = failure;
 
-    UIImage *backImage = [[UIImage imageNamed:@"back.png" inBundle:bundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+//    UIImage *backImage = [[UIImage imageNamed:@"back.png" inBundle:bundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+//
+//    UINavigationController *mobileNumNavVc = [[UINavigationController alloc]initWithRootViewController:mobileNumVc];
+//
+//    [mobileNumNavVc.navigationBar setBackIndicatorImage:backImage];
+//
+//    [mobileNumNavVc.navigationBar setBackIndicatorTransitionMaskImage:backImage];
+//
+//    [mobileNumNavVc.navigationItem.backBarButtonItem setTitlePositionAdjustment:UIOffsetMake(-400.f, 0) forBarMetrics:UIBarMetricsDefault];
+//
+//    NSLog(@"BACK IMAGE %@", backImage);
+//
+//    [mobileNumNavVc.navigationBar setBarTintColor:[UIColor whiteColor]];
+//    mobileNumNavVc.navigationBar.tintColor = UIColor.blackColor;
+//    mobileNumNavVc.navigationBar.backgroundColor = [UIColor whiteColor];
+//    [mobileNumNavVc.navigationBar setTranslucent:NO];
 
-    UINavigationController *mobileNumNavVc = [[UINavigationController alloc]initWithRootViewController:mobileNumVc];
+    UINavigationController *mobileNumVcNav = baseNav(mobileNumVc);
 
-    [mobileNumNavVc.navigationBar setBackIndicatorImage:backImage];
-
-    [mobileNumNavVc.navigationBar setBackIndicatorTransitionMaskImage:backImage];
-
-    [mobileNumNavVc.navigationItem.backBarButtonItem setTitlePositionAdjustment:UIOffsetMake(-400.f, 0) forBarMetrics:UIBarMetricsDefault];
-
-    NSLog(@"BACK IMAGE %@", backImage);
-
-    [mobileNumNavVc.navigationBar setBarTintColor:[UIColor whiteColor]];
-    mobileNumNavVc.navigationBar.tintColor = UIColor.blackColor;
-    mobileNumNavVc.navigationBar.backgroundColor = [UIColor whiteColor];
-    [mobileNumNavVc.navigationBar setTranslucent:NO];
-
-    [topViewController() presentViewController:mobileNumNavVc animated:YES completion:nil];
+    [topViewController() presentViewController:mobileNumVcNav animated:YES completion:nil];
 }
 
 @end

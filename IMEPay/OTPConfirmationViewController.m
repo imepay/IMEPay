@@ -13,6 +13,7 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "PinConfirmPaymentViewController.h"
 #import "TransactionResultViewController.h"
+#import "Helper.h"
 
 @interface OTPConfirmationViewController ()<UITextFieldDelegate>
 
@@ -21,7 +22,6 @@
 @property (nonatomic, strong) IMPApiManager *apiManager;
 
 //MARK:- STATES
-
 
 @property (nonatomic, strong) NSString *transactionId;
 @property (nonatomic, assign) BOOL isFailedForFirstTime;
@@ -38,7 +38,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self addLogoTitle];
-    [self addDissmissButton];
+    [self addCancelButtonWithAlert];
 
     [_otpField setThemedPlaceholder:OTP_FIELD_PLACEHOLDER];
 
@@ -91,26 +91,45 @@
         [self dissmissHud];
         self.transactionId = info[@"TransactionId"];
         NSNumber *responseCode = info[@"ResponseCode"];
-        NSString *title = responseCode.integerValue == 0 ? @"Success!" : @"Sorry!";
 
-        [self showAlert:title message:info[@"ResponseDescription"] okayHandler:^{
+//        [self gotoFinalPage:info];
+//        return;
+        if (responseCode.integerValue == TRAN_SUCCESS_CODE) {
             [self gotoFinalPage:info];
-        }];
+        }else {
+            [self showAlert:@"Error!" message:info[@"ResponseDescription"] okayHandler:^{
 
-//        if (responseCode.integerValue == 0) {
-//            if (self.success)
-//                self.success(info);
-//        }else {
-//            if (self.failure)
-//                self.failure(info);
-//        }
+                NSString *amount = (NSString *)[self.paymentParams valueForKey:@"amount"];
+
+                IMPTransactionInfo *tranInfo = [[IMPTransactionInfo alloc]initWithDictionary:info totalAmount:amount];
+
+                [self transactionFailed:tranInfo error:info[@"ResponseDescription"]];
+            }];
+        }
     } failure:^(NSString *error) {
         [self dissmissHud];
         [self showTryAgain:@"Error!" message:error cancelHandler:^{
+            NSString *amount = (NSString *)[self.paymentParams valueForKey:@"amount"];
+            IMPTransactionInfo *tranInfo = [[IMPTransactionInfo alloc]initWithDictionary:[NSDictionary new] totalAmount:amount];
+            [self transactionFailed:tranInfo error: error];
+
         } tryAgainHandler:^{
             [self makePayment];
         }];
+
     }];
+}
+
+#pragma  mark:- Handle failure
+
+- (void)transactionFailed: (IMPTransactionInfo *)info error: (NSString *)errorMessage {
+
+    if (_failure) {
+        _failure(info, errorMessage);
+    }
+
+    [[NSNotificationCenter defaultCenter]postNotificationName:NOTIF_SHOULD_QUIT object:nil];
+
 }
 
 //- (void)setUpTimer {
@@ -164,11 +183,10 @@
     resultVc.transactionInfo = info;
     resultVc.paymentParams = self.paymentParams;
 
-    UINavigationController *resultNav = [[UINavigationController alloc]initWithRootViewController:resultVc];
+    UINavigationController *resultNav = baseNav(resultVc);
 
     resultVc.failure = self.failure;
     resultVc.success  = self.success;
-
 
     [self.navigationController presentViewController:resultNav animated:true completion:nil];
 }

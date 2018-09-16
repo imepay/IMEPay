@@ -27,8 +27,8 @@
 
 - (void)populateInfo {
 
-    _tranDescriptionLabel.text = _transactionInfo[@"ResponseDescription"];
-    _transactionIdLabel.text = _transactionInfo[@"TransactionId"];
+   _tranDescriptionLabel.text = _transactionInfo[@"ResponseDescription"];
+   _transactionIdLabel.text = _transactionInfo[@"TransactionId"];
 
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
     dateFormatter.dateFormat = DATE_FORMAT;

@@ -192,7 +192,7 @@
     pinConfirmationVc.failure = _failure;
     pinConfirmationVc.paymentParams = self.paymentParams;
 
-    UINavigationController *pinConfirmationNav = [[UINavigationController alloc]initWithRootViewController:pinConfirmationVc];
+    UINavigationController *pinConfirmationNav = baseNav(pinConfirmationVc);
 
     [self.navigationController presentViewController:pinConfirmationNav animated:true completion:nil];
 }
