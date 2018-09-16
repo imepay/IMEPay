@@ -10,14 +10,6 @@
 
 @implementation BaseTextField
 
-{
-
-    CAShapeLayer *shapeLayer;
-    CGFloat cornerRadius;
-    UIColor *fillColor;
-
-}
-
 #pragma mark:- Lifecycle
 
 - (void)awakeFromNib {

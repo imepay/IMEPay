@@ -14,7 +14,7 @@
 #import "IMPApiManager.h"
 #import "PinConfirmPaymentViewController.h"
 @import SVProgressHUD;
-
+@import IQKeyboardManager;
 
 #define MOBILE_NUMBER_LENGTH 10
 #define PAYMENT_DESC_TEXT @"Please enter your mobile number that is registered to IME pay."
@@ -73,6 +73,8 @@
 
     _confirmBtn.layer.cornerRadius = _confirmBtn.frame.size.height /  2.0;
     [_mobileNumebrField setThemedPlaceholder:MOBILENUM_FIELD_PLACEHOLDER];
+
+    [[IQKeyboardManager sharedManager] setToolbarTintColor:[UIColor colorWithRed:216.0 / 255.0 green: 55.0 / 255.0 blue: 49.0 /255.0 alpha:1.0]];
 }
 
 #pragma marK:- IBAction

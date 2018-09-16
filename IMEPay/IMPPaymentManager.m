@@ -11,7 +11,6 @@
 #import "SplashViewController.h"
 #import "MobileNumberViewController.h"
 
-
 @interface IMPPaymentManager()
 
 @property (nonatomic, strong) NSMutableDictionary  *paymentParams;
@@ -52,17 +51,6 @@
     [sessionManager setAuthorization:userName password:password];
     [sessionManager setModule:base64Module];
     [self gotoMobileNumberVc:success failure:failure];
-}
-
-- (void)gotoSplashwithSuccess: (void(^)(IMPTransactionInfo *transactionInfo))success failure: (void(^)(IMPTransactionInfo *transactionInfo, NSString *error))failure  {
-
-    NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
-    
-    SplashViewController *splashVc = (SplashViewController *) [sb instantiateViewControllerWithIdentifier:@"SplashViewController"];
-    splashVc.paymentParams = _paymentParams;
-
-    [topViewController() presentViewController:splashVc animated:YES completion:nil];
 }
 
 - (void)gotoMobileNumberVc: (void(^)(IMPTransactionInfo *transactionInfo))success failure: (void(^)(IMPTransactionInfo *transactionInfo, NSString *error))failure {
