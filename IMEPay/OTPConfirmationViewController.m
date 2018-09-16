@@ -84,8 +84,6 @@
         self.transactionId = info[@"TransactionId"];
         NSNumber *responseCode = info[@"ResponseCode"];
 
-//        [self gotoFinalPage:info];
-//        return;
         if (responseCode.integerValue == TRAN_SUCCESS_CODE) {
             [self gotoFinalPage:info];
         }else {
@@ -101,10 +99,9 @@
     } failure:^(NSString *error) {
         [self dissmissHud];
         [self showTryAgain:@"Error!" message:error cancelHandler:^{
-            NSString *amount = (NSString *)[self.paymentParams valueForKey:@"amount"];
-            IMPTransactionInfo *tranInfo = [[IMPTransactionInfo alloc]initWithDictionary:[NSDictionary new] totalAmount:amount];
-            [self transactionFailed:tranInfo error: error];
-
+//            NSString *amount = (NSString *)[self.paymentParams valueForKey:@"amount"];
+//            IMPTransactionInfo *tranInfo = [[IMPTransactionInfo alloc]initWithDictionary:[NSDictionary new] totalAmount:amount];
+//            [self transactionFailed:tranInfo error: error];
         } tryAgainHandler:^{
             [self makePayment];
         }];

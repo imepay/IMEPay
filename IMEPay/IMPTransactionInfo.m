@@ -8,8 +8,12 @@
 
 #import "IMPTransactionInfo.h"
 #import "Helper.h"
+#import "BaseViewController.h"
 
 @implementation IMPTransactionInfo
+
+#define TRAN_RESULT_SUCCESS_CODE 100
+#define TRAN_RESULT_FAILURE_CODE 101
 
 - (id)init {
     self = [super init];
@@ -37,7 +41,11 @@
         NSNumber *resCode =  [response valueForKey:@"ResponseCode"];
 
         if (!(isNilORNull(resCode))) {
-            _responseCode = resCode.integerValue;
+            if (resCode.integerValue == TRAN_SUCCESS_CODE) {
+                _responseCode =  TRAN_RESULT_SUCCESS_CODE;
+            }else {
+                _responseCode = TRAN_RESULT_FAILURE_CODE;
+            }
         }
 
         NSLog(@"parsed resonse code %@", resCode);
@@ -70,10 +78,7 @@
             _referenceId = refId;
         }
     }
-
     return self;
-
 }
-
 
 @end

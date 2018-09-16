@@ -22,6 +22,7 @@
 @interface MobileNumberViewController()<UITextFieldDelegate>
 
 @property (nonatomic, strong) IMPApiManager *apiManager;
+@property (nonatomic, strong) UIColor *hostAppIQToolBarTintColor;
 
 @end
 
@@ -29,13 +30,16 @@
 
 @implementation MobileNumberViewController
 
-#define MOBILENUM_FIELD_PLACEHOLDER @"Mobile Number"
+#define MOBILENUM_FIELD_PLACEHOLDER @"Enter Mobile Number"
 #define COUNTRY_CODE @"+977"
 
 #pragma mark:- Vc Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    _hostAppIQToolBarTintColor = [[IQKeyboardManager  sharedManager]toolbarTintColor];
+
     [self setupUI];
 
     //MARK:- Should Dissmiss Notification
@@ -59,13 +63,15 @@
 #pragma mark:- Dissmiss Entire SDK
 
 - (void)dissmissAll {
+
+    [[IQKeyboardManager sharedManager]setToolbarTintColor:_hostAppIQToolBarTintColor];
     [self.presentingViewController dismissViewControllerAnimated:true completion:nil];
 }
 
 #pragma mark:- Setup UI
 
 - (void)setupUI {
-    [self addCancelButton];
+    [self addCancelBtn];
 
     NSString *descText = [[NSString stringWithFormat:@"To pay %@, %@", _paymentParams[@"merchantName"], PAYMENT_DESC_TEXT] stringByReplacingOccurrencesOfString:@"_" withString:@" "];
 
@@ -75,6 +81,25 @@
     [_mobileNumebrField setThemedPlaceholder:MOBILENUM_FIELD_PLACEHOLDER];
 
     [[IQKeyboardManager sharedManager] setToolbarTintColor:[UIColor colorWithRed:216.0 / 255.0 green: 55.0 / 255.0 blue: 49.0 /255.0 alpha:1.0]];
+}
+
+- (void)addCancelBtn {
+
+    UINavigationController *nav = self.navigationController;
+    if (nav == nil) {
+        return;
+    }
+
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelBtnClicked)];
+    self.navigationItem.rightBarButtonItem = cancelButton;
+}
+
+- (void)cancelBtnClicked {
+
+     [[IQKeyboardManager sharedManager]setToolbarTintColor:_hostAppIQToolBarTintColor];
+
+
+    [self dissmissVc];
 }
 
 #pragma marK:- IBAction
