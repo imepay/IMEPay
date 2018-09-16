@@ -91,12 +91,12 @@
         [self dissmissHud];
         self.transactionId = info[@"TransactionId"];
         NSNumber *responseCode = info[@"ResponseCode"];
-        NSString *title = responseCode.integerValue == 0 ? @"Sucess!" : @"Sorry!";
+        NSString *title = responseCode.integerValue == 0 ? @"Success!" : @"Sorry!";
 
         [self showAlert:title message:info[@"ResponseDescription"] okayHandler:^{
             [self gotoFinalPage:info];
         }];
-//
+
 //        if (responseCode.integerValue == 0) {
 //            if (self.success)
 //                self.success(info);
@@ -164,8 +164,8 @@
     resultVc.transactionInfo = info;
     UINavigationController *resultNav = [[UINavigationController alloc]initWithRootViewController:resultVc];
 
-    //  paymentVc.successBlock = self.successBlock;
-    // paymentVc.failureBlock = self.failureBlock;
+    resultVc.failure = self.failure;
+     resultVc.success  = self.success;
     [self.navigationController presentViewController:resultNav animated:true completion:nil];
 }
 

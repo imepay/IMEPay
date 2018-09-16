@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
+#import "SplashViewController.h"
 
 @interface TransactionResultViewController : BaseViewController
 
@@ -18,5 +19,8 @@
 @property (weak, nonatomic) IBOutlet UIView *tranDetailContainer;
 
 @property (strong, nonatomic) NSDictionary *transactionInfo;
+
+@property (nonatomic, copy) successBlock success;
+@property (nonatomic, copy) failureBlock failure;
 
 @end

@@ -12,6 +12,8 @@
 #ifndef Helper_h
 #define Helper_h
 
+#define isNilORNull(obj) ((obj == (id)[NSNull null]) || !obj)
+
 //static inline  NSString* url(NSString *endpoint) {
 //  return [NSString stringWithFormat:@"%@%@",URL_BASE_TEST,endpoint];
 //}

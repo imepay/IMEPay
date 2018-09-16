@@ -12,6 +12,8 @@
 		A96A260B1FF6496F007A8D62 /* splash_back.png in Resources */ = {isa = PBXBuildFile; fileRef = A96A260A1FF6496F007A8D62 /* splash_back.png */; };
 		A96A260E1FF64FF4007A8D62 /* TransactionResultViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A96A260C1FF64FF4007A8D62 /* TransactionResultViewController.h */; };
 		A96A260F1FF64FF4007A8D62 /* TransactionResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96A260D1FF64FF4007A8D62 /* TransactionResultViewController.m */; };
+		AF229AC5214EC2DB007A279E /* IMPTransactionInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = AF229AC3214EC2DB007A279E /* IMPTransactionInfo.h */; };
+		AF229AC6214EC2DB007A279E /* IMPTransactionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AF229AC4214EC2DB007A279E /* IMPTransactionInfo.m */; };
 		AF410618213694BA0011E45F /* UIViewController+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = AF410616213694BA0011E45F /* UIViewController+Extensions.h */; };
 		AF410619213694BA0011E45F /* UIViewController+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = AF410617213694BA0011E45F /* UIViewController+Extensions.m */; };
 		AF41061C213711860011E45F /* BaseButton.h in Headers */ = {isa = PBXBuildFile; fileRef = AF41061A213711860011E45F /* BaseButton.h */; };
@@ -67,6 +69,8 @@
 		A96A260A1FF6496F007A8D62 /* splash_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash_back.png; sourceTree = "<group>"; };
 		A96A260C1FF64FF4007A8D62 /* TransactionResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransactionResultViewController.h; sourceTree = "<group>"; };
 		A96A260D1FF64FF4007A8D62 /* TransactionResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransactionResultViewController.m; sourceTree = "<group>"; };
+		AF229AC3214EC2DB007A279E /* IMPTransactionInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMPTransactionInfo.h; sourceTree = "<group>"; };
+		AF229AC4214EC2DB007A279E /* IMPTransactionInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMPTransactionInfo.m; sourceTree = "<group>"; };
 		AF3905411F18D775006D0D3C /* IQKeyboardManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IQKeyboardManager.framework; path = "../../../Library/Developer/Xcode/DerivedData/IMEPay-cdsklkzowxhsjkclcpipeyjinggu/Build/Products/Debug-iphonesimulator/IQKeyboardManager/IQKeyboardManager.framework"; sourceTree = "<group>"; };
 		AF410616213694BA0011E45F /* UIViewController+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Extensions.h"; sourceTree = "<group>"; };
 		AF410617213694BA0011E45F /* UIViewController+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Extensions.m"; sourceTree = "<group>"; };
@@ -146,6 +150,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AF229AC2214EC2B7007A279E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AF229AC3214EC2DB007A279E /* IMPTransactionInfo.h */,
+				AF229AC4214EC2DB007A279E /* IMPTransactionInfo.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		AF591D321F15D7FC0051AF81 = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +182,7 @@
 		AF591D3E1F15D7FC0051AF81 /* IMEPay */ = {
 			isa = PBXGroup;
 			children = (
+				AF229AC2214EC2B7007A279E /* Models */,
 				AF591D751F1749B30051AF81 /* Manager */,
 				AF591D741F16774B0051AF81 /* Helpers */,
 				AF591D6B1F16175D0051AF81 /* Controlllers */,
@@ -292,6 +306,7 @@
 				AF410618213694BA0011E45F /* UIViewController+Extensions.h in Headers */,
 				AF591D571F15D8700051AF81 /* Config.h in Headers */,
 				AF582D3E2147B03E0029867B /* PinConfirmPaymentViewController.h in Headers */,
+				AF229AC5214EC2DB007A279E /* IMPTransactionInfo.h in Headers */,
 				AFC37E511FF641F300DDB921 /* OTPConfirmationViewController.h in Headers */,
 				AF87352D214E76C200277228 /* IMPResultViewController.h in Headers */,
 				AF591D691F15F5890051AF81 /* SessionManager.h in Headers */,
@@ -475,6 +490,7 @@
 				AFC37E4E1FF641E600DDB921 /* MobileNumberViewController.m in Sources */,
 				AF87352E214E76C200277228 /* IMPResultViewController.m in Sources */,
 				AFA26AF9211D966C0057F014 /* BaseTextField.m in Sources */,
+				AF229AC6214EC2DB007A279E /* IMPTransactionInfo.m in Sources */,
 				AF582D3F2147B03E0029867B /* PinConfirmPaymentViewController.m in Sources */,
 				A96A260F1FF64FF4007A8D62 /* TransactionResultViewController.m in Sources */,
 				AFA26AF5211D96300057F014 /* UITextField+UITextField_Extensions.m in Sources */,

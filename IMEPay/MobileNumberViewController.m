@@ -201,12 +201,13 @@
     NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
     PinConfirmPaymentViewController *pinConfirmationVc = (PinConfirmPaymentViewController *) [sb instantiateViewControllerWithIdentifier:@"PinConfirmPaymentViewController"];
+
+    pinConfirmationVc.successBlock = _success;
+    pinConfirmationVc.failureBlock = _failure;
     pinConfirmationVc.paymentParams = self.paymentParams;
 
     UINavigationController *pinConfirmationNav = [[UINavigationController alloc]initWithRootViewController:pinConfirmationVc];
 
-  //  paymentVc.successBlock = self.successBlock;
-   // paymentVc.failureBlock = self.failureBlock;
     [self.navigationController presentViewController:pinConfirmationNav animated:true completion:nil];
 }
 
