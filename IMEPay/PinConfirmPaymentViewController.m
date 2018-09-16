@@ -45,7 +45,6 @@
     _apiManager = [IMPApiManager new];
     _pinField.delegate = self;
     _isFailedForFirstTime = YES;
-    //QKeyboardManager.sharedManager.enable = YES;
     [_pinField setThemedPlaceholder:PIN_FIELD_PLACEHOLER];
      _infoContainer.layer.cornerRadius = 5.0;
 }

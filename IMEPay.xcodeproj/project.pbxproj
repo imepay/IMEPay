@@ -37,6 +37,8 @@
 		AF591D6F1F16176F0051AF81 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF591D6D1F16176F0051AF81 /* SplashViewController.m */; };
 		AF591D781F1749D90051AF81 /* IMPPaymentManager.h in Headers */ = {isa = PBXBuildFile; fileRef = AF591D761F1749D90051AF81 /* IMPPaymentManager.h */; };
 		AF591D791F1749D90051AF81 /* IMPPaymentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF591D771F1749D90051AF81 /* IMPPaymentManager.m */; };
+		AF87352D214E76C200277228 /* IMPResultViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AF87352B214E76C200277228 /* IMPResultViewController.h */; };
+		AF87352E214E76C200277228 /* IMPResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF87352C214E76C200277228 /* IMPResultViewController.m */; };
 		AF90DC122106FAC100BD6ADE /* logo_new.png in Resources */ = {isa = PBXBuildFile; fileRef = AF90DC112106FAC100BD6ADE /* logo_new.png */; };
 		AFA26AEC211D8F0E0057F014 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA26AEB211D8F0E0057F014 /* BaseViewController.m */; };
 		AFA26AF4211D96300057F014 /* UITextField+UITextField_Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = AFA26AF2211D96300057F014 /* UITextField+UITextField_Extensions.h */; };
@@ -94,6 +96,8 @@
 		AF591D6D1F16176F0051AF81 /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
 		AF591D761F1749D90051AF81 /* IMPPaymentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPPaymentManager.h; sourceTree = "<group>"; };
 		AF591D771F1749D90051AF81 /* IMPPaymentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMPPaymentManager.m; sourceTree = "<group>"; };
+		AF87352B214E76C200277228 /* IMPResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMPResultViewController.h; sourceTree = "<group>"; };
+		AF87352C214E76C200277228 /* IMPResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMPResultViewController.m; sourceTree = "<group>"; };
 		AF90DC112106FAC100BD6ADE /* logo_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_new.png; sourceTree = "<group>"; };
 		AFA26AEB211D8F0E0057F014 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		AFA26AED211D8F780057F014 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -222,6 +226,8 @@
 				AFC37E501FF641F300DDB921 /* OTPConfirmationViewController.m */,
 				A96A260C1FF64FF4007A8D62 /* TransactionResultViewController.h */,
 				A96A260D1FF64FF4007A8D62 /* TransactionResultViewController.m */,
+				AF87352B214E76C200277228 /* IMPResultViewController.h */,
+				AF87352C214E76C200277228 /* IMPResultViewController.m */,
 			);
 			name = Controlllers;
 			sourceTree = "<group>";
@@ -287,6 +293,7 @@
 				AF591D571F15D8700051AF81 /* Config.h in Headers */,
 				AF582D3E2147B03E0029867B /* PinConfirmPaymentViewController.h in Headers */,
 				AFC37E511FF641F300DDB921 /* OTPConfirmationViewController.h in Headers */,
+				AF87352D214E76C200277228 /* IMPResultViewController.h in Headers */,
 				AF591D691F15F5890051AF81 /* SessionManager.h in Headers */,
 				AF591D4D1F15D7FC0051AF81 /* IMEPay.h in Headers */,
 				AFA26AF8211D966C0057F014 /* BaseTextField.h in Headers */,
@@ -466,6 +473,7 @@
 				AF591D6A1F15F5890051AF81 /* SessionManager.m in Sources */,
 				AF591D6F1F16176F0051AF81 /* SplashViewController.m in Sources */,
 				AFC37E4E1FF641E600DDB921 /* MobileNumberViewController.m in Sources */,
+				AF87352E214E76C200277228 /* IMPResultViewController.m in Sources */,
 				AFA26AF9211D966C0057F014 /* BaseTextField.m in Sources */,
 				AF582D3F2147B03E0029867B /* PinConfirmPaymentViewController.m in Sources */,
 				A96A260F1FF64FF4007A8D62 /* TransactionResultViewController.m in Sources */,

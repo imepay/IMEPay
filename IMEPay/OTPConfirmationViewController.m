@@ -12,6 +12,7 @@
 #import "Config.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "PinConfirmPaymentViewController.h"
+#import "TransactionResultViewController.h"
 
 @interface OTPConfirmationViewController ()<UITextFieldDelegate>
 
@@ -42,7 +43,7 @@
     [_otpField setThemedPlaceholder:OTP_FIELD_PLACEHOLDER];
     _apiManager = [IMPApiManager new];
     _otpField.delegate = self;
-    [self validateUser];
+    [self requestOTP];
 
 }
 
@@ -76,7 +77,7 @@
 
 #pragma mark:- User Validation API Call
 
-- (void)validateUser {
+- (void)requestOTP {
 
     NSDictionary *params = @{ @"MerchantCode": _paymentParams[@"merchantCode"],
                               @"Pin" : _PIN,
@@ -111,17 +112,20 @@
         NSNumber *responseCode = info[@"ResponseCode"];
         NSString *title = responseCode.integerValue == 0 ? @"Sucess!" : @"Sorry!";
 
-        [self showAlert:title message:info[@"ResponseDescription"] okayHandler:^{
-            [self dissmissAndNotify];
-        }];
 
-        if (responseCode.integerValue == 0) {
-            if (self.success)
-                self.success(info);
-        }else {
-            if (self.failure)
-                self.failure(info);
-        }
+
+        [self showAlert:title message:info[@"ResponseDescription"] okayHandler:^{
+            //[self dissmissAndNotify];
+            [self gotoFinalPage:info];
+        }];
+//
+//        if (responseCode.integerValue == 0) {
+//            if (self.success)
+//                self.success(info);
+//        }else {
+//            if (self.failure)
+//                self.failure(info);
+//        }
         //[self setUpTimer];
     } failure:^(NSString *error) {
         [SVProgressHUD dismiss];
@@ -170,6 +174,24 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
     return newString.length <= PIN_MAX_LENGTH;
+}
+
+#pragma mark:- Goto Success Page
+
+- (void)gotoFinalPage : (NSDictionary *)info {
+
+    NSLog(@"transaction info before final result view %@", info);
+
+    NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
+    TransactionResultViewController *resultVc = (TransactionResultViewController *) [sb instantiateViewControllerWithIdentifier:@"TransactionResultViewController"];
+    resultVc.transactionInfo = info;
+    UINavigationController *resultNav = [[UINavigationController alloc]initWithRootViewController:resultVc];
+
+    //  paymentVc.successBlock = self.successBlock;
+    // paymentVc.failureBlock = self.failureBlock;
+    [self.navigationController presentViewController:resultNav animated:true completion:nil];
+
 }
 
 @end

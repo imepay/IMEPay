@@ -34,6 +34,10 @@
    // self.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[ @"text/html", @"application/json"]];
     self.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[@"application/json"]];
     self.responseSerializer.stringEncoding = NSUTF8StringEncoding;
+
+    NSLog(@"User name %@", username);
+    NSLog(@"User password %@", password);
+
     [self.requestSerializer setAuthorizationHeaderFieldWithUsername:username password:password];
 
 }

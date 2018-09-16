@@ -182,8 +182,8 @@
         [self gotoPinConfirmationVc];
     } failure:^(NSString *error) {
         [SVProgressHUD dismiss];
-        [self gotoPinConfirmationVc];
-        return;
+//        [self gotoPinConfirmationVc];
+//        return;
         [self showTryAgain:@"Oops!" message:error cancelHandler:^{
             [self dissmissVc];
         } tryAgainHandler:^{
