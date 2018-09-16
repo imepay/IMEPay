@@ -62,7 +62,7 @@
     }
 
     NSString *mobileNumber = _paymentParams[@"mobileNumber"];
-    [self showAlert:@"Invalid OTP!" message:[NSString stringWithFormat:@"Please Enter the One Time Password sent to %@", mobileNumber] okayHandler:^{
+    [self showAlert:@"Invalid OTP!" message:[NSString stringWithFormat:@"Please enter 4 digit OTP Code sent to %@", mobileNumber] okayHandler:^{
     }];
 }
 
