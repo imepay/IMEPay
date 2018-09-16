@@ -28,7 +28,7 @@
     return  self;
 }
 
-- (void)pay:(NSString *)userName password:(NSString *)password  merchantCode:(NSString *)merchantCode merchantName: (NSString *)merchantName  merchantUrl:(NSString *)merchantUrl amount:(NSString *)amount customerMobileNumber:(NSString *)customerMobileNumber referenceId: (NSString *)referenceId module: (NSString *)module success: (void(^)(IMPTransactionInfo *transactionInfo))success failure: (void(^)(IMPTransactionInfo *transactionInfo, NSString *errorMessage))failure {
+- (void)payWithUsername:(NSString *)userName password:(NSString *)password  merchantCode:(NSString *)merchantCode merchantName: (NSString *)merchantName  merchantUrl:(NSString *)merchantUrl amount:(NSString *)amount referenceId: (NSString *)referenceId module: (NSString *)module success: (void(^)(IMPTransactionInfo *transactionInfo))success failure: (void(^)(IMPTransactionInfo *transactionInfo, NSString *errorMessage))failure {
 
     NSString *curatedRefId = [referenceId  stringByReplacingOccurrencesOfString:@" " withString:@"_"];
     NSString *curatedMerchantName = [merchantName stringByReplacingOccurrencesOfString:@" " withString:@"_"];
@@ -46,7 +46,7 @@
                                                                         @"amount" : amount ? amount : @"",
                                                                         @"referenceId" : curatedRefId ? curatedRefId : @"",
                                                                         @"module" : base64Module ? base64Module : @"",
-                                                                        @"mobileNumber" : customerMobileNumber ? customerMobileNumber : @""
+                                                                        @"mobileNumber" : @""
                                                                         }];
     SessionManager *sessionManager = [SessionManager sharedInstance];
     [sessionManager setAuthorization:userName password:password];
@@ -61,8 +61,7 @@
     
     SplashViewController *splashVc = (SplashViewController *) [sb instantiateViewControllerWithIdentifier:@"SplashViewController"];
     splashVc.paymentParams = _paymentParams;
-//    splashVc.successBlock = success;
-//    splashVc.failureBlock = failure;
+
     [topViewController() presentViewController:splashVc animated:YES completion:nil];
 }
 
@@ -74,23 +73,6 @@
     mobileNumVc.paymentParams = _paymentParams;
     mobileNumVc.success  = success;
     mobileNumVc.failure = failure;
-
-//    UIImage *backImage = [[UIImage imageNamed:@"back.png" inBundle:bundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-//
-//    UINavigationController *mobileNumNavVc = [[UINavigationController alloc]initWithRootViewController:mobileNumVc];
-//
-//    [mobileNumNavVc.navigationBar setBackIndicatorImage:backImage];
-//
-//    [mobileNumNavVc.navigationBar setBackIndicatorTransitionMaskImage:backImage];
-//
-//    [mobileNumNavVc.navigationItem.backBarButtonItem setTitlePositionAdjustment:UIOffsetMake(-400.f, 0) forBarMetrics:UIBarMetricsDefault];
-//
-//    NSLog(@"BACK IMAGE %@", backImage);
-//
-//    [mobileNumNavVc.navigationBar setBarTintColor:[UIColor whiteColor]];
-//    mobileNumNavVc.navigationBar.tintColor = UIColor.blackColor;
-//    mobileNumNavVc.navigationBar.backgroundColor = [UIColor whiteColor];
-//    [mobileNumNavVc.navigationBar setTranslucent:NO];
 
     UINavigationController *mobileNumVcNav = baseNav(mobileNumVc);
 

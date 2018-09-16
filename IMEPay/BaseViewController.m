@@ -110,6 +110,12 @@
         containerView = [self navigationController].view;
     }
     [SVProgressHUD setContainerView:containerView];
+
+    if (status.length == 0) {
+        [SVProgressHUD show];
+        return;
+    }
+
     [SVProgressHUD showWithStatus:status];
 }
 

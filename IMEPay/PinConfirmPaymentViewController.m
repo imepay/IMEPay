@@ -51,7 +51,7 @@
 - (void)setupUI {
     _mobileNumberLabel.text = _paymentParams[@"mobileNumber"];
     _amountLabel.text = [NSString stringWithFormat:@"%@ %@", CURRENCY_PREFIX, _paymentParams [@"amount"]];
-    _merchantNameLabel.text = _paymentParams[@"merchantName"];
+    _merchantNameLabel.text = [_paymentParams[@"merchantName"] stringByReplacingOccurrencesOfString:@"_" withString:@" "];
 
     [_pinField setThemedPlaceholder:PIN_FIELD_PLACEHOLER];
     _infoContainer.layer.cornerRadius = 5.0;

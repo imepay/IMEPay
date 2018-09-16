@@ -23,6 +23,8 @@
 
 @property (strong, nonatomic) NSMutableDictionary *paymentParams;
 
+@property (weak, nonatomic) IBOutlet UILabel *paymetDescLabel;
+
 #pragma mark:- Success/ Failure Handlers
 
 @property (nonatomic, copy) successBlock success;

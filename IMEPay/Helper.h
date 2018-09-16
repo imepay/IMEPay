@@ -32,6 +32,10 @@ static inline UINavigationController *baseNav(UIViewController *rootVc) {
     [nav.navigationBar setBarTintColor:[UIColor whiteColor]];
     nav.navigationBar.tintColor = UIColor.blackColor;
     nav.navigationBar.backgroundColor = [UIColor whiteColor];
+
+    [nav.navigationBar setBackIndicatorImage:[UIImage new]];
+    [nav.navigationBar setShadowImage:[UIImage new]];
+
     [nav.navigationBar setTranslucent:NO];
     return nav;
 }

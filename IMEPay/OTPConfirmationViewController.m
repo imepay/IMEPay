@@ -66,14 +66,6 @@
     }];
 }
 
-#pragma mark:- Dissmissal and Notification
-
-- (void)dissmissAndNotify {
-    [self dismissViewControllerAnimated:YES completion:^{
-        [[NSNotificationCenter defaultCenter]postNotificationName:NOTIF_SHOULD_QUIT object:nil];
-    }];
-}
-
 #pragma mark:- Payment and confirmation
 
 - (void)makePayment {

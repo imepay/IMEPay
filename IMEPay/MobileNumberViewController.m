@@ -15,7 +15,9 @@
 #import "PinConfirmPaymentViewController.h"
 @import SVProgressHUD;
 
+
 #define MOBILE_NUMBER_LENGTH 10
+#define PAYMENT_DESC_TEXT @"Please enter your mobile number that is registered to IME pay."
 
 @interface MobileNumberViewController()<UITextFieldDelegate>
 
@@ -64,6 +66,11 @@
 
 - (void)setupUI {
     [self addCancelButton];
+
+    NSString *descText = [[NSString stringWithFormat:@"To pay %@, %@", _paymentParams[@"merchantName"], PAYMENT_DESC_TEXT] stringByReplacingOccurrencesOfString:@"_" withString:@" "];
+
+    _paymetDescLabel.text = descText;
+
     _confirmBtn.layer.cornerRadius = _confirmBtn.frame.size.height /  2.0;
     [_mobileNumebrField setThemedPlaceholder:MOBILENUM_FIELD_PLACEHOLDER];
 }
