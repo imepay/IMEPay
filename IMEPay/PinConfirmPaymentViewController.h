@@ -10,6 +10,7 @@
 #import "BaseTextField.h"
 #import "BaseViewController.h"
 
+
 #define PIN_MAX_LENGTH 4
 
 @interface PinConfirmPaymentViewController : BaseViewController
@@ -26,7 +27,7 @@
 
 #pragma marK:- Success Failure Handlers
 
-@property (nonatomic, copy) void(^successBlock)(NSDictionary *info);
-@property (nonatomic, copy) void(^failureBlock)(NSDictionary *info);
+@property (nonatomic, copy) successBlock success;
+@property (nonatomic, copy) failureBlock failure;
 
 @end

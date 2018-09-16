@@ -8,8 +8,9 @@
 
 #import "TransactionResultViewController.h"
 #import "Config.h"
+#import "IMPTransactionInfo.h"
 
-@interface TransactionResultViewController ()
+@interface TransactionResultViewController()
 
 @end
 
@@ -44,6 +45,15 @@
 #pragma mark:- Done action
 
 - (IBAction)doneClicked:(id)sender {
+
+    NSString *amount = (NSString *) [_paymentParams valueForKey:@"amount"];
+
+    IMPTransactionInfo *transactionDetails = [[IMPTransactionInfo alloc]initWithDictionary:_transactionInfo totalAmount:amount];
+
+    if (_success) {
+        _success(transactionDetails);
+    }
+
     [[NSNotificationCenter defaultCenter]postNotificationName:NOTIF_SHOULD_QUIT object:nil];
 }
 

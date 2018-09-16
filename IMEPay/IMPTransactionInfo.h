@@ -17,4 +17,6 @@
 @property (nonatomic, strong) NSString* amount;
 @property (nonatomic, strong) NSString* referenceId;
 
+- (instancetype)initWithDictionary: (NSDictionary *)response totalAmount: (NSString *)totalAmount;
+
 @end

@@ -128,8 +128,8 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
     PinConfirmPaymentViewController *paymentVc = (PinConfirmPaymentViewController *) [sb instantiateViewControllerWithIdentifier:@"PinConfirmPaymentViewController"];
     paymentVc.paymentParams = self.paymentParams;
-    paymentVc.successBlock = self.successBlock;
-    paymentVc.failureBlock = self.failureBlock;
+//    paymentVc.success = self.successBlock;
+//    paymentVc.failure = self.failureBlock;
     [topViewController() presentViewController:paymentVc animated:YES completion:nil];
 
 }

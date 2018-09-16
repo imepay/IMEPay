@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIView *tranDetailContainer;
 
 @property (strong, nonatomic) NSDictionary *transactionInfo;
+@property (strong, nonatomic) NSDictionary *paymentParams;
 
 @property (nonatomic, copy) successBlock success;
 @property (nonatomic, copy) failureBlock failure;

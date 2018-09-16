@@ -11,6 +11,7 @@
 #import "SplashViewController.h"
 #import "MobileNumberViewController.h"
 
+
 @interface IMPPaymentManager()
 
 @property (nonatomic, strong) NSMutableDictionary  *paymentParams;
@@ -27,7 +28,7 @@
     return  self;
 }
 
-- (void)pay:(NSString *)userName password:(NSString *)password  merchantCode:(NSString *)merchantCode merchantName: (NSString *)merchantName  merchantUrl:(NSString *)merchantUrl amount:(NSString *)amount customerMobileNumber:(NSString *)customerMobileNumber referenceId: (NSString *)referenceId module: (NSString *)module success: (void(^)(NSDictionary *transactionInfo))success failure: (void(^)(NSDictionary *transactionInfo))failure {
+- (void)pay:(NSString *)userName password:(NSString *)password  merchantCode:(NSString *)merchantCode merchantName: (NSString *)merchantName  merchantUrl:(NSString *)merchantUrl amount:(NSString *)amount customerMobileNumber:(NSString *)customerMobileNumber referenceId: (NSString *)referenceId module: (NSString *)module success: (void(^)(IMPTransactionInfo *transactionInfo))success failure: (void(^)(IMPTransactionInfo *transactionInfo, NSString *errorMessage))failure {
 
     NSString *curatedRefId = [referenceId  stringByReplacingOccurrencesOfString:@" " withString:@"_"];
     NSString *curatedMerchantName = [merchantName stringByReplacingOccurrencesOfString:@" " withString:@"_"];
@@ -53,19 +54,19 @@
     [self gotoMobileNumberVc:success failure:failure];
 }
 
-- (void)gotoSplashwithSuccess: (void(^)(NSDictionary *transactionInfo))success failure: (void(^)(NSDictionary *transactionInfo))failure  {
+- (void)gotoSplashwithSuccess: (void(^)(IMPTransactionInfo *transactionInfo))success failure: (void(^)(IMPTransactionInfo *transactionInfo, NSString *error))failure  {
 
     NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
     
     SplashViewController *splashVc = (SplashViewController *) [sb instantiateViewControllerWithIdentifier:@"SplashViewController"];
     splashVc.paymentParams = _paymentParams;
-    splashVc.successBlock = success;
-    splashVc.failureBlock = failure;
+//    splashVc.successBlock = success;
+//    splashVc.failureBlock = failure;
     [topViewController() presentViewController:splashVc animated:YES completion:nil];
 }
 
-- (void)gotoMobileNumberVc: (void(^)(NSDictionary *transactionInfo))success failure: (void(^)(NSDictionary *transactionInfo))failure {
+- (void)gotoMobileNumberVc: (void(^)(IMPTransactionInfo *transactionInfo))success failure: (void(^)(IMPTransactionInfo *transactionInfo, NSString *error))failure {
 
     NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];

@@ -106,8 +106,8 @@
     otpValidationVc.PIN = _pinField.text;
     otpValidationVc.paymentParams = _paymentParams;
     otpValidationVc.OTP = otp;
-    otpValidationVc.success  = _successBlock;
-    otpValidationVc.failure = _failureBlock;
+    otpValidationVc.success  = _success;
+    otpValidationVc.failure = _failure;
 
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:otpValidationVc];
     nav.navigationBar.tintColor = UIColor.blackColor;

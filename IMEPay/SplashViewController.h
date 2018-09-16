@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IMPTransactionInfo.h"
 
-typedef void(^successBlock)(NSDictionary *);
 
-typedef void(^failureBlock)(NSDictionary *);
 
 @interface SplashViewController : UIViewController
 

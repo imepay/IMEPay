@@ -162,10 +162,14 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
     TransactionResultViewController *resultVc = (TransactionResultViewController *) [sb instantiateViewControllerWithIdentifier:@"TransactionResultViewController"];
     resultVc.transactionInfo = info;
+    resultVc.paymentParams = self.paymentParams;
+
     UINavigationController *resultNav = [[UINavigationController alloc]initWithRootViewController:resultVc];
 
     resultVc.failure = self.failure;
-     resultVc.success  = self.success;
+    resultVc.success  = self.success;
+
+
     [self.navigationController presentViewController:resultNav animated:true completion:nil];
 }
 

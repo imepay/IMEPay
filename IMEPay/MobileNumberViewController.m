@@ -122,20 +122,6 @@
     [self fetchToken];
 }
 
-#pragma mark:- Goto Splash
-
-- (void)gotoSplash {
-
-    NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
-
-    SplashViewController *splashVc = (SplashViewController *) [sb instantiateViewControllerWithIdentifier:@"SplashViewController"];
-    splashVc.paymentParams = _paymentParams;
-    splashVc.successBlock = _success;
-    splashVc.failureBlock = _failure;
-    [self.navigationController pushViewController:splashVc animated:true];
-}
-
 #pragma mark:- UITextFieldDelegate
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
@@ -202,8 +188,8 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
     PinConfirmPaymentViewController *pinConfirmationVc = (PinConfirmPaymentViewController *) [sb instantiateViewControllerWithIdentifier:@"PinConfirmPaymentViewController"];
 
-    pinConfirmationVc.successBlock = _success;
-    pinConfirmationVc.failureBlock = _failure;
+    pinConfirmationVc.success  = _success;
+    pinConfirmationVc.failure = _failure;
     pinConfirmationVc.paymentParams = self.paymentParams;
 
     UINavigationController *pinConfirmationNav = [[UINavigationController alloc]initWithRootViewController:pinConfirmationVc];

@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Config.h"
+#import "IMPTransactionInfo.h"
+
+typedef void(^successBlock)(IMPTransactionInfo *);
+typedef void(^failureBlock)(IMPTransactionInfo *, NSString *);
+
 @import SVProgressHUD;
 
 @interface BaseViewController: UIViewController
