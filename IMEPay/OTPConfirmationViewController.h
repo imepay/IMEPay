@@ -21,6 +21,7 @@
 
 @property (nonatomic, strong) NSDictionary *paymentParams;
 @property (nonatomic, strong) NSString* PIN;
+@property (nonatomic, strong) NSString *OTP;
 
 #pragma mark:- Success/Failure Handlers
 

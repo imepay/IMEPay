@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Config.h"
+@import SVProgressHUD;
 
 @interface BaseViewController: UIViewController
 
@@ -17,6 +18,9 @@
 - (void)addCloseButton;
 - (void)addDissmissButton;
 - (void)addCancelButtonWithAlert;
+
+- (void)showHud: (NSString *)status;
+- (void)dissmissHud;
 
 @end
 

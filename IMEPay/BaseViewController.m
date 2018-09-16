@@ -96,10 +96,25 @@
         [[NSNotificationCenter defaultCenter]postNotificationName:NOTIF_SHOULD_QUIT object:nil];
     }];
 
-    [confirmationAlert addAction:noAction];
     [confirmationAlert addAction:okAction];
+    [confirmationAlert addAction:noAction];
     [self presentViewController:confirmationAlert animated:YES completion:nil];
 
+}
+
+- (void)showHud: (NSString *)status {
+
+    UIView *containerView = self.view;
+
+    if ([self navigationController] != nil) {
+        containerView = [self navigationController].view;
+    }
+    [SVProgressHUD setContainerView:containerView];
+    [SVProgressHUD showWithStatus:status];
+}
+
+- (void)dissmissHud {
+   [SVProgressHUD dismiss];
 }
 
 @end

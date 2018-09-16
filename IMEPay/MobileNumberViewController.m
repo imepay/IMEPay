@@ -27,18 +27,19 @@
 
 @implementation MobileNumberViewController
 
-
 #define MOBILENUM_FIELD_PLACEHOLDER @"Mobile Number"
-#define  COUNTRY_CODE @"+977"
+#define COUNTRY_CODE @"+977"
 
 #pragma mark:- Vc Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupUI];
 
     //MARK:- Should Dissmiss Notification
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dissmissVc) name:NOTIF_SHOULD_QUIT object:nil];
-    [self setupUI];
+
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dissmissAll) name:NOTIF_SHOULD_QUIT object:nil];
+
     _mobileNumebrField.delegate = self;
     _apiManager = [IMPApiManager new];
 }
@@ -53,6 +54,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark:- Dissmiss Entire SDK
+
+- (void)dissmissAll {
+    [self.presentingViewController dismissViewControllerAnimated:true completion:nil];
+}
+
+#pragma mark:- Setup UI
+
 - (void)setupUI {
     [self addCancelButton];
     _confirmBtn.layer.cornerRadius = _confirmBtn.frame.size.height /  2.0;
@@ -64,6 +73,7 @@
 - (IBAction)confirmCickced:(id)sender {
 
     [_mobileNumebrField resignFirstResponder];
+
     if  (_mobileNumebrField.text.length  == 0 ) {
         [self showAlert: @"Alert!" message:@"Mobile Number Field is empty" okayHandler:^{}];
         return;
@@ -74,10 +84,10 @@
         [self showAlert: @"Alert!" message:@"Mobile Number should be 10 digits" okayHandler:^{}];
         return;
     }
-
     [self showMobileNumberConfirmationAlert];
-
 }
+
+#pragma mark:- Helper Methods
 
 - (NSString *)formattedMobileNumber {
 
@@ -104,8 +114,9 @@
     [self presentViewController:confirmationAlert animated:YES completion:nil];
 }
 
-- (void)proceed {
+#pragma mark:- Proceed
 
+- (void)proceed {
     NSString *mobNum = self.mobileNumebrField.text;
     _paymentParams[@"mobileNumber"] = mobNum;
     [self fetchToken];
@@ -144,19 +155,16 @@
                               @"RefId" : _paymentParams[@"referenceId"],
                               };
     NSLog(@"payment params fetch token %@", params);
-    [SVProgressHUD showWithStatus:@"Preparing for payment.."];
+
+    [self showHud:@"Preparing for payment.."];
 
     [_apiManager getToken:params success:^(NSDictionary *tokenInfo) {
         NSString *tokenId = tokenInfo[@"TokenId"];
         [self.paymentParams setValue:tokenId forKey:@"token"];
         [self postToMerchant];
     } failure:^(NSString *error) {
-        [SVProgressHUD dismiss];
-        [self showTryAgain:@"Oops!" message:error cancelHandler:^{
-           [self dissmissVc];
-        } tryAgainHandler: ^{
-            [self fetchToken];
-        }];
+        [self dissmissHud];
+        [self showAlert:@"Error!" message:error okayHandler: ^{}];
     }];
 }
 
@@ -178,17 +186,11 @@
     }
 
     [_apiManager postToMerchant:cleanUrl parameters:params success:^{
-        [SVProgressHUD dismiss];
+        [self dissmissHud];
         [self gotoPinConfirmationVc];
     } failure:^(NSString *error) {
-        [SVProgressHUD dismiss];
-//        [self gotoPinConfirmationVc];
-//        return;
-        [self showTryAgain:@"Oops!" message:error cancelHandler:^{
-            [self dissmissVc];
-        } tryAgainHandler:^{
-            [self postToMerchant];
-        }];
+        [self dissmissHud];
+        [self showAlert:@"Error!" message:error okayHandler: ^{}];
     }];
 }
 

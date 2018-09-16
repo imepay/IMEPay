@@ -7,6 +7,7 @@
 //
 
 #import "TransactionResultViewController.h"
+#import "Config.h"
 
 @interface TransactionResultViewController ()
 
@@ -43,7 +44,7 @@
 #pragma mark:- Done action
 
 - (IBAction)doneClicked:(id)sender {
-
+    [[NSNotificationCenter defaultCenter]postNotificationName:NOTIF_SHOULD_QUIT object:nil];
 }
 
 @end

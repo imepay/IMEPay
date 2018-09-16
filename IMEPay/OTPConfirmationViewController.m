@@ -22,7 +22,7 @@
 
 //MARK:- STATES
 
-@property (nonatomic, strong) NSString *OTP;
+
 @property (nonatomic, strong) NSString *transactionId;
 @property (nonatomic, assign) BOOL isFailedForFirstTime;
 
@@ -41,10 +41,9 @@
     [self addDissmissButton];
 
     [_otpField setThemedPlaceholder:OTP_FIELD_PLACEHOLDER];
+
     _apiManager = [IMPApiManager new];
     _otpField.delegate = self;
-    [self requestOTP];
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,26 +74,6 @@
     }];
 }
 
-#pragma mark:- User Validation API Call
-
-- (void)requestOTP {
-
-    NSDictionary *params = @{ @"MerchantCode": _paymentParams[@"merchantCode"],
-                              @"Pin" : _PIN,
-                              @"Msisdn" : _paymentParams[@"mobileNumber"]
-                              };
-    NSLog(@"validate user params %@", params);
-    [SVProgressHUD showWithStatus:@"Validating.."];
-    [_apiManager validateUser:params success:^(NSString *OTP) {
-        NSLog(@"OTP RECEIVED %@", OTP);
-         self.OTP = OTP;
-         [SVProgressHUD dismiss];
-    } failure:^(NSString *error) {
-        [SVProgressHUD dismiss];
-        [self showAlert:@"Error!" message:error okayHandler:^{}];
-    }];
-}
-
 #pragma mark:- Payment and confirmation
 
 - (void)makePayment {
@@ -105,17 +84,16 @@
                               @"Pin" : _PIN,
                               @"Msisdn" : _paymentParams[@"mobileNumber"]
                               };
-    [SVProgressHUD showWithStatus:@"Processing payment.."];
+
+    [self showHud:@"Performing payment.."];
+
     [_apiManager makePayment:params success:^(NSDictionary *info) {
-        [SVProgressHUD dismiss];
+        [self dissmissHud];
         self.transactionId = info[@"TransactionId"];
         NSNumber *responseCode = info[@"ResponseCode"];
         NSString *title = responseCode.integerValue == 0 ? @"Sucess!" : @"Sorry!";
 
-
-
         [self showAlert:title message:info[@"ResponseDescription"] okayHandler:^{
-            //[self dissmissAndNotify];
             [self gotoFinalPage:info];
         }];
 //
@@ -126,21 +104,19 @@
 //            if (self.failure)
 //                self.failure(info);
 //        }
-        //[self setUpTimer];
     } failure:^(NSString *error) {
-        [SVProgressHUD dismiss];
-        [self showTryAgain:@"Oops!" message:error cancelHandler:^{
-            [self dissmissAndNotify];
+        [self dissmissHud];
+        [self showTryAgain:@"Error!" message:error cancelHandler:^{
         } tryAgainHandler:^{
             [self makePayment];
         }];
     }];
 }
 
-- (void)setUpTimer {
-    [SVProgressHUD showWithStatus:@"Processing payment.."];
-    //[NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(confirmPayment) userInfo:nil repeats:NO];
-}
+//- (void)setUpTimer {
+//    [SVProgressHUD showWithStatus:@"Processing payment.."];
+//    //[NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(confirmPayment) userInfo:nil repeats:NO];
+//}
 
 //- (void)confirmPayment {
 //    NSDictionary *params = @{ @"MerchantCode": _paymentParams[@"merchantCode"],
@@ -178,7 +154,7 @@
 
 #pragma mark:- Goto Success Page
 
-- (void)gotoFinalPage : (NSDictionary *)info {
+- (void)gotoFinalPage :(NSDictionary *)info {
 
     NSLog(@"transaction info before final result view %@", info);
 
@@ -191,7 +167,6 @@
     //  paymentVc.successBlock = self.successBlock;
     // paymentVc.failureBlock = self.failureBlock;
     [self.navigationController presentViewController:resultNav animated:true completion:nil];
-
 }
 
 @end

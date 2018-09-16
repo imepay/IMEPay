@@ -11,7 +11,6 @@
 #import "UIViewController+Extensions.h"
 #import "Config.h"
 #import <SVProgressHUD/SVProgressHUD.h>
-
 #import "OTPConfirmationViewController.h"
 #import "Helper.h"
 
@@ -40,19 +39,22 @@
     // Do any additional setup after loading the view.
     [self addLogoTitle];
     [self addCancelButtonWithAlert];
-
     [self setupUI];
+
     _apiManager = [IMPApiManager new];
     _pinField.delegate = self;
     _isFailedForFirstTime = YES;
-    [_pinField setThemedPlaceholder:PIN_FIELD_PLACEHOLER];
-     _infoContainer.layer.cornerRadius = 5.0;
 }
+
+#pragma mark:- Setup UI
 
 - (void)setupUI {
     _mobileNumberLabel.text = _paymentParams[@"mobileNumber"];
     _amountLabel.text = [NSString stringWithFormat:@"%@ %@", CURRENCY_PREFIX, _paymentParams [@"amount"]];
     _merchantNameLabel.text = _paymentParams[@"merchantName"];
+
+    [_pinField setThemedPlaceholder:PIN_FIELD_PLACEHOLER];
+    _infoContainer.layer.cornerRadius = 5.0;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,45 +71,54 @@
         [self showAlert:@"" message:@"Please enter valid PIN (4 digits)" okayHandler:nil];
         return;
     }
-    [self gotoOTPConfirmation];
+    [self requestOTP];
 }
 
-#pragma mark:- Dissmiss and notify
+#pragma mark:- Request OTP
 
-- (void)dissmissAndNotify {
-    [self dismissViewControllerAnimated:YES completion:^{
-        [[NSNotificationCenter defaultCenter]postNotificationName:NOTIF_SHOULD_QUIT object:nil];
+- (void)requestOTP {
+
+    NSDictionary *params = @{ @"MerchantCode": _paymentParams[@"merchantCode"],
+                              @"Pin" : _pinField.text,
+                              @"Msisdn" : _paymentParams[@"mobileNumber"]
+                              };
+    NSLog(@"request OTP user params %@", params);
+    [self showHud:@""];
+
+    [_apiManager validateUser:params success:^(NSString *OTP) {
+        NSLog(@"OTP RECEIVED %@", OTP);
+        [self dissmissHud];
+        [self gotoOTPConfirmation:OTP];
+    } failure:^(NSString *error) {
+        [self dissmissHud];
+        [self showAlert:@"Error!" message:error okayHandler:^{}];
     }];
-}
-
-- (IBAction)cancel:(id)sender {
-    [self dissmissAndNotify];
-}
-
-#pragma mark:- UITextField Delegates 
-
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    return newString.length <= PIN_MAX_LENGTH;
 }
 
 #pragma mark:- Goto OTP Confirmation
 
-- (void)gotoOTPConfirmation {
+- (void)gotoOTPConfirmation: (NSString *)otp {
 
     NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
     
-    OTPConfirmationViewController *mobileNumVc = (OTPConfirmationViewController *) [sb instantiateViewControllerWithIdentifier:@"OTPConfirmationViewController"];
-    mobileNumVc.PIN = _pinField.text;
-    mobileNumVc.paymentParams = _paymentParams;
-    mobileNumVc.success  = _successBlock;
-    mobileNumVc.failure = _failureBlock;
+    OTPConfirmationViewController *otpValidationVc = (OTPConfirmationViewController *) [sb instantiateViewControllerWithIdentifier:@"OTPConfirmationViewController"];
+    otpValidationVc.PIN = _pinField.text;
+    otpValidationVc.paymentParams = _paymentParams;
+    otpValidationVc.OTP = otp;
+    otpValidationVc.success  = _successBlock;
+    otpValidationVc.failure = _failureBlock;
 
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:mobileNumVc];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:otpValidationVc];
     nav.navigationBar.tintColor = UIColor.blackColor;
-
     [self presentViewController:nav animated:true completion:nil];
+}
+
+#pragma mark:- UITextField Delegates
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    return newString.length <= PIN_MAX_LENGTH;
 }
 
 @end
