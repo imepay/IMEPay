@@ -68,7 +68,7 @@
 
     [self.view endEditing:YES];
     if (_pinField.text.length == 0 || _pinField.text.length < 4) {
-        [self showAlert:@"" message:@"Please enter valid PIN (4 digits)" okayHandler:nil];
+        [self showAlert:@"" message:@"Please enter valid 4 digit Wallet PIN" okayHandler:nil];
         return;
     }
     [self requestOTP];
@@ -78,15 +78,17 @@
 
 - (void)requestOTP {
 
+    [self.view endEditing:YES];
+
     NSDictionary *params = @{ @"MerchantCode": _paymentParams[@"merchantCode"],
                               @"Pin" : _pinField.text,
                               @"Msisdn" : _paymentParams[@"mobileNumber"]
                               };
-    NSLog(@"request OTP user params %@", params);
+
     [self showHud:@""];
 
     [_apiManager validateUser:params success:^(NSString *OTP) {
-        NSLog(@"OTP RECEIVED %@", OTP);
+        
         [self dissmissHud];
         [self gotoOTPConfirmation:OTP];
     } failure:^(NSString *error) {

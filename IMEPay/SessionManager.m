@@ -35,21 +35,16 @@
     self.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[@"application/json"]];
     self.responseSerializer.stringEncoding = NSUTF8StringEncoding;
 
-    NSLog(@"User name %@", username);
-    NSLog(@"User password %@", password);
-
     [self.requestSerializer setAuthorizationHeaderFieldWithUsername:username password:password];
 
 }
 
 - (void)setModule:(NSString *)moduleString {
-    NSLog(@"MODULE STRING %@", moduleString);
     [self.requestSerializer setValue:moduleString forHTTPHeaderField:@"Module"];
 }
 
 - (NSString *)module {
     NSString *moduleString = (NSString *)[self.requestSerializer.HTTPRequestHeaders valueForKey:@"Module"];
-    NSLog(@"Request serializer module %@", moduleString);
     return moduleString;
 }
 

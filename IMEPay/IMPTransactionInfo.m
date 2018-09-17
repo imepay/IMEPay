@@ -48,8 +48,6 @@
             }
         }
 
-        NSLog(@"parsed resonse code %@", resCode);
-
         NSString *resDesc = [response valueForKey:@"ResponseDescription"];
 
         if (!(isNilORNull(resDesc))) {

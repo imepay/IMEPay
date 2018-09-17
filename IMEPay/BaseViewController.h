@@ -16,6 +16,8 @@ typedef void(^failureBlock)(IMPTransactionInfo *, NSString *);
 #define TRAN_SUCCESS_CODE 0
 #define TRAN_FAILURE_CODE 1
 
+#define TRAN_CANCELLED_DESC @"Transaction Cancelled!"
+
 @import SVProgressHUD;
 
 @interface BaseViewController: UIViewController

@@ -67,7 +67,7 @@
                               @"Amount" : _paymentParams[@"amount"],
                               @"RefId" : _paymentParams[@"referenceId"],
                               };
-    NSLog(@"payment params fetch token %@", params);
+
     [SVProgressHUD showWithStatus:@"Preparing for payment.."];
 
     [_apiManager getToken:params success:^(NSDictionary *tokenInfo) {
@@ -91,15 +91,10 @@
                               @"Amount" : _paymentParams[@"amount"],
                               @"ReferenceId" : _paymentParams[@"referenceId"]
                               };
-    NSLog(@"mercharnt URL post params %@", params);
-
-    NSLog(@"PAYMENT PARAMS BEFORE POST TO MERCHANT %@", _paymentParams);
 
     NSString *merchantPaymentUrl = _paymentParams[@"merchantUrl"];
 
     NSString *cleanUrl = [merchantPaymentUrl stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
-
-    NSLog(@"Merchant Payment URL %@", cleanUrl);
 
     if (merchantPaymentUrl == nil) {
         return;
@@ -110,8 +105,6 @@
         [self gotoPinConfirmationVc];
     } failure:^(NSString *error) {
         [SVProgressHUD dismiss];
-//        [self gotoPinConfirmationVc];
-//        return;
         [self showTryAgain:@"Oops!" message:error cancelHandler:^{
             [self dissmiss];
         } tryAgainHandler:^{

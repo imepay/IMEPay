@@ -27,16 +27,15 @@
 - (void)getToken:(NSDictionary *)params success:(void(^)(NSDictionary *tokenInfo))success failure: (void (^) (NSString *error))failure {
     SessionManager *manager = [SessionManager sharedInstance];
     
-    NSLog(@"module string %@", [manager module]);
-    NSLog(@"headers %@", [manager headers]);
+
 
     NSString *url = [self url:EP_GET_TOKEN];
 
-    NSLog(@"GET TOKEN API ENDPOINT %@", url);
+
 
     [manager POST:url parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-        NSLog(@"GET TOKEN RESPONSE %@", responseObject);
+
         
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -51,7 +50,7 @@
 
     [manager POST:merchantUrl parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"POST TO MERCHANT RESPONSE %@", responseObject);
+
         success();
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(error.localizedDescription);
@@ -63,7 +62,7 @@
     [manager POST:[self url:EP_PAYMENT] parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"PAYMENT RESPONSE %@", responseObject);
+
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(error.localizedDescription);
@@ -85,7 +84,7 @@
 
     SessionManager *manager  = [SessionManager sharedInstance];
     [manager POST:[self url:EP_VALIDATE_USER] parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"request OTP response %@", responseObject);
+
         if (responseObject != nil) {
             NSDictionary *responseDic = (NSDictionary *)responseObject;
             NSString *OTP =  (NSString *)responseDic[@"Otp"];
@@ -98,7 +97,6 @@
             }
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"validate user error %@", error.localizedDescription);
         failure(error.localizedDescription);
     }];
 }

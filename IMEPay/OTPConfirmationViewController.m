@@ -69,6 +69,9 @@
 #pragma mark:- Payment and confirmation
 
 - (void)makePayment {
+
+    [_otpField resignFirstResponder];
+
     NSDictionary *params = @{ @"MerchantCode": _paymentParams[@"merchantCode"],
                               @"Amount" : _paymentParams[@"amount"],
                               @"RefId" : _paymentParams[@"referenceId"],
@@ -164,7 +167,7 @@
 
 - (void)gotoFinalPage :(NSDictionary *)info {
 
-    NSLog(@"transaction info before final result view %@", info);
+    
 
     NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];

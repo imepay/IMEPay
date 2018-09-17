@@ -15,6 +15,7 @@
 #import "PinConfirmPaymentViewController.h"
 @import SVProgressHUD;
 @import IQKeyboardManager;
+#import "IMPTransactionInfo.h"
 
 #define MOBILE_NUMBER_LENGTH 10
 #define PAYMENT_DESC_TEXT @"Please enter your mobile number that is registered to IME pay."
@@ -46,6 +47,8 @@
 
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(dissmissAll) name:NOTIF_SHOULD_QUIT object:nil];
 
+     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(handleTransactionCancellation) name:NOTIF_TRANSACTION_CANCELLED object:nil];
+
     _mobileNumebrField.delegate = self;
     _apiManager = [IMPApiManager new];
 }
@@ -68,6 +71,15 @@
     [self.presentingViewController dismissViewControllerAnimated:true completion:nil];
 }
 
+- (void)handleTransactionCancellation {
+
+    IMPTransactionInfo *tranInfo = [IMPTransactionInfo new];
+    if (_failure) {
+        _failure(tranInfo, TRAN_CANCELLED_DESC);
+    }
+
+}
+
 #pragma mark:- Setup UI
 
 - (void)setupUI {
@@ -81,6 +93,8 @@
     [_mobileNumebrField setThemedPlaceholder:MOBILENUM_FIELD_PLACEHOLDER];
 
     [[IQKeyboardManager sharedManager] setToolbarTintColor:[UIColor colorWithRed:216.0 / 255.0 green: 55.0 / 255.0 blue: 49.0 /255.0 alpha:1.0]];
+
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
 }
 
 - (void)addCancelBtn {
@@ -98,6 +112,10 @@
 
      [[IQKeyboardManager sharedManager]setToolbarTintColor:_hostAppIQToolBarTintColor];
 
+    IMPTransactionInfo *tranInfo = [IMPTransactionInfo new];
+    if (_failure) {
+        _failure(tranInfo, TRAN_CANCELLED_DESC);
+    }
 
     [self dissmissVc];
 }
@@ -174,7 +192,6 @@
                               @"Amount" : _paymentParams[@"amount"],
                               @"RefId" : _paymentParams[@"referenceId"],
                               };
-    NSLog(@"payment params fetch token %@", params);
 
     [self showHud:@"Preparing for payment.."];
 
@@ -195,11 +212,10 @@
                               @"Amount" : _paymentParams[@"amount"],
                               @"ReferenceId" : _paymentParams[@"referenceId"]
                               };
-    NSLog(@"mercharnt URL post params %@", params);
-    NSLog(@"PAYMENT PARAMS BEFORE POST TO MERCHANT %@", _paymentParams);
+
     NSString *merchantPaymentUrl = _paymentParams[@"merchantUrl"];
     NSString *cleanUrl = [merchantPaymentUrl stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
-    NSLog(@"Merchant Payment URL %@", cleanUrl);
+    
 
     if (merchantPaymentUrl == nil) {
         return;

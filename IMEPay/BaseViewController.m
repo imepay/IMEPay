@@ -52,7 +52,6 @@
     NSBundle *bundle = [NSBundle bundleForClass:[BaseViewController class]];
 
     logoImageView.image = [UIImage imageNamed:@"logo_new.png" inBundle:bundle compatibleWithTraitCollection:nil];
-    NSLog(@"nav image %@", logoImageView.image);
     [logoContainer addSubview:logoImageView];
     self.navigationItem.titleView = logoContainer;
 }
@@ -89,10 +88,13 @@
 
 - (void)alertCancelButtonClicked {
 
-    UIAlertController *confirmationAlert = [UIAlertController alertControllerWithTitle:@"Do you want to cancel payment ?" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *confirmationAlert = [UIAlertController alertControllerWithTitle:@"Do you want to cancel payment?" message:nil preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleDefault handler:nil];
 
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+
+        [[NSNotificationCenter defaultCenter]postNotificationName:NOTIF_TRANSACTION_CANCELLED object:nil];
+
         [[NSNotificationCenter defaultCenter]postNotificationName:NOTIF_SHOULD_QUIT object:nil];
     }];
 
