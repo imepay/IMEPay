@@ -24,4 +24,6 @@
 @property (nonatomic, copy) successBlock success;
 @property (nonatomic, copy) failureBlock failure;
 
+@property (nonatomic, strong) UIImageView *successIconView;
+
 @end

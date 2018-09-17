@@ -9,20 +9,18 @@
 /* Begin PBXBuildFile section */
 		59D0771E42C14EA56BFD1704 /* Pods_IMEPayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E064C17E9A102B906C4CB15B /* Pods_IMEPayTests.framework */; };
 		6CF6B7C871DAB66C5998D14C /* Pods_IMEPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 381B178097331EF9AFE87293 /* Pods_IMEPay.framework */; };
-		A96A260B1FF6496F007A8D62 /* splash_back.png in Resources */ = {isa = PBXBuildFile; fileRef = A96A260A1FF6496F007A8D62 /* splash_back.png */; };
 		A96A260E1FF64FF4007A8D62 /* TransactionResultViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A96A260C1FF64FF4007A8D62 /* TransactionResultViewController.h */; };
 		A96A260F1FF64FF4007A8D62 /* TransactionResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96A260D1FF64FF4007A8D62 /* TransactionResultViewController.m */; };
 		AF229AC5214EC2DB007A279E /* IMPTransactionInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = AF229AC3214EC2DB007A279E /* IMPTransactionInfo.h */; };
 		AF229AC6214EC2DB007A279E /* IMPTransactionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AF229AC4214EC2DB007A279E /* IMPTransactionInfo.m */; };
+		AF229AC8214F8BB3007A279E /* tran_success.png in Resources */ = {isa = PBXBuildFile; fileRef = AF229AC7214F8BB3007A279E /* tran_success.png */; };
 		AF410618213694BA0011E45F /* UIViewController+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = AF410616213694BA0011E45F /* UIViewController+Extensions.h */; };
 		AF410619213694BA0011E45F /* UIViewController+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = AF410617213694BA0011E45F /* UIViewController+Extensions.m */; };
 		AF41061C213711860011E45F /* BaseButton.h in Headers */ = {isa = PBXBuildFile; fileRef = AF41061A213711860011E45F /* BaseButton.h */; };
 		AF41061D213711860011E45F /* BaseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AF41061B213711860011E45F /* BaseButton.m */; };
-		AF41061F21371B350011E45F /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = AF41061E21371B340011E45F /* back.png */; };
 		AF4106212137D06B0011E45F /* review.png in Resources */ = {isa = PBXBuildFile; fileRef = AF4106202137D06B0011E45F /* review.png */; };
 		AF4106242137DBA80011E45F /* IMPMobileNumField.h in Headers */ = {isa = PBXBuildFile; fileRef = AF4106222137DBA80011E45F /* IMPMobileNumField.h */; };
 		AF4106252137DBA80011E45F /* IMPMobileNumField.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4106232137DBA80011E45F /* IMPMobileNumField.m */; };
-		AF582D3B2147AE3A0029867B /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = AF582D3A2147AE3A0029867B /* close.png */; };
 		AF582D3E2147B03E0029867B /* PinConfirmPaymentViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AF582D3C2147B03E0029867B /* PinConfirmPaymentViewController.h */; };
 		AF582D3F2147B03E0029867B /* PinConfirmPaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF582D3D2147B03E0029867B /* PinConfirmPaymentViewController.m */; };
 		AF591D461F15D7FC0051AF81 /* IMEPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF591D3C1F15D7FC0051AF81 /* IMEPay.framework */; };
@@ -66,21 +64,19 @@
 /* Begin PBXFileReference section */
 		381B178097331EF9AFE87293 /* Pods_IMEPay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IMEPay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		841FDF5363E8E4F587416390 /* Pods-IMEPay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMEPay.release.xcconfig"; path = "Pods/Target Support Files/Pods-IMEPay/Pods-IMEPay.release.xcconfig"; sourceTree = "<group>"; };
-		A96A260A1FF6496F007A8D62 /* splash_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash_back.png; sourceTree = "<group>"; };
 		A96A260C1FF64FF4007A8D62 /* TransactionResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransactionResultViewController.h; sourceTree = "<group>"; };
 		A96A260D1FF64FF4007A8D62 /* TransactionResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransactionResultViewController.m; sourceTree = "<group>"; };
 		AF229AC3214EC2DB007A279E /* IMPTransactionInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMPTransactionInfo.h; sourceTree = "<group>"; };
 		AF229AC4214EC2DB007A279E /* IMPTransactionInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMPTransactionInfo.m; sourceTree = "<group>"; };
+		AF229AC7214F8BB3007A279E /* tran_success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tran_success.png; sourceTree = "<group>"; };
 		AF3905411F18D775006D0D3C /* IQKeyboardManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IQKeyboardManager.framework; path = "../../../Library/Developer/Xcode/DerivedData/IMEPay-cdsklkzowxhsjkclcpipeyjinggu/Build/Products/Debug-iphonesimulator/IQKeyboardManager/IQKeyboardManager.framework"; sourceTree = "<group>"; };
 		AF410616213694BA0011E45F /* UIViewController+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Extensions.h"; sourceTree = "<group>"; };
 		AF410617213694BA0011E45F /* UIViewController+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Extensions.m"; sourceTree = "<group>"; };
 		AF41061A213711860011E45F /* BaseButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseButton.h; sourceTree = "<group>"; };
 		AF41061B213711860011E45F /* BaseButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseButton.m; sourceTree = "<group>"; };
-		AF41061E21371B340011E45F /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		AF4106202137D06B0011E45F /* review.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = review.png; sourceTree = "<group>"; };
 		AF4106222137DBA80011E45F /* IMPMobileNumField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMPMobileNumField.h; sourceTree = "<group>"; };
 		AF4106232137DBA80011E45F /* IMPMobileNumField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMPMobileNumField.m; sourceTree = "<group>"; };
-		AF582D3A2147AE3A0029867B /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		AF582D3C2147B03E0029867B /* PinConfirmPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinConfirmPaymentViewController.h; sourceTree = "<group>"; };
 		AF582D3D2147B03E0029867B /* PinConfirmPaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinConfirmPaymentViewController.m; sourceTree = "<group>"; };
 		AF591D3C1F15D7FC0051AF81 /* IMEPay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IMEPay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,11 +202,9 @@
 		AF591D611F15DC770051AF81 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				AF229AC7214F8BB3007A279E /* tran_success.png */,
 				AF591D5F1F15DC540051AF81 /* Main.storyboard */,
-				AF41061E21371B340011E45F /* back.png */,
 				AF90DC112106FAC100BD6ADE /* logo_new.png */,
-				AF582D3A2147AE3A0029867B /* close.png */,
-				A96A260A1FF6496F007A8D62 /* splash_back.png */,
 				AF4106202137D06B0011E45F /* review.png */,
 			);
 			name = Assets;
@@ -401,11 +395,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF41061F21371B350011E45F /* back.png in Resources */,
+				AF229AC8214F8BB3007A279E /* tran_success.png in Resources */,
 				AF4106212137D06B0011E45F /* review.png in Resources */,
 				AF90DC122106FAC100BD6ADE /* logo_new.png in Resources */,
-				AF582D3B2147AE3A0029867B /* close.png in Resources */,
-				A96A260B1FF6496F007A8D62 /* splash_back.png in Resources */,
 				AF591D601F15DC540051AF81 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
