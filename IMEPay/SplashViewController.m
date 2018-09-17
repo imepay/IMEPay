@@ -50,81 +50,12 @@
 
 - (void)setupUI {
     _logoView.alpha = 0.0;
-     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
 }
 
 #pragma mark:- Vc Dissmissal
 
 - (void)dissmiss {
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-#pragma mark:- API Calls
-
-- (void)fetchToken {
-    
-    NSDictionary *params = @{ @"MerchantCode": _paymentParams[@"merchantCode"],
-                              @"Amount" : _paymentParams[@"amount"],
-                              @"RefId" : _paymentParams[@"referenceId"],
-                              };
-
-    [SVProgressHUD showWithStatus:@"Preparing for payment.."];
-
-    [_apiManager getToken:params success:^(NSDictionary *tokenInfo) {
-        NSString *tokenId = tokenInfo[@"TokenId"];
-        [self.paymentParams setValue:tokenId forKey:@"token"];
-        [self postToMerchant];
-    } failure:^(NSString *error) {
-        [SVProgressHUD dismiss];
-        [self showTryAgain:@"Oops!" message:error cancelHandler:^{
-            [self dissmiss];
-        } tryAgainHandler:^{
-            [self fetchToken];
-        }];
-    }];
-}
-
-- (void)postToMerchant {
-    
-    NSDictionary *params = @{ @"TokenId": _paymentParams[@"token"],
-                              @"MerchantCode": _paymentParams[@"merchantCode"],
-                              @"Amount" : _paymentParams[@"amount"],
-                              @"ReferenceId" : _paymentParams[@"referenceId"]
-                              };
-
-    NSString *merchantPaymentUrl = _paymentParams[@"merchantUrl"];
-
-    NSString *cleanUrl = [merchantPaymentUrl stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
-
-    if (merchantPaymentUrl == nil) {
-        return;
-    }
-
-    [_apiManager postToMerchant:cleanUrl parameters:params success:^{
-        [SVProgressHUD dismiss];
-        [self gotoPinConfirmationVc];
-    } failure:^(NSString *error) {
-        [SVProgressHUD dismiss];
-        [self showTryAgain:@"Oops!" message:error cancelHandler:^{
-            [self dissmiss];
-        } tryAgainHandler:^{
-            [self postToMerchant];
-        }];
-    }];
-}
-
-#pragma mark:- Goto Pin confirmation
-
-- (void)gotoPinConfirmationVc {
-
-    NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
-    PinConfirmPaymentViewController *paymentVc = (PinConfirmPaymentViewController *) [sb instantiateViewControllerWithIdentifier:@"PinConfirmPaymentViewController"];
-    paymentVc.paymentParams = self.paymentParams;
-//    paymentVc.success = self.successBlock;
-//    paymentVc.failure = self.failureBlock;
-    [topViewController() presentViewController:paymentVc animated:YES completion:nil];
-
 }
 
 @end
