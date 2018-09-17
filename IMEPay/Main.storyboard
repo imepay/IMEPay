@@ -15,43 +15,6 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Splash View Controller-->
-        <scene sceneID="cNW-uE-Iaf">
-            <objects>
-                <viewController storyboardIdentifier="SplashViewController" id="5gy-WR-HDQ" customClass="SplashViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8N6-Ka-yDc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_back.png" translatesAutoresizingMaskIntoConstraints="NO" id="cKM-W9-g1X">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_new.png" translatesAutoresizingMaskIntoConstraints="NO" id="RAr-Gz-32O">
-                                <rect key="frame" x="85" y="246.5" width="150" height="75"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="EoW-ZB-on7"/>
-                                    <constraint firstAttribute="width" constant="150" id="IBN-kO-rR6"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="cKM-W9-g1X" firstAttribute="top" secondItem="8N6-Ka-yDc" secondAttribute="top" id="0fL-dx-Ieb"/>
-                            <constraint firstItem="8nY-qh-MtD" firstAttribute="trailing" secondItem="cKM-W9-g1X" secondAttribute="trailing" id="LjG-m5-kxk"/>
-                            <constraint firstItem="RAr-Gz-32O" firstAttribute="centerY" secondItem="8N6-Ka-yDc" secondAttribute="centerY" id="bB4-IU-TTe"/>
-                            <constraint firstItem="8nY-qh-MtD" firstAttribute="bottom" secondItem="cKM-W9-g1X" secondAttribute="bottom" id="g5S-vu-93x"/>
-                            <constraint firstItem="cKM-W9-g1X" firstAttribute="leading" secondItem="8nY-qh-MtD" secondAttribute="leading" id="k7L-Z7-cLc"/>
-                            <constraint firstItem="RAr-Gz-32O" firstAttribute="centerX" secondItem="8nY-qh-MtD" secondAttribute="centerX" id="wxp-Ta-DFO"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="8nY-qh-MtD"/>
-                    </view>
-                    <connections>
-                        <outlet property="logoView" destination="RAr-Gz-32O" id="qYV-Lv-y5a"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3Ri-6Z-6Fo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="69" y="-350"/>
-        </scene>
         <!--Mobile Number View Controller-->
         <scene sceneID="M0t-oT-PRv">
             <objects>
@@ -687,8 +650,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo_new.png" width="548" height="212"/>
         <image name="review.png" width="59" height="82"/>
-        <image name="splash_back.png" width="1080" height="1850"/>
     </resources>
 </document>
