@@ -13,7 +13,7 @@
 		A96A260F1FF64FF4007A8D62 /* TransactionResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96A260D1FF64FF4007A8D62 /* TransactionResultViewController.m */; };
 		AF229AC5214EC2DB007A279E /* IMPTransactionInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = AF229AC3214EC2DB007A279E /* IMPTransactionInfo.h */; };
 		AF229AC6214EC2DB007A279E /* IMPTransactionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = AF229AC4214EC2DB007A279E /* IMPTransactionInfo.m */; };
-		AF229AC8214F8BB3007A279E /* tran_success.png in Resources */ = {isa = PBXBuildFile; fileRef = AF229AC7214F8BB3007A279E /* tran_success.png */; };
+		AF229ACA214F9FA5007A279E /* tran_success.png in Resources */ = {isa = PBXBuildFile; fileRef = AF229AC9214F9FA5007A279E /* tran_success.png */; };
 		AF410618213694BA0011E45F /* UIViewController+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = AF410616213694BA0011E45F /* UIViewController+Extensions.h */; };
 		AF410619213694BA0011E45F /* UIViewController+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = AF410617213694BA0011E45F /* UIViewController+Extensions.m */; };
 		AF41061C213711860011E45F /* BaseButton.h in Headers */ = {isa = PBXBuildFile; fileRef = AF41061A213711860011E45F /* BaseButton.h */; };
@@ -66,7 +66,7 @@
 		A96A260D1FF64FF4007A8D62 /* TransactionResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransactionResultViewController.m; sourceTree = "<group>"; };
 		AF229AC3214EC2DB007A279E /* IMPTransactionInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMPTransactionInfo.h; sourceTree = "<group>"; };
 		AF229AC4214EC2DB007A279E /* IMPTransactionInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMPTransactionInfo.m; sourceTree = "<group>"; };
-		AF229AC7214F8BB3007A279E /* tran_success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tran_success.png; sourceTree = "<group>"; };
+		AF229AC9214F9FA5007A279E /* tran_success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tran_success.png; sourceTree = "<group>"; };
 		AF3905411F18D775006D0D3C /* IQKeyboardManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IQKeyboardManager.framework; path = "../../../Library/Developer/Xcode/DerivedData/IMEPay-cdsklkzowxhsjkclcpipeyjinggu/Build/Products/Debug-iphonesimulator/IQKeyboardManager/IQKeyboardManager.framework"; sourceTree = "<group>"; };
 		AF410616213694BA0011E45F /* UIViewController+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Extensions.h"; sourceTree = "<group>"; };
 		AF410617213694BA0011E45F /* UIViewController+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Extensions.m"; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 		AF591D611F15DC770051AF81 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				AF229AC7214F8BB3007A279E /* tran_success.png */,
+				AF229AC9214F9FA5007A279E /* tran_success.png */,
 				AF591D5F1F15DC540051AF81 /* Main.storyboard */,
 				AF90DC112106FAC100BD6ADE /* logo_new.png */,
 				AF4106202137D06B0011E45F /* review.png */,
@@ -388,8 +388,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF229AC8214F8BB3007A279E /* tran_success.png in Resources */,
 				AF4106212137D06B0011E45F /* review.png in Resources */,
+				AF229ACA214F9FA5007A279E /* tran_success.png in Resources */,
 				AF90DC122106FAC100BD6ADE /* logo_new.png in Resources */,
 				AF591D601F15DC540051AF81 /* Main.storyboard in Resources */,
 			);

@@ -25,9 +25,10 @@
     [self populateInfo];
 
     NSBundle *bundle = [NSBundle bundleForClass:[TransactionResultViewController class]];
-    UIImage *successImage = [[UIImage imageNamed:@"tran_success.png" inBundle:bundle compatibleWithTraitCollection:nil]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-
-    _successIconView.image = successImage;
+//    UIImage *successImage = [[UIImage imageNamed:@"tran_success.png" inBundle:bundle compatibleWithTraitCollection:nil]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+//
+//    _successIconView.tintColor = UIColor.redColor;
+//    _successIconView.image = successImage;
 
 }
 
