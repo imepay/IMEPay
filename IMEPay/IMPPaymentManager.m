@@ -64,6 +64,10 @@
 
     UINavigationController *mobileNumVcNav = baseNav(mobileNumVc);
 
+    NSLog(@"top view controller %@", topViewController());
+
+    NSLog(@"shared application %@", [UIApplication sharedApplication]);
+
     [topViewController() presentViewController:mobileNumVcNav animated:YES completion:nil];
 }
 
