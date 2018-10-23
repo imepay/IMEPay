@@ -24,6 +24,7 @@
 
 @property (nonatomic, strong) IMPApiManager *apiManager;
 @property (nonatomic, strong) UIColor *hostAppIQToolBarTintColor;
+@property (nonatomic) UIStatusBarStyle hostAppBarStyle;
 
 @end
 
@@ -40,6 +41,10 @@
     [super viewDidLoad];
 
     _hostAppIQToolBarTintColor = [[IQKeyboardManager  sharedManager]toolbarTintColor];
+
+    _hostAppBarStyle = [[UIApplication sharedApplication]statusBarStyle];
+
+
 
     [self setupUI];
 
@@ -68,6 +73,9 @@
 - (void)dissmissAll {
 
     [[IQKeyboardManager sharedManager]setToolbarTintColor:_hostAppIQToolBarTintColor];
+
+    [[UIApplication sharedApplication]setStatusBarStyle:_hostAppBarStyle];
+
     [self.presentingViewController dismissViewControllerAnimated:true completion:nil];
 }
 
@@ -95,6 +103,8 @@
     [[IQKeyboardManager sharedManager] setToolbarTintColor:[UIColor colorWithRed:216.0 / 255.0 green: 55.0 / 255.0 blue: 49.0 /255.0 alpha:1.0]];
 
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+
+    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleDefault];
 }
 
 - (void)addCancelBtn {
@@ -111,6 +121,8 @@
 - (void)cancelBtnClicked {
 
      [[IQKeyboardManager sharedManager]setToolbarTintColor:_hostAppIQToolBarTintColor];
+
+    [[UIApplication sharedApplication]setStatusBarStyle:_hostAppBarStyle];
 
     IMPTransactionInfo *tranInfo = [IMPTransactionInfo new];
     if (_failure) {
@@ -212,6 +224,8 @@
                               @"Amount" : _paymentParams[@"amount"],
                               @"ReferenceId" : _paymentParams[@"referenceId"]
                               };
+
+    NSLog(@"post to merchant params %@", params);
 
     NSString *merchantPaymentUrl = _paymentParams[@"merchantUrl"];
     NSString *cleanUrl = [merchantPaymentUrl stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
