@@ -35,10 +35,16 @@
     container.clipsToBounds = YES;
 
     UILabel *label = [UILabel new];
+    
+    UIColor *txtColor = [UIColor colorWithRed:216.0 / 255.0 green: 55.0 / 255.0 blue: 49.0 /255.0 alpha:1.0];
+    //UIColor *tintColor = [UIColor colorWithRed:216.0 / 255.0 green: 55.0 / 255.0 blue: 49.0 /255.0 alpha:1.0];
+    
+    label.textColor = txtColor;
+   // label.tintColor = tintColor;
+    
     label.textAlignment = NSTextAlignmentLeft;
     label.text = @"+977";
     label.font = self.font;
-    label.textColor = self.textColor;
 
     label.frame = CGRectMake(8.0, (self.bounds.size.height - 25.0) / 2.0 , 40.0, 25.0);
     [container addSubview:label];

@@ -104,7 +104,7 @@
             NSDictionary *responseDic = (NSDictionary *)responseObject;
 
             NSNumber *responseCode = (NSNumber *)responseDic[@"ResponseCode"];
-            if (responseCode.integerValue == 100) {
+            if (responseCode.integerValue == 0) {
                 success();
             }else {
                 NSString *responseDescription = responseDic[@"ResponseDescription"];
