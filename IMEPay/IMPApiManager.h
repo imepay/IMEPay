@@ -24,6 +24,8 @@
 
 - (void)validateUser: (NSDictionary *)params success: (void(^)(NSString *PIN))success failure: (void (^)(NSString *error))failure;
 
+- (void)validateOTP: (NSDictionary *)params success: (void(^)(void))success failure: (void (^)(NSString *error))failure;
+
 @end
 
 #pragma clang diagnostic pop

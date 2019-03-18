@@ -31,6 +31,7 @@
 @implementation OTPConfirmationViewController
 
 #define OTP_FIELD_PLACEHOLDER @"Enter OTP"
+#define OTP_LENGTH 4
 
 #pragma mark:- Vc Lifecycle
 
@@ -56,17 +57,41 @@
 - (IBAction)confirmClicked:(id)sender {
 
     [self.view endEditing:YES];
-    if ([_OTP isEqualToString:_otpField.text]) {
-       [self makePayment];
-        return;
+
+    // Validate Length of the OTP, if lenght is 4 or not
+
+    NSInteger otpLength = _otpField.text.length;
+    
+    if (otpLength != OTP_LENGTH) {
+        NSString *mobileNumber = _paymentParams[@"mobileNumber"];
+        [self showAlert:@"Alert!" message:[NSString stringWithFormat:@"Please enter 4 digit OTP Code sent to %@", mobileNumber] okayHandler:^{
+        }];
     }
 
-    NSString *mobileNumber = _paymentParams[@"mobileNumber"];
-    [self showAlert:@"Invalid OTP!" message:[NSString stringWithFormat:@"Please enter 4 digit OTP Code sent to %@", mobileNumber] okayHandler:^{
-    }];
+    [self validateOtp];
 }
 
 #pragma mark:- Payment and confirmation
+
+- (void)validateOtp {
+    
+    NSString *otp = _otpField.text;
+
+    NSDictionary *params = @{ @"MerchantCode": _paymentParams[@"merchantCode"],
+                              @"Otp" : otp,
+                              @"Msisdn" : _paymentParams[@"mobileNumber"]
+                              };
+    
+    [self showHud:@"Validating OTP.."];
+
+    [_apiManager validateOTP:params success:^{
+        [self makePayment];
+    } failure:^(NSString *error) {
+        [self dissmissHud];
+        [self showAlert:@"Error!" message:error okayHandler:^{}];
+        
+    }];
+}
 
 - (void)makePayment {
 
@@ -124,38 +149,6 @@
 
 }
 
-//- (void)setUpTimer {
-//    [SVProgressHUD showWithStatus:@"Processing payment.."];
-//    //[NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(confirmPayment) userInfo:nil repeats:NO];
-//}
-
-//- (void)confirmPayment {
-//    NSDictionary *params = @{ @"MerchantCode": _paymentParams[@"merchantCode"],
-//                              @"TransactionId" : _transactionId,
-//                              @"Amount" : _paymentParams[@"amount"],
-//                              @"RefId" : _paymentParams[@"referenceId"],
-//                              @"Msisdn" : _paymentParams[@"mobileNumber"]
-//                              };
-//    [SVProgressHUD showWithStatus:@"Confirming.."];
-//    [_apiManager confirmPayment:params success:^(NSDictionary *info) {
-//        [SVProgressHUD dismiss];
-//
-//    } failure:^(NSString *error) {
-//        [SVProgressHUD dismiss];
-//        if (self.isFailedForFirstTime){
-//            self.isFailedForFirstTime = NO;
-//            [self setUpTimer];
-//            return;
-//        }
-//
-//        [self showTryAgain:@"Oops!" message:error cancelHandler:^{
-//            [self dissmissAndNotify];
-//        } tryAgainHandler:^{
-//            [self confirmPayment];
-//        }];
-//    }];
-//}
-
 #pragma mark:- UITextField Delegates
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
@@ -166,8 +159,6 @@
 #pragma mark:- Goto Success Page
 
 - (void)gotoFinalPage :(NSDictionary *)info {
-
-    
 
     NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];

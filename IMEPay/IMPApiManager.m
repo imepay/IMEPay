@@ -62,16 +62,16 @@
     }];
 }
 
-- (void)confirmPayment:(NSDictionary *)params success:(void (^)(NSDictionary *info))success failure:(void (^)(NSString *error))failure {
-    SessionManager *manager  = [SessionManager sharedInstance];
-    [manager POST:[self url:EP_CONFIRM] parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        success(responseObject);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        failure(error.localizedDescription);
-    }];
-}
+//- (void)confirmPayment:(NSDictionary *)params success:(void (^)(NSDictionary *info))success failure:(void (^)(NSString *error))failure {
+//    SessionManager *manager  = [SessionManager sharedInstance];
+//    [manager POST:[self url:EP_CONFIRM] parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        success(responseObject);
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        failure(error.localizedDescription);
+//    }];
+//}
 
-#pragma mark:- Request for OTP
+#pragma mark:- Request for OTP and OTP Validation
 
 - (void)validateUser:(NSDictionary *)params success:(void (^)(NSString *))success failure:(void (^)(NSString *))failure {
 
@@ -92,6 +92,29 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(error.localizedDescription);
     }];
+}
+
+- (void)validateOTP: (NSDictionary *)params success:(void (^)(void))success failure:(void (^)(NSString *))failure {
+    
+    SessionManager *manager  = [SessionManager sharedInstance];
+
+    [manager POST:[self url:EP_VALIDATE_OTP] parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        if (responseObject != nil) {
+            NSDictionary *responseDic = (NSDictionary *)responseObject;
+
+            NSNumber *responseCode = (NSNumber *)responseDic[@"ResponseCode"];
+            if (responseCode.integerValue == 100) {
+                success();
+            }else {
+                NSString *responseDescription = responseDic[@"ResponseDescription"];
+                failure(responseDescription);
+            }
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        failure(error.localizedDescription);
+    }];
+
 }
 
 @end
