@@ -43,8 +43,9 @@
     _hostAppIQToolBarTintColor = [[IQKeyboardManager  sharedManager]toolbarTintColor];
 
     _hostAppBarStyle = [[UIApplication sharedApplication]statusBarStyle];
-
-
+    [[IQKeyboardManager sharedManager] setEnable:YES];
+    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
+    [IQKeyboardManager sharedManager].keyboardDistanceFromTextField = 15.0;
 
     [self setupUI];
 
