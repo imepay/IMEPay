@@ -226,7 +226,6 @@
                               @"ReferenceId" : _paymentParams[@"referenceId"]
                               };
 
-    NSLog(@"post to merchant params %@", params);
 
     NSString *merchantPaymentUrl = _paymentParams[@"merchantUrl"];
     NSString *cleanUrl = [merchantPaymentUrl stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
