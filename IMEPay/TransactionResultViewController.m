@@ -23,13 +23,6 @@
     // Do any additional setup after loading the view.
     [self  addLogoTitle];
     [self populateInfo];
-
-    NSBundle *bundle = [NSBundle bundleForClass:[TransactionResultViewController class]];
-//    UIImage *successImage = [[UIImage imageNamed:@"tran_success.png" inBundle:bundle compatibleWithTraitCollection:nil]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-//
-//    _successIconView.tintColor = UIColor.redColor;
-//    _successIconView.image = successImage;
-
 }
 
 - (void)populateInfo {

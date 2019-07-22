@@ -14,7 +14,7 @@
 #import "IMPApiManager.h"
 #import "PinConfirmPaymentViewController.h"
 @import SVProgressHUD;
-@import IQKeyboardManager;
+//@import IQKeyboardManager;
 #import "IMPTransactionInfo.h"
 
 #define MOBILE_NUMBER_LENGTH 10
@@ -40,12 +40,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    _hostAppIQToolBarTintColor = [[IQKeyboardManager  sharedManager]toolbarTintColor];
+   // _hostAppIQToolBarTintColor = [[IQKeyboardManager  sharedManager]toolbarTintColor];
 
     _hostAppBarStyle = [[UIApplication sharedApplication]statusBarStyle];
-    [[IQKeyboardManager sharedManager] setEnable:YES];
-    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
-    [IQKeyboardManager sharedManager].keyboardDistanceFromTextField = 15.0;
+//    [[IQKeyboardManager sharedManager] setEnable:YES];
+//    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
+//    [IQKeyboardManager sharedManager].keyboardDistanceFromTextField = 15.0;
 
     [self setupUI];
 
@@ -73,7 +73,7 @@
 
 - (void)dissmissAll {
 
-    [[IQKeyboardManager sharedManager]setToolbarTintColor:_hostAppIQToolBarTintColor];
+   // [[IQKeyboardManager sharedManager]setToolbarTintColor:_hostAppIQToolBarTintColor];
 
     [[UIApplication sharedApplication]setStatusBarStyle:_hostAppBarStyle];
 
@@ -101,7 +101,7 @@
     _confirmBtn.layer.cornerRadius = _confirmBtn.frame.size.height /  2.0;
     [_mobileNumebrField setThemedPlaceholder:MOBILENUM_FIELD_PLACEHOLDER];
 
-    [[IQKeyboardManager sharedManager] setToolbarTintColor:[UIColor colorWithRed:216.0 / 255.0 green: 55.0 / 255.0 blue: 49.0 /255.0 alpha:1.0]];
+   // [[IQKeyboardManager sharedManager] setToolbarTintColor:[UIColor colorWithRed:216.0 / 255.0 green: 55.0 / 255.0 blue: 49.0 /255.0 alpha:1.0]];
 
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
 
@@ -121,7 +121,7 @@
 
 - (void)cancelBtnClicked {
 
-     [[IQKeyboardManager sharedManager]setToolbarTintColor:_hostAppIQToolBarTintColor];
+   //  [[IQKeyboardManager sharedManager]setToolbarTintColor:_hostAppIQToolBarTintColor];
 
     [[UIApplication sharedApplication]setStatusBarStyle:_hostAppBarStyle];
 
@@ -251,13 +251,13 @@
     NSBundle *bundle = [NSBundle bundleForClass:[IMPPaymentManager class]];
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:bundle];
     PinConfirmPaymentViewController *pinConfirmationVc = (PinConfirmPaymentViewController *) [sb instantiateViewControllerWithIdentifier:@"PinConfirmPaymentViewController"];
-
+    
     pinConfirmationVc.success  = _success;
     pinConfirmationVc.failure = _failure;
     pinConfirmationVc.paymentParams = self.paymentParams;
-
+    
     UINavigationController *pinConfirmationNav = baseNav(pinConfirmationVc);
-
+    
     [self.navigationController presentViewController:pinConfirmationNav animated:true completion:nil];
 }
 

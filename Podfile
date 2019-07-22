@@ -8,7 +8,7 @@ target 'IMEPay' do
   # Pods for IMEPay
   pod 'AFNetworking', '~> 3.0'
   pod 'SVProgressHUD'
-  pod 'IQKeyboardManager', '~> 4.0.10'
+ 
 
   target 'IMEPayTests' do
     inherit! :search_paths

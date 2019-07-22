@@ -19,8 +19,14 @@
 #define CLOSE_BTN_TITLE @"Close"
 
 - (void)viewDidLoad {
-
+    [super viewDidLoad];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [self setupGsture];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self observeKeyboardNotifs];
 }
 
 - (void)addCancelButton {
@@ -123,6 +129,73 @@
 
 - (void)dissmissHud {
    [SVProgressHUD dismiss];
+}
+
+#pragma mark:- Observe Keyboard notification
+
+-(void)observeKeyboardNotifs {
+    
+    BOOL hasTextField = YES;
+    NSArray *subViews = self.view.subviews;
+    
+    for ( UIView *subView in subViews) {
+
+        if ( [subView isKindOfClass:[UITextField class]] ) {
+            hasTextField = YES;
+            break;
+        }
+
+    }
+
+    if (hasTextField == YES) {
+
+        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(adjustScrollView:) name:UIKeyboardWillShowNotification object:nil];
+        
+        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(adjustScrollView:) name: UIKeyboardWillHideNotification object:nil];
+    }
+
+}
+
+- (UIScrollView * _Nullable)scrollV {
+    
+    NSArray *subViews = self.view.subviews;
+
+    for ( UIView *subView in subViews) {
+        if ( [subView isKindOfClass:[UIScrollView class]] ) {
+            return (UIScrollView *)subView;
+        }
+    }
+    return NULL;
+}
+
+#pragma mark:- Keyboard notificaiton handlers
+
+- (void)adjustScrollView: (NSNotification *)notification {
+
+    CGRect keyboardFrame = [[notification.userInfo valueForKey: UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    BOOL isShow = (notification.name == UIKeyboardWillShowNotification);
+    CGFloat adjustmentHeight = (keyboardFrame.size.height + 30.0) * (isShow ? 1 : -1);
+    
+    UIEdgeInsets insets  = UIEdgeInsetsMake([self scrollV].contentInset.top, [ self scrollV].contentInset.left, adjustmentHeight, [self scrollV].contentInset.right);
+    
+    
+    [[self scrollV] setContentInset: insets];
+    [[self scrollV] setScrollIndicatorInsets:insets];
+
+}
+    
+#pragma  mark:- Gesture Setup
+
+- (void)setupGsture {
+    
+    UITapGestureRecognizer *gesture =[[ UITapGestureRecognizer alloc]initWithTarget:self action:@selector(screenTapped)];
+    [self.view setUserInteractionEnabled:YES];
+     [self.view addGestureRecognizer:gesture];
+
+}
+    
+- (void)screenTapped {
+    [self.view endEditing:YES];
 }
 
 @end
