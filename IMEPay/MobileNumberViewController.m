@@ -77,7 +77,9 @@
 
     [[UIApplication sharedApplication]setStatusBarStyle:_hostAppBarStyle];
 
-    [self.presentingViewController dismissViewControllerAnimated:true completion:nil];
+    //[self.presentingViewController dismissViewControllerAnimated:true completion:nil];
+    
+   [self restoreOriginalWindow];
 }
 
 - (void)handleTransactionCancellation {
@@ -130,7 +132,18 @@
         _failure(tranInfo, TRAN_CANCELLED_DESC);
     }
 
-    [self dissmissVc];
+    //[self dissmissVc];
+    
+   [self restoreOriginalWindow];
+}
+
+- (void)restoreOriginalWindow {
+    
+    [self.view.window setRootViewController:nil];
+    [self.view.window setHidden:YES];
+    
+    [_originalWindow makeKeyAndVisible];
+    
 }
 
 #pragma marK:- IBAction

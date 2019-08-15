@@ -25,6 +25,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *paymetDescLabel;
 
+@property (strong, nonatomic) IBOutlet UIWindow *originalWindow;
+
 #pragma mark:- Success/ Failure Handlers
 
 @property (nonatomic, copy) successBlock success;

@@ -14,6 +14,7 @@
 @interface IMPPaymentManager()
 
 @property (nonatomic, strong) NSMutableDictionary  *paymentParams;
+@property (nonatomic, strong) UIWindow  *coveringWindow;
 
 @end
 
@@ -63,9 +64,35 @@
     mobileNumVc.failure = failure;
 
     UINavigationController *mobileNumVcNav = baseNav(mobileNumVc);
+    
+    
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+
+    mobileNumVc.originalWindow = window;
+
+    UIWindow *newWindow = [UIWindow new];
+    newWindow.frame = [[UIScreen mainScreen]bounds];
+
+    newWindow.backgroundColor = UIColor.redColor;
 
 
-    [topViewController() presentViewController:mobileNumVcNav animated:YES completion:nil];
+    [newWindow setHidden:NO];
+
+    self.coveringWindow = newWindow;
+
+
+    UIViewController *vc = [UIViewController new];
+    vc.view.backgroundColor = UIColor.whiteColor;
+
+    newWindow.rootViewController = vc;
+
+    [newWindow makeKeyAndVisible];
+    
+    mobileNumVcNav.modalPresentationStyle = UIModalPresentationFullScreen;
+    
+    [newWindow.rootViewController presentViewController:mobileNumVcNav animated:true completion:nil];
+
+//    [topViewController() presentViewController:mobileNumVcNav animated:YES completion:nil];
 }
 
 @end
