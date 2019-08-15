@@ -132,18 +132,23 @@
         _failure(tranInfo, TRAN_CANCELLED_DESC);
     }
 
-    //[self dissmissVc];
-    
    [self restoreOriginalWindow];
 }
 
 - (void)restoreOriginalWindow {
     
-    [self.view.window setRootViewController:nil];
-    [self.view.window setHidden:YES];
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+//            NSMutableArray *windows =  [NSMutableArray arrayWithArray:UIApplication.sharedApplication.windows];
+//
+//            if ([windows containsObject:self.view.window]) {
+//                [windows removeObject:self.view.window];
+//            }
+
+        [self.originalWindow makeKeyAndVisible];
     
-    [_originalWindow makeKeyAndVisible];
-    
+    }];
+
 }
 
 #pragma marK:- IBAction

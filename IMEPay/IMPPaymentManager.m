@@ -73,7 +73,7 @@
     UIWindow *newWindow = [UIWindow new];
     newWindow.frame = [[UIScreen mainScreen]bounds];
 
-    newWindow.backgroundColor = UIColor.redColor;
+    newWindow.backgroundColor = UIColor.clearColor;
 
 
     [newWindow setHidden:NO];
@@ -82,7 +82,7 @@
 
 
     UIViewController *vc = [UIViewController new];
-    vc.view.backgroundColor = UIColor.whiteColor;
+    vc.view.backgroundColor = UIColor.clearColor;
 
     newWindow.rootViewController = vc;
 
@@ -92,7 +92,6 @@
     
     [newWindow.rootViewController presentViewController:mobileNumVcNav animated:true completion:nil];
 
-//    [topViewController() presentViewController:mobileNumVcNav animated:YES completion:nil];
 }
 
 @end
