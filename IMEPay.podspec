@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/ManojKarkie/IMEPay.git", :tag => "1.0.8}
+  s.source       = { :git => "https://github.com/ManojKarkie/IMEPay.git", :tag => "1.0.8"}
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
