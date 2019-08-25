@@ -136,15 +136,8 @@
 }
 
 - (void)restoreOriginalWindow {
-    
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-//            NSMutableArray *windows =  [NSMutableArray arrayWithArray:UIApplication.sharedApplication.windows];
-//
-//            if ([windows containsObject:self.view.window]) {
-//                [windows removeObject:self.view.window];
-//            }
 
+    [self.presentingViewController  dismissViewControllerAnimated:YES completion:^{
         [self.originalWindow makeKeyAndVisible];
     
     }];
