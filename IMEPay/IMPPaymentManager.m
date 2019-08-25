@@ -86,6 +86,8 @@
 
     newWindow.rootViewController = vc;
 
+    newWindow.windowLevel = UIWindowLevelAlert;
+    
     [newWindow makeKeyAndVisible];
     
     mobileNumVcNav.modalPresentationStyle = UIModalPresentationFullScreen;
