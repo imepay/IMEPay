@@ -139,7 +139,7 @@
 
     [self.presentingViewController  dismissViewControllerAnimated:YES completion:^{
         [self.originalWindow makeKeyAndVisible];
-    
+
     }];
 
 }

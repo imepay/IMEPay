@@ -64,34 +64,32 @@
     mobileNumVc.failure = failure;
 
     UINavigationController *mobileNumVcNav = baseNav(mobileNumVc);
-    
-    
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
-
     mobileNumVc.originalWindow = window;
 
+  //  NSString* currentVersion = [UIDevice currentDevice].systemVersion;
     UIWindow *newWindow = [UIWindow new];
+//
+//    if (@available(iOS 13.0, *)) {
+//        newWindow = [[UIWindow alloc]initWithWindowScene:window.windowScene];
+//    } else {
+//        // Fallback on earlier versions
+//    }
+
     newWindow.frame = [[UIScreen mainScreen]bounds];
-
     newWindow.backgroundColor = UIColor.clearColor;
-
-
     [newWindow setHidden:NO];
 
     self.coveringWindow = newWindow;
 
-
     UIViewController *vc = [UIViewController new];
     vc.view.backgroundColor = UIColor.clearColor;
-
     newWindow.rootViewController = vc;
 
-    newWindow.windowLevel = UIWindowLevelAlert;
+   // newWindow.windowLevel = UIWindowLevelAlert;
     
     [newWindow makeKeyAndVisible];
-    
     mobileNumVcNav.modalPresentationStyle = UIModalPresentationFullScreen;
-    
     [newWindow.rootViewController presentViewController:mobileNumVcNav animated:true completion:nil];
 
 }
