@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = "IMEPay SDK is a elegant way to integrate IME Pay in your iOS app, with just few lines of code you can receive payment from customers."
 
-  s.homepage     = "https://github.com/ManojKarkie/IMEPay"
+  s.homepage     = "https://github.com/Iccr/IMEPay"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -51,10 +51,10 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author             = { "Manoj Karki" => "manojkarkie@gmail.com" }
-  # Or just: s.author    = "Manoj Karki"
-  # s.authors            = { "Manoj Karki" => "manojkarkie@gmail.com" }
-  # s.social_media_url   = "http://twitter.com/Manoj Karki"
+  s.author             = { "IMEPay" => "imepay@gmail.com" }
+  # Or just: s.author    = "IMEPay"
+  # s.authors            = { "IMEPay" => "manojkarkie@gmail.com" }
+  # s.social_media_url   = "http://twitter.com/IMEPay"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/ManojKarkie/IMEPay.git", :tag => "1.0.9"}
+  s.source       = { :git => "https://github.com/Iccr/IMEPay.git", :tag => "1.0.9"}
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
