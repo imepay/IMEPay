@@ -70,11 +70,11 @@
   //  NSString* currentVersion = [UIDevice currentDevice].systemVersion;
     UIWindow *newWindow = [UIWindow new];
 //
-//    if (@available(iOS 13.0, *)) {
-//        newWindow = [[UIWindow alloc]initWithWindowScene:window.windowScene];
-//    } else {
-//        // Fallback on earlier versions
-//    }
+    if (@available(iOS 13.0, *)) {
+        newWindow = [[UIWindow alloc]initWithWindowScene:window.windowScene];
+    } else {
+        // Fallback on earlier versions
+    }
 
     newWindow.frame = [[UIScreen mainScreen]bounds];
     newWindow.backgroundColor = UIColor.clearColor;
