@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "IMEPay"
-  s.version      = "1.1.0"
+  s.version      = "1.1.1"
   s.summary      = "Integrate IME Pay in your iOS app and receive payment from your customers."
 
   # This description is used to generate tags and improve search results.
