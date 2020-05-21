@@ -9,7 +9,7 @@
 #ifndef Config_h
 #define Config_h
 
-#define URL_BASE_TEST @"http://202.166.194.123:7979/api/Web" // Staging
+#define URL_BASE_TEST @"https://stg.imepay.com.np:7979/api/Web" // Staging
 #define URL_BASE_LIVE @"https://payment.imepay.com.np:7979/api/Web" // Live
 
 #define EP_GET_TOKEN @"/GetToken"
