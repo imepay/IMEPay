@@ -25,11 +25,9 @@
 }
 
 - (void)getToken:(NSDictionary *)params success:(void(^)(NSDictionary *tokenInfo))success failure: (void (^) (NSString *error))failure {
-    SessionManager *manager = [SessionManager sharedInstance];
-
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     NSString *url = [self url:EP_GET_TOKEN];
-
-    [manager POST:url parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [manager POST:url parameters:params headers:nil progress:^(NSProgress * _Nonnull uploadProgress) {} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(error.localizedDescription);
@@ -37,11 +35,11 @@
 }
 
 - (void)postToMerchant: (NSString *)merchantUrl parameters: (NSDictionary *)params success: (void (^)())success failure:(void (^)(NSString *))failure {
-  
-    SessionManager *manager  = [SessionManager sharedInstance];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-
-    [manager POST:merchantUrl parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
+    
+    [manager POST:merchantUrl parameters:params headers:nil progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success();
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -50,11 +48,9 @@
 }
 
 - (void)makePayment:(NSDictionary *)params success:(void(^)(NSDictionary *info))success failure:(void (^)(NSString *error))failure {
-    SessionManager *manager  = [SessionManager sharedInstance];
-    [manager POST:[self url:EP_PAYMENT] parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager POST:[self url:EP_PAYMENT] parameters:params headers:nil progress:^(NSProgress * _Nonnull uploadProgress) {} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success(responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(error.localizedDescription);
@@ -74,9 +70,8 @@
 
 - (void)validateUser:(NSDictionary *)params success:(void (^)(NSString *))success failure:(void (^)(NSString *))failure {
 
-    SessionManager *manager  = [SessionManager sharedInstance];
-    [manager POST:[self url:EP_VALIDATE_USER] parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager POST:[self url:EP_VALIDATE_USER] parameters:params headers:nil progress:^(NSProgress * _Nonnull uploadProgress) {} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (responseObject != nil) {
             NSDictionary *responseDic = (NSDictionary *)responseObject;
             NSString *OTP =  (NSString *)responseDic[@"Otp"];
@@ -95,13 +90,11 @@
 
 - (void)validateOTP: (NSDictionary *)params success:(void (^)(void))success failure:(void (^)(NSString *))failure {
     
-    SessionManager *manager  = [SessionManager sharedInstance];
-
-    [manager POST:[self url:EP_VALIDATE_OTP] parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager POST:[self url:EP_VALIDATE_OTP] parameters:params headers:nil progress:^(NSProgress * _Nonnull uploadProgress) {} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (responseObject != nil) {
             NSDictionary *responseDic = (NSDictionary *)responseObject;
-
+            
             NSNumber *responseCode = (NSNumber *)responseDic[@"ResponseCode"];
             if (responseCode.integerValue == 0) {
                 success();
@@ -113,7 +106,6 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(error.localizedDescription);
     }];
-
 }
 
 @end
