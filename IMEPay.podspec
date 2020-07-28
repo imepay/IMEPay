@@ -63,7 +63,7 @@ Pod::Spec.new do |s|
   #
 
   #s.platform     = :ios
-  s.platform     = :ios, "8.0"
+  s.platform     = :ios, "9.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
@@ -115,8 +115,9 @@ Pod::Spec.new do |s|
   #
   
   s.framework  = "UIKit"
-  s.dependency 'AFNetworking', '~> 3.1.0'
+  #s.dependency 'AFNetworking', '~> 3.1.0'
   #s.dependency 'IQKeyboardManager', '~> 4.0.13'
+  s.dependency 'AFNetworking-No-UIKit', '~> 3.2.1'
   s.dependency 'SVProgressHUD', '~> 2.1.2'
 
   #s.frameworks = "UIKit", "AFNetworking"
