@@ -215,6 +215,7 @@
     NSDictionary *params = @{ @"MerchantCode": _paymentParams[@"merchantCode"],
                               @"Amount" : _paymentParams[@"amount"],
                               @"RefId" : _paymentParams[@"referenceId"],
+                               @"DeliveryUrl" :_paymentParams[@"DeliveryUrl"]
                               };
 
     [self showHud:@"Preparing for payment.."];
