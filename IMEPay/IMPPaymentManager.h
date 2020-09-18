@@ -14,6 +14,7 @@
 
 - (instancetype)initWithEnvironment:(APIEnvironment)environment;
 
-- (void)payWithUsername:(NSString *)userName password:(NSString *)password  merchantCode:(NSString *)merchantCode merchantName: (NSString *)merchantName  merchantUrl:(NSString *)merchantUrl amount:(NSString *)amount referenceId: (NSString *)referenceId module: (NSString *)module success: (void(^)(IMPTransactionInfo *transactionInfo))success failure: (void(^)(IMPTransactionInfo *transactionInfo, NSString *errorMessage))failure;
+- (void)payWithUsername:(NSString *)userName password:(NSString *)password  merchantCode:(NSString *)merchantCode merchantName: (NSString *)merchantName  merchantUrl:(NSString *)merchantUrl deliveryUrl:(NSString *)deliveryUrl amount:(NSString *)amount referenceId: (NSString *)referenceId module: (NSString *)module success: (void(^)(IMPTransactionInfo *transactionInfo))success failure: (void(^)(IMPTransactionInfo *transactionInfo, NSString *errorMessage))failure;
+
 
 @end

@@ -28,7 +28,8 @@
     return  self;
 }
 
-- (void)payWithUsername:(NSString *)userName password:(NSString *)password  merchantCode:(NSString *)merchantCode merchantName: (NSString *)merchantName  merchantUrl:(NSString *)merchantUrl amount:(NSString *)amount referenceId: (NSString *)referenceId module: (NSString *)module success: (void(^)(IMPTransactionInfo *transactionInfo))success failure: (void(^)(IMPTransactionInfo *transactionInfo, NSString *errorMessage))failure {
+- (void)payWithUsername:(NSString *)userName password:(NSString *)password  merchantCode:(NSString *)merchantCode merchantName: (NSString *)merchantName  merchantUrl:(NSString *)merchantUrl deliveryUrl:(NSString *)deliveryUrl amount:(NSString *)amount referenceId: (NSString *)referenceId module: (NSString *)module success: (void(^)(IMPTransactionInfo *transactionInfo))success failure: (void(^)(IMPTransactionInfo *transactionInfo, NSString *errorMessage))failure {
+    
 
     NSString *curatedRefId = [referenceId  stringByReplacingOccurrencesOfString:@" " withString:@"_"];
     NSString *curatedMerchantName = [merchantName stringByReplacingOccurrencesOfString:@" " withString:@"_"];
@@ -43,6 +44,7 @@
                                                                         @"merchantCode" : merchantCode ? merchantCode : @"",
                                                                         @"merchantName" : curatedMerchantName ? curatedMerchantName : @"",
                                                                         @"merchantUrl": merchantUrl ? merchantUrl : @"",
+                                                                          @"DeliveryUrl" : deliveryUrl ? deliveryUrl : @"",
                                                                         @"amount" : amount ? amount : @"",
                                                                         @"referenceId" : curatedRefId ? curatedRefId : @"",
                                                                         @"module" : base64Module ? base64Module : @"",
