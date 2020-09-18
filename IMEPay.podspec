@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "IMEPay"
-  s.version      = "1.2.1"
+  s.version      = "1.2.2"
   s.summary      = "Integrate IME Pay in your iOS app and receive payment from your customers."
 
   # This description is used to generate tags and improve search results.
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/Iccr/IMEPay.git", :tag => "1.2.1"}
+  s.source       = { :git => "https://github.com/Iccr/IMEPay.git", :tag => "1.2.2"}
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
