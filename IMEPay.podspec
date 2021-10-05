@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "IMEPay"
-  s.version      = "1.2.2"
+  s.version      = "1.2.3"
   s.summary      = "Integrate IME Pay in your iOS app and receive payment from your customers."
 
   # This description is used to generate tags and improve search results.
@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = "IMEPay SDK is a elegant way to integrate IME Pay in your iOS app, with just few lines of code you can receive payment from customers."
 
-  s.homepage     = "https://github.com/Iccr/IMEPay"
+  s.homepage     = "https://github.com/imepay/IMEPay"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/Iccr/IMEPay.git", :tag => "1.2.2"}
+  s.source       = { :git => "https://github.com/imepay/IMEPay", :tag => "1.2.3"}
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
